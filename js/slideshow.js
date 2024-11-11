@@ -15,7 +15,7 @@ setInterval(showSlides, 90000); // Change slide every 90 seconds
 
 // Countdown Timer Script
 let timer;
-let totalSeconds = 0;
+let totalSeconds = 1800;
 let isRunning = false;
 
 function updateDisplay() {
