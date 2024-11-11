@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow with Countdown Timer</title>
+    <style>
+        /* General layout */
+        body, html {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .slideshow-container {
+            flex: 2;
+            position: relative;
+            background-color: #333;
+            overflow: hidden;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .slideshow-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .slideshow-container img.active {
+            opacity: 1;
+        }
+        .timer-container {
+            flex: 1;
+            background-color: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .timer-display {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        .timer-buttons button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Slideshow Container -->
+    <div class="slideshow-container">
+        <img src="https://via.placeholder.com/800x400/FF5733/FFFFFF?text=Slide+1" class="active" alt="Slide 1">
+        <img src="https://via.placeholder.com/800x400/33FF57/FFFFFF?text=Slide+2" alt="Slide 2">
+        <img src="https://via.placeholder.com/800x400/3357FF/FFFFFF?text=Slide+3" alt="Slide 3">
+    </div>
+
+    <!-- Timer Container -->
+    <div class="timer-container">
+        <div class="timer-display" id="timer-display">00:00</div>
+        <div class="timer-buttons">
+            <button onclick="startTimer()">Start</button>
+            <button onclick="stopTimer()">Stop</button>
+            <button onclick="resetTimer()">Reset</button>
+            <button onclick="adjustTimer()">Adjust Timer</button>
+        </div>
+    </div>
+
+    <script>
+        // Slideshow Script
+        let slideIndex = 0;
+        const slides = document.querySelectorAll(".slideshow-container img");
+
+        function showSlides() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove("active");
+                if (index === slideIndex) {
+                    slide.classList.add("active");
+                }
+            });
+            slideIndex = (slideIndex + 1) % slides.length;
+        }
+        setInterval(showSlides, 3000); // Change slide every 3 seconds
+
+        // Countdown Timer Script
+        let timer;
+        let seconds = 0;
+        let isRunning = false;
+
+        function updateDisplay() {
+            const minutes = Math.floor(seconds / 60);
+            const displaySeconds = seconds % 60;
+            document.getElementById("timer-display").textContent =
+                (minutes < 10 ? "0" : "") + minutes + ":" +
+                (displaySeconds < 10 ? "0" : "") + displaySeconds;
+        }
+
+        function startTimer() {
+            if (!isRunning && seconds > 0) { // Start only if timer is set and not running
+                isRunning = true;
+                timer = setInterval(() => {
+                    if (seconds > 0) {
+                        seconds--;
+                        updateDisplay();
+                    } else {
+                        stopTimer(); // Stop the timer when it reaches zero
+                        alert("Time's up!");
+                    }
+                }, 1000);
+            }
+        }
+
+        function stopTimer() {
+            isRunning = false;
+            clearInterval(timer);
+        }
+
+        function resetTimer() {
+            stopTimer();
+            seconds = 0;
+            updateDisplay();
+        }
+
+        function adjustTimer() {
+            const newTime = prompt("Enter countdown time in seconds:", seconds);
+            if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
+                seconds = parseInt(newTime);
+                updateDisplay();
+            }
+        }
+    </script>
+</body>
+</html>
