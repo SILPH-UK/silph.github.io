@@ -1,0 +1,48 @@
+/* General layout */
+body, html {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+.slideshow-container {
+    flex: 2;
+    position: relative;
+    background-color: #434343;
+    overflow: hidden;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slideshow-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.slideshow-container img.active {
+    opacity: 1;
+}
+.timer-container {
+    flex: 1;
+    background-color: #434343;
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.timer-display {
+    font-size: 5vw;
+    margin-bottom: 15px;
+}
+.timer-buttons button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1vw;
+    cursor: pointer;
+}
