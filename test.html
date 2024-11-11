@@ -14,6 +14,7 @@
         }
         .slideshow {
             flex: 2;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -72,7 +73,7 @@
         setInterval(() => {
             currentImageIndex = (currentImageIndex + 1) % images.length;
             document.querySelector("#slideshow img").src = images[currentImageIndex];
-        }, 90000);
+        }, 900);
 
         let timer;
         let seconds = 0, minutes = 0, hours = 0;
