@@ -21,6 +21,10 @@
             background: #434343;
             color: white;
         }
+        .slideshow img { 
+            width: 100%; 
+            height: auto; 
+        }
         .timer {
             flex: 1;
             display: flex;
@@ -31,7 +35,7 @@
             display: none; /* Hide timer by default */
         }
         .timer #display {
-            font-size: 80px; /* Increase the font size */
+            font-size: 5vw; /* Adjust based on viewport width 
             text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF; /*White outline*/
         }
         .timer-buttons {
@@ -40,8 +44,13 @@
         button {
             padding: 10px 20px;
             margin: 5px;
-            font-size: 1em;
+            font-size: 2vw; /* Adjust based on viewport width */
             cursor: pointer;
+        }
+        #toggleTimer { 
+            margin: 5px; 
+            font-size: 2vw; /* Adjust based on viewport width */ 
+            padding: 10px; 
         }
     </style>
 </head>
