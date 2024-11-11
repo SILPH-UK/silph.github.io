@@ -38,7 +38,7 @@
         .timer-container {
             flex: 1;
             background-color: #f2f2f2;
-            display: flex;
+            display: none; /* Initially hidden */
             flex-direction: column;
             align-items: center;
             justify-content: center;
@@ -62,8 +62,9 @@
         <img src="https://wipedout36.github.io/mc-nov-24.png" alt="Slide 2">
     </div>
 
-    <!-- Timer Container -->
-    <div class="timer-container">
+
+    <!-- Timer Container with Toggle Button -->
+    <div class="timer-container" id="timer-container">
         <div class="timer-display" id="timer-display">00:00</div>
         <div class="timer-buttons">
             <button onclick="startTimer()">Start</button>
@@ -72,6 +73,7 @@
             <button onclick="adjustTimer()">Adjust Timer</button>
         </div>
     </div>
+    <button onclick="toggleTimerVisibility()" style="margin: 10px;">Toggle Timer Visibility</button>
 
     <script>
         // Slideshow Script
@@ -91,7 +93,7 @@
 
         // Countdown Timer Script
         let timer;
-        let totalSeconds = 0; // Store countdown time in total seconds
+        let totalSeconds = 0;
         let isRunning = false;
 
         function updateDisplay() {
@@ -133,6 +135,16 @@
             if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
                 totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
                 updateDisplay();
+            }
+        }
+
+        // Timer Visibility Toggle
+        function toggleTimerVisibility() {
+            const timerContainer = document.getElementById("timer-container");
+            if (timerContainer.style.display === "none") {
+                timerContainer.style.display = "flex"; // Show timer
+            } else {
+                timerContainer.style.display = "none"; // Hide timer
             }
         }
     </script>
