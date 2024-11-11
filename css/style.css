@@ -28,6 +28,7 @@ body, html {
 .slideshow-container img.active {
     opacity: 1;
 }
+
 .timer-container {
     flex: 1;
     background-color: #073763;
@@ -39,6 +40,7 @@ body, html {
 .timer-display {
     font-size: 5vw;
     margin-bottom: 15px;
+    text-shadow: 1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white;
 }
 .timer-buttons button {
     padding: 10px 20px;
