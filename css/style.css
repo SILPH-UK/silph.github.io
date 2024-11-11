@@ -10,7 +10,7 @@ body, html {
 .slideshow-container {
     flex: 2;
     position: relative;
-    background-color: #434343;
+    background-color: #073763;
     overflow: hidden;
     color: #fff;
     display: flex;
@@ -30,7 +30,7 @@ body, html {
 }
 .timer-container {
     flex: 1;
-    background-color: #434343;
+    background-color: ##073763;
     display: none; /* Initially hidden */
     flex-direction: column;
     align-items: center;
