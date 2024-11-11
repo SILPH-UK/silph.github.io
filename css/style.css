@@ -30,7 +30,7 @@ body, html {
 }
 .timer-container {
     flex: 1;
-    background-color: ##073763;
+    background-color: #073763;
     display: none; /* Initially hidden */
     flex-direction: column;
     align-items: center;
