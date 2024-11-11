@@ -91,23 +91,23 @@
 
         // Countdown Timer Script
         let timer;
-        let seconds = 0;
+        let totalSeconds = 0; // Store countdown time in total seconds
         let isRunning = false;
 
         function updateDisplay() {
-            const minutes = Math.floor(seconds / 60);
-            const displaySeconds = seconds % 60;
+            const minutes = Math.floor(totalSeconds / 60);
+            const displaySeconds = totalSeconds % 60;
             document.getElementById("timer-display").textContent =
                 (minutes < 10 ? "0" : "") + minutes + ":" +
                 (displaySeconds < 10 ? "0" : "") + displaySeconds;
         }
 
         function startTimer() {
-            if (!isRunning && seconds > 0) { // Start only if timer is set and not running
+            if (!isRunning && totalSeconds > 0) { // Start only if timer is set and not running
                 isRunning = true;
                 timer = setInterval(() => {
-                    if (seconds > 0) {
-                        seconds--;
+                    if (totalSeconds > 0) {
+                        totalSeconds--;
                         updateDisplay();
                     } else {
                         stopTimer(); // Stop the timer when it reaches zero
@@ -124,14 +124,14 @@
 
         function resetTimer() {
             stopTimer();
-            seconds = 0;
+            totalSeconds = 0;
             updateDisplay();
         }
 
         function adjustTimer() {
-            const newTime = prompt("Enter countdown time in seconds:", seconds);
+            const newTime = prompt("Enter countdown time in minutes:", totalSeconds / 60);
             if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
-                seconds = parseInt(newTime);
+                totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
                 updateDisplay();
             }
         }
