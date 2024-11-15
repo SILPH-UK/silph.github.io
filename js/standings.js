@@ -1,6 +1,6 @@
 // leaderboard.js
 
-const sheetUrl = 'https://spreadsheets.google.com/feeds/list/2PACX-1vSg2Mykla0mZRlCUP_ta-BNq29EN9qzoNoYI8fme6Yx5r3j_PPJqO0ikv3nYB7UZki0O7SP_TA_jJCB/1/public/full?alt=json'
+const sheetUrl = 'https://spreadsheets.google.com/feeds/list/2PACX-1vSg2Mykla0mZRlCUP_ta-BNq29EN9qzoNoYI8fme6Yx5r3j_PPJqO0ikv3nYB7UZki0O7SP_TA_jJCB/2/public/full?alt=json'
 
 async function fetchLeaderboardData() {
     try {
