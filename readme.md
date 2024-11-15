@@ -1,4 +1,3 @@
-
 TODO
 - Add selectable timers 5/30/50
 - update QR code images for readability and border issues 
@@ -7,3 +6,6 @@ TODO
 - Some way of showing meta analysis of decks
 
 - Flag the readme file as exempt from page rebuild
+
+Dev env
+https://wipedout36.github.io/dev.html
