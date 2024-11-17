@@ -11,7 +11,7 @@ function showSlides() {
     });
     slideIndex = (slideIndex + 1) % slides.length;
 }
-setInterval(showSlides, 90000); // Change slide every 90 seconds
+setInterval(showSlides, 60000); // Change slide every 60 seconds
 
 // Countdown Timer Script
 let timer;
