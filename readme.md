@@ -8,6 +8,7 @@ TODO
 - Have brainwave 
 - Flag the readme file as exempt from page rebuild
 - adjust timer to go into overtime countdown 
+- can updating the images also push a post to discord?
 
 Prod URL
 https://wipedout36.github.io/index.html
