@@ -81,19 +81,37 @@ function resetTimer() {
 }
 
 function adjustTimer() {
-    const newTime = prompt("Enter countdown time in minutes:", totalSeconds / 60);
+    const newTime = prompt("Enter countdown time in minutes:");
     if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
         totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
         updateDisplay();
     }
 }
 
-function timeOne() {
+function minutesFive() {
     const newTime = 300 / 60;
     if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
         totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
         updateDisplay();
-        //startTimer();
+        startTimer();
+    }
+}
+
+function minutesThirty() {
+    const newTime = totalSeconds / 60; //let totalSeconds = 1800
+    if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
+        totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
+        updateDisplay();
+        startTimer();
+    }
+}
+
+function minutesFifty() {
+    const newTime = 3000 / 60;
+    if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
+        totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
+        updateDisplay();
+        startTimer();
     }
 }
 
