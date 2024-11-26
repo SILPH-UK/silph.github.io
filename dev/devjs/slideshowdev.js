@@ -88,14 +88,14 @@ function adjustTimer() {
     }
 }
 
-function fiveMins() {
-    const newTime = 300 / 60);
-    if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
-        totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
-        updateDisplay();
-        //startTimer();
-    }
-}
+//function fiveMins() {
+//    const newTime = 300 / 60);
+//    if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
+//        totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
+//        updateDisplay();
+//        //startTimer();
+//    }
+//}
 
 // Timer Visibility Toggle
 function toggleTimerVisibility() {
