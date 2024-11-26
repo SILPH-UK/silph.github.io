@@ -26,6 +26,15 @@ function updateDisplay() {
         (displaySeconds < 10 ? "0" : "") + displaySeconds;
 }
 
+var startTime;
+var stopwatchInterval;
+function startStopwatch() { // for use after the timer hits 0
+    if (!stopwatchInterval) {
+        startTime = new Date().getTime();
+        stopwatchInterval = setInterval(updateStopwatch, 1000)
+    }
+}
+
 function startTimer() {
     if (!isRunning && totalSeconds > 0) { // Start only if timer is set and not running
         isRunning = true;
@@ -35,7 +44,8 @@ function startTimer() {
                 updateDisplay();
             } else {
                 stopTimer(); // Stop the timer when it reaches zero
-                alert("Time's up!");
+                //alert("Time's up!");
+                startStopwatch();
             }
         }, 1000);
     }
