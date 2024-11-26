@@ -13,6 +13,28 @@ function showSlides() {
 }
 setInterval(showSlides, 60000); // Change slide every 60 seconds
 
+// Stop Watch Script
+
+var startTime;
+var stopwatchInterval;
+function startStopwatch() { // for use after the timer hits 0
+    stopTimer(); // Stop the timer when it reaches zero
+    if (!stopwatchInterval) {
+        startTime = new Date().getTime();
+        stopwatchInterval = setInterval(updateStopwatch, 1000)
+    }
+}
+
+function updateStopwatch() {
+        var currentTime = new Date().getTime(); // get current time in milliseconds
+        var elapsedTime = currentTime - startTime; // calculate elapsed time in milliseconds
+        var seconds = Math.floor(elapsedTime / 1000) % 60; // calculate seconds
+        var minutes = Math.floor(elapsedTime / 1000 / 60) % 60; // calculate minutes
+        var hours = Math.floor(elapsedTime / 1000 / 60 / 60); // calculate hours
+        var displayTime = pad(hours) + ":" + pad(minutes) + ":" + pad(seconds); // format display time
+        document.getElementById("stopwatch").innerHTML = displayTime; // update the display
+}
+
 // Countdown Timer Script
 let timer;
 let totalSeconds = 1800; // Default timer
@@ -24,16 +46,6 @@ function updateDisplay() {
     document.getElementById("timer-display").textContent =
         (minutes < 10 ? "0" : "") + minutes + ":" +
         (displaySeconds < 10 ? "0" : "") + displaySeconds;
-}
-
-var startTime;
-var stopwatchInterval;
-function startStopwatch() { // for use after the timer hits 0
-    stopTimer(); // Stop the timer when it reaches zero
-    if (!stopwatchInterval) {
-        startTime = new Date().getTime();
-        stopwatchInterval = setInterval(updateStopwatch, 1000)
-    }
 }
 
 function startTimer() {
