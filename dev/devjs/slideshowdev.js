@@ -29,6 +29,7 @@ function updateDisplay() {
 var startTime;
 var stopwatchInterval;
 function startStopwatch() { // for use after the timer hits 0
+    stopTimer(); // Stop the timer when it reaches zero
     if (!stopwatchInterval) {
         startTime = new Date().getTime();
         stopwatchInterval = setInterval(updateStopwatch, 1000)
@@ -43,7 +44,7 @@ function startTimer() {
                 totalSeconds--;
                 updateDisplay();
             } else {
-                stopTimer(); // Stop the timer when it reaches zero
+                //stopTimer(); // Stop the timer when it reaches zero
                 //alert("Time's up!");
                 startStopwatch();
             }
