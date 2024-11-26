@@ -34,7 +34,7 @@ function startTimer() {
                 totalSeconds--;
                 updateDisplay();
             } else {
-                //stopTimer(); // Stop the timer when it reaches zero
+                stopTimer(); // Stop the timer when it reaches zero
                 alert("Time's up!");
             }
         }, 1000);
