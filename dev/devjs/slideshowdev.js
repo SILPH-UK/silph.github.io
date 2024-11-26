@@ -89,7 +89,7 @@ function adjustTimer() {
     }
 }
 
-function Timeroptions() {
+function fiveMins() {
     const newTime = 300 / 60);
     if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
         totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
