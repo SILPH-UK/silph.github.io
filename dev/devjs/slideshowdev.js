@@ -32,7 +32,7 @@ function updateStopwatch() {
         var minutes = Math.floor(elapsedTime / 1000 / 60) % 60; // calculate minutes
         var hours = Math.floor(elapsedTime / 1000 / 60 / 60); // calculate hours
         var displayTime = pad(hours) + ":" + pad(minutes) + ":" + pad(seconds); // format display time
-        document.getElementById("stopwatch").innerHTML = displayTime; // update the display
+        document.getElementById("timer-display").innerHTML = displayTime; // update the display
 }
 
 // Countdown Timer Script
