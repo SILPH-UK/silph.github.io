@@ -88,10 +88,10 @@ function adjustTimer() {
     }
 }
 
-function fiveMins() {
-    const oponeTime = 300 / 60);
-    if (oponeTime !== null && !isNaN(oponeTime) && oponeTime >= 0) {
-        totalSeconds = parseInt(oponeTime) * 60; // Convert minutes to seconds
+function timeOne() {
+    const newTime = 300 / 60);
+    if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
+        totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
         updateDisplay();
         //startTimer();
     }
