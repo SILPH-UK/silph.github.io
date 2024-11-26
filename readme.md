@@ -7,8 +7,11 @@ TODO
 - Some way of showing meta analysis of decks
 - Have brainwave 
 - Flag the readme file as exempt from page rebuild
-- adjust timer to go into overtime countdown 
 - can updating the images also push a post to discord?
+- How to make the stopwatch show with a negative / change colour
+
+In Dev; Ready to Prod
+Code for turning the timer into a stopwatch after 0 is reached
 
 Prod URL
 https://wipedout36.github.io/index.html
