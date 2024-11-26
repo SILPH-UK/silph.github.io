@@ -60,6 +60,10 @@ function adjustTimer() {
     }
 }
 
+function Timeroptions() {
+    const newTime = prompt("Select time option:", totalSeconds / 60);
+}
+
 // Timer Visibility Toggle
 function toggleTimerVisibility() {
     const timerContainer = document.getElementById("timer-container");
