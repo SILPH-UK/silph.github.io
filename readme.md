@@ -8,10 +8,10 @@ TODO
 - Have brainwave 
 - Flag the readme file as exempt from page rebuild
 - can updating the images also push a post to discord?
-- How to make the stopwatch show with a negative / change colour
+- How to restore time's up warning at 0, but retain negative time
 
 In Dev; Ready to Prod
-Code for turning the timer into a stopwatch after 0 is reached
+
 
 Prod URL
 https://wipedout36.github.io/index.html

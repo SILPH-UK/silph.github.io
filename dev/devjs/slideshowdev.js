@@ -90,7 +90,12 @@ function adjustTimer() {
 }
 
 function Timeroptions() {
-    const newTime = prompt("Select time option:", totalSeconds / 60);
+    const newTime = 300 / 60);
+    if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
+        totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
+        updateDisplay();
+        //startTimer();
+    }
 }
 
 // Timer Visibility Toggle
