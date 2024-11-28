@@ -33,7 +33,7 @@ body, html {
     flex: 1;
     background-color: #313338;
     display: none; /* Initially hidden */
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 }
