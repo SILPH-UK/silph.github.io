@@ -33,7 +33,7 @@ body, html {
     flex: 1;
     background-color: #313338;
     display: none; /* Initially hidden */
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -43,7 +43,6 @@ body, html {
     text-shadow: 1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white;
 }
 .timer-buttons button {
-    display: flex;
     padding: 10px 20px;
     margin: 5px;
     font-size: 1vw;
