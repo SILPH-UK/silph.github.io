@@ -4,6 +4,7 @@ TODO (code)
 - Flag the readme file as exempt from page rebuild
 - can updating the images also push a post to discord?
 - How to restore time's up warning at 0, but retain negative time
+- button to return to QR codes
 
 TODO (content)
 - Leaderboard of points earned in the seasn (W/L/D)
