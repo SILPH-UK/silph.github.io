@@ -89,7 +89,7 @@ function adjustTimer() {
 }
 
 function minutesFive() {
-    stopTimer()
+    stopTimer();
     const newTime = 300 / 60;
     if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
         totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
@@ -99,9 +99,8 @@ function minutesFive() {
 }
 
 function minutesThirty() {
-    stopTimer()
-    let totalSeconds = 1800;
-    const newTime = totalSeconds / 60; //let totalSeconds = 1800
+    stopTimer();
+    const newTime = 1800 / 60; //let totalSeconds = 1800
     if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
         totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
         updateDisplay();
@@ -110,7 +109,7 @@ function minutesThirty() {
 }
 
 function minutesFifty() {
-    stopTimer()
+    stopTimer();
     const newTime = 3000 / 60;
     if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
         totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
