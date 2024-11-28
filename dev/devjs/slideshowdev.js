@@ -100,6 +100,7 @@ function minutesFive() {
 
 function minutesThirty() {
     stopTimer()
+    let totalSeconds = 1800;
     const newTime = totalSeconds / 60; //let totalSeconds = 1800
     if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
         totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
