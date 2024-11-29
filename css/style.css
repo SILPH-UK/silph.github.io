@@ -2,7 +2,7 @@
 body, html {
     margin: 0;
     padding: 0;
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     height: 100vh;
     font-family: Arial, sans-serif;
