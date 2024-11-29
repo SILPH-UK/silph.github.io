@@ -42,6 +42,11 @@ body, html {
     margin-bottom: 2vh;
     text-shadow: 1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white;
 }
+.stopwatch-display {
+    font-size: 8vw;
+    margin-bottom: 2vh;
+    text-shadow: 1px 1px 0 red, -1px -1px 0 red, 1px -1px 0 red, -1px 1px 0 red;
+}
 .timer-buttons {
     display: inline-block;
     padding: 10px 20px;

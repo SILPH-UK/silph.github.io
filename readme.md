@@ -1,7 +1,7 @@
 TODO (code)
 - store and dynamically generate on the fly (CSV?)
 - Have brainwave 
-- Flag the readme file as exempt from page rebuild
+- Flag the readme file as exempt from page rebuild (https://www.reddit.com/r/github/comments/6hn3vz/exclude_readme_from_github_pages/ should be what we need?)
 - can updating the images also push a post to discord?
 - How to restore time's up warning at 0, but retain negative time
 - button to return to QR codes
