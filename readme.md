@@ -14,7 +14,7 @@ TODO (content)
 
 
 In Dev; Ready to Prod
-- Add selectable timers 5/30/50
+
 
 Prod URL
 https://wipedout36.github.io/index.html
