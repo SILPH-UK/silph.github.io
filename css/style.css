@@ -45,12 +45,12 @@ body, html {
 .timer-buttons {
     display: inline-block;
     padding: 10px 20px;
-    margin: 5px;
+    margin: 2px;
     font-size: 1vw;
 }
 .timer-buttons button {
     padding: 10px 20px;
-    margin: 5px;
+    margin: 2px;
     font-size: 1vw;
     cursor: pointer;
 }
