@@ -42,6 +42,12 @@ body, html {
     margin-bottom: 15vh;
     text-shadow: 1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white;
 }
+.timer-buttons {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1vw;
+}
 .timer-buttons button {
     padding: 10px 20px;
     margin: 5px;
