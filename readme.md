@@ -6,6 +6,7 @@ TODO (code)
 - How to restore time's up warning at 0, but retain negative time
   - How to change colour to red on stopwatch-timer
 - button to return to QR codes
+- stop buttons broke
 
 TODO (content)
 - Leaderboard of points earned in the seasn (W/L/D)
