@@ -31,15 +31,6 @@
         .deck-header h2 {
             margin: 0;
         }
-        .csv-list-container {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .csv-list {
-            padding: 10px;
-            font-size: 1.2em;
-            cursor: pointer;
-        }
         .card-list {
             list-style-type: none;
             padding: 0;
@@ -58,18 +49,39 @@
         }
         .card-name {
             font-weight: bold;
-            flex: 1; /* Makes the name take up the left side */
         }
         .card-count {
             font-size: 1.2em;
             color: #555;
-            text-align: right; /* Aligns the count to the right */
         }
-        .card-type, .card-set, .card-number {
+        .card-type {
             font-size: 0.9em;
             color: #777;
-            text-align: right; /* Aligns to the right */
         }
+
+        .file-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .file-option {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            width: 150px;
+            transition: background-color 0.3s ease;
+        }
+
+        .file-option:hover {
+            background-color: #0056b3;
+        }
+
         .type-section {
             margin-top: 30px;
         }
@@ -85,15 +97,14 @@
 
 <div class="deck-container">
     <div class="deck-header">
-        <h1>Select a CSV File to Load Decklist</h1>
-        <p>Click on one of the pre-defined CSV files below to view the deck's information.</p>
+        <h1>Select a Decklist CSV</h1>
+        <p>Click on a decklist below to load the deck's information.</p>
     </div>
 
-    <!-- List of pre-defined CSV files to choose from -->
-    <div class="csv-list-container">
-        <ul class="csv-list" id="csvList">
-            <!-- Dynamic list of CSV file URLs will be inserted here -->
-        </ul>
+    <div id="file-list" class="file-list">
+        <!-- List of available CSV options will be inserted here -->
+        <div class="file-option" data-file="./first.csv">1st Place - Regidrago</div>
+        <div class="file-option" data-file="./third.csv">3rd Place - Raging Bolt Ogerpon</div>
     </div>
 
     <div id="decklist" class="deck-container">
@@ -105,49 +116,38 @@
 </div>
 
 <script>
-    // List of CSV file URLs
-    const csvFileUrls = {
-        "First": "first.csv", // Replace with actual URLs to your CSV files
-        "Third": "third.csv"  // Replace with actual URLs to your CSV files
-    };
-
-    // Render the list of CSV files (URLs)
-    function renderCSVList() {
-        const csvListContainer = document.getElementById('csvList');
-        csvListContainer.innerHTML = ''; // Clear existing list
-
-        Object.keys(csvFileUrls).forEach((deckName) => {
-            const listItem = document.createElement('li');
-            listItem.textContent = deckName;
-            listItem.style.cursor = 'pointer';
-            listItem.addEventListener('click', () => {
-                fetchAndParseCSV(csvFileUrls[deckName]);
-            });
-            csvListContainer.appendChild(listItem);
+    // Event listener for clicking on a CSV file option
+    document.querySelectorAll('.file-option').forEach(option => {
+        option.addEventListener('click', (event) => {
+            const fileName = event.target.dataset.file;
+            fetchCSV(fileName);
         });
-    }
+    });
 
-    // Fetch the CSV file from the URL and parse it
-    function fetchAndParseCSV(url) {
-        fetch(url)
+    // Function to fetch the CSV file content from a specified path
+    function fetchCSV(fileName) {
+        // Use the fetch API to load the CSV file
+        fetch(fileName)
             .then(response => response.text())
-            .then(content => parseCSV(content))
+            .then(content => {
+                parseCSV(content);
+            })
             .catch(error => {
-                console.error('Error fetching the CSV file:', error);
-                alert('There was an error loading the CSV file.');
+                console.error('Error fetching CSV file:', error);
+                alert('There was an issue loading the CSV file.');
             });
     }
 
-    // Parse the CSV content
+    // Parse the CSV file content
     function parseCSV(content) {
+        // Split content into rows based on new lines
         const rows = content.split('\n');
         const deckList = {};
 
+        // Loop through rows and parse each one
         rows.forEach((row, index) => {
             if (row.trim() !== '') {
                 const columns = row.split(',');
-
-                // Check if the row has at least 5 fields (card name, count, type, set, collection number)
                 if (columns.length >= 5) {
                     const cardName = columns[0].trim();
                     const cardCount = columns[1].trim();
@@ -204,6 +204,7 @@
                 cardCount.classList.add('card-count');
                 cardCount.textContent = card.count;
 
+
                 const cardSet = document.createElement('span');
                 cardSet.classList.add('card-set');
                 cardSet.textContent = `Set: ${card.set}`;
@@ -227,11 +228,6 @@
             cardListContainer.appendChild(section);
         }
     }
-
-    // Call the renderCSVList function when the page loads
-    window.onload = function() {
-        renderCSVList();
-    };
 </script>
 
 </body>
