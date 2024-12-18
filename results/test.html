@@ -42,23 +42,6 @@
             padding: 0;
         }
 
-        .card-image {
-            display: none;
-            /* Hidden by default */
-            position: absolute;
-            /* Position relative to the hovered card */
-            top: 50px;
-            /* Adjust based on layout */
-            left: 50px;
-            /* Adjust based on layout */
-            max-width: 200px;
-            /* Scale the image size */
-            border: 1px solid #ccc;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            /* Ensure it's on top */
-        }
-
         .card-item {
             background-color: #f9f9f9;
             padding: 10px;
@@ -67,8 +50,6 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            position: relative;
-            /* To position the image relative to the card */
             /* Space items evenly */
         }
 
@@ -218,26 +199,8 @@
             }
         }
 
-        // Function to fetch card image from an API based on card name
-        async function fetchCardImage(cardName) {
-            const apiUrl = `https://api.pokemontcg.io/v2/cards?q=name:"${encodeURIComponent(cardName)}"`;
-            try {
-                const response = await fetch(apiUrl);
-                const data = await response.json();
-
-                // Check if data is valid and return the first image URL
-                if (data && data.data && data.data.length > 0) {
-                    return data.data[0].images.large; // Use the large image URL
-                }
-                return null; // Return null if no image is found
-            } catch (error) {
-                console.error(`Error fetching image for card "${cardName}":`, error);
-                return null;
-            }
-        }
-
         // Render the parsed decklist to the page, grouped by card type
-        async function renderDecklist(deckList) {
+        function renderDecklist(deckList) {
             const cardListContainer = document.getElementById('card-list');
             cardListContainer.innerHTML = ''; // Clear existing deck list
 
@@ -255,7 +218,7 @@
                 // Create the list for the cards of this type
                 const cardList = document.createElement('ul');
                 cardList.classList.add('card-list');
-                for (const card of deckList[cardType]) {
+                deckList[cardType].forEach(card => {
                     const listItem = document.createElement('li');
                     listItem.classList.add('card-item');
 
@@ -280,39 +243,14 @@
                         listItem.appendChild(cardDetails);
                     }
 
-                    // Lookup and add hover effect for card image
-                    const cardImageURL = await fetchCardImage(card.name);
-                    if (cardImageURL) {
-                        const cardImage = document.createElement('img');
-                        cardImage.src = cardImageURL; // Use fetched URL
-                        cardImage.classList.add('card-image');
-                        listItem.appendChild(cardImage);
-
-                        // Show and hide image on hover
-                        listItem.addEventListener('mouseenter', () => {
-                            cardImage.style.display = 'block';
-                        });
-                        listItem.addEventListener('mouseleave', () => {
-                            cardImage.style.display = 'none';
-                        });
-                    }
-
                     cardList.appendChild(listItem);
-                }
+                });
 
                 // Append the card list to the section
                 section.appendChild(cardList);
 
                 // Append the section to the container
                 cardListContainer.appendChild(section);
-            }
-        }
-
-        // Append the card list to the section
-        section.appendChild(cardList);
-
-        // Append the section to the container
-        cardListContainer.appendChild(section);
             }
         }
 
