@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Decklist from CSV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .deck-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .deck-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .deck-header h2 {
+            margin: 0;
+        }
+        .card-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .card-item {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .card-item:nth-child(even) {
+            background-color: #f1f1f1;
+        }
+        .card-name {
+            font-weight: bold;
+        }
+        .card-count {
+            font-size: 1.2em;
+            color: #555;
+        }
+        .card-type {
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        .file-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .file-option {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            width: 150px;
+            transition: background-color 0.3s ease;
+        }
+
+        .file-option:hover {
+            background-color: #0056b3;
+        }
+
+        .type-section {
+            margin-top: 30px;
+        }
+        .type-header {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="deck-container">
+    <div class="deck-header">
+        <h1>Select a Decklist CSV</h1>
+        <p>Click on a decklist below to load the deck's information.</p>
+    </div>
+
+    <div id="file-list" class="file-list">
+        <!-- List of available CSV options will be inserted here -->
+        <div class="file-option" data-file="./first.csv">1st Place - Regidrago</div>
+        <div class="file-option" data-file="./third.csv">3rd Place - Raging Bolt Ogerpon</div>
+    </div>
+
+    <div id="decklist" class="deck-container">
+        <h2>Decklist</h2>
+        <div id="card-list">
+            <!-- Dynamic card sections will be inserted here -->
+        </div>
+    </div>
+</div>
+
+<script>
+    // Event listener for clicking on a CSV file option
+    document.querySelectorAll('.file-option').forEach(option => {
+        option.addEventListener('click', (event) => {
+            const fileName = event.target.dataset.file;
+            fetchCSV(fileName);
+        });
+    });
+
+    // Function to fetch the CSV file content from a specified path
+    function fetchCSV(fileName) {
+        // Use the fetch API to load the CSV file
+        fetch(fileName)
+            .then(response => response.text())
+            .then(content => {
+                parseCSV(content);
+            })
+            .catch(error => {
+                console.error('Error fetching CSV file:', error);
+                alert('There was an issue loading the CSV file.');
+            });
+    }
+
+    // Parse the CSV file content
+    function parseCSV(content) {
+        // Split content into rows based on new lines
+        const rows = content.split('\n');
+        const deckList = {};
+
+        // Loop through rows and parse each one
+        rows.forEach((row, index) => {
+            if (row.trim() !== '') {
+                const columns = row.split(',');
+                if (columns.length === 3) {
+                    const cardName = columns[0].trim();
+                    const cardCount = columns[1].trim();
+                    const cardType = columns[2].trim();
+
+                    // Group by card type
+                    if (!deckList[cardType]) {
+                        deckList[cardType] = [];
+                    }
+                    deckList[cardType].push({ name: cardName, count: cardCount });
+                } else {
+                    console.error(`Invalid row at index ${index}: ${row}`);
+                }
+            }
+        });
+
+        if (Object.keys(deckList).length > 0) {
+            renderDecklist(deckList);
+        } else {
+            alert('No valid data found in the CSV.');
+        }
+    }
+
+    // Render the parsed decklist to the page, grouped by card type
+    function renderDecklist(deckList) {
+        const cardListContainer = document.getElementById('card-list');
+        cardListContainer.innerHTML = ''; // Clear existing deck list
+
+        // Loop through each card type group
+        for (const cardType in deckList) {
+            const section = document.createElement('div');
+            section.classList.add('type-section');
+
+            // Create section header for the card type
+            const sectionHeader = document.createElement('div');
+            sectionHeader.classList.add('type-header');
+            sectionHeader.textContent = cardType;
+            section.appendChild(sectionHeader);
+
+            // Create the list for the cards of this type
+            const cardList = document.createElement('ul');
+            cardList.classList.add('card-list');
+            deckList[cardType].forEach(card => {
+                const listItem = document.createElement('li');
+                listItem.classList.add('card-item');
+
+                const cardName = document.createElement('span');
+                cardName.classList.add('card-name');
+                cardName.textContent = card.name;
+
+                const cardCount = document.createElement('span');
+                cardCount.classList.add('card-count');
+                cardCount.textContent = card.count;
+
+                listItem.appendChild(cardName);
+                listItem.appendChild(cardCount);
+                cardList.appendChild(listItem);
+            });
+
+            // Append the card list to the section
+            section.appendChild(cardList);
+
+            // Append the section to the container
+            cardListContainer.appendChild(section);
+        }
+    }
+</script>
+
+</body>
+</html>
