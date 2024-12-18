@@ -1,29 +1,29 @@
-3,Regidrago V SIT 135,Pokémon
-3,Regidrago VSTAR SIT 136,Pokémon
-3,Teal Mask Ogerpon ex TWM 25,Pokémon
-1,Dragapult ex TWM 130,Pokémon
-1,Giratina VSTAR LOR 131,Pokémon
-1,Hisuian Goodra VSTAR LOR 136,Pokémon
-1,Alolan Exeggutor ex SSP 133,Pokémon
-1,Kyurem SFA 47,Pokémon
-1,Squawkabilly ex PAL 169,Pokémon
-1,Fezandipiti ex SFA 38,Pokémon
-1,Mew ex MEW 151,Pokémon
-1,Cleffa OBF 80,Pokémon
-1,Radiant Charizard CRZ 20,Pokémon
-4,Professor's Research SVI 189,Trainer
-2,Iono PAL 185,Trainer
-2,Boss's Orders PAL 172,Trainer
-4,Ultra Ball SVI 196,Trainer
-4,Nest Ball SVI 181,Trainer
-4,Energy Switch SVI 173,Trainer
-4,Earthen Vessel PAR 163,Trainer
-2,Super Rod PAL 188,Trainer
-1,Superior Energy Retrieval PAL 189,Trainer
-1,Canceling Cologne ASR 136,Trainer
-1,Switch SVI 194,Trainer
-1,Prime Catcher TEF 157,Trainer
-1,Temple of Sinnoh ASR 155,Trainer
-1,Jamming Tower TWM 153,Trainer
-7,Grass Energy SVE 9,Energy
-2,Fire Energy SVE 10,Energy
+Regidrago V SIT 135,3,Pokemon
+Regidrago VSTAR SIT 136,3,Pokemon
+Teal Mask Ogerpon ex TWM 25,3,Pokemon
+Dragapult ex TWM 130,1,Pokemon
+Giratina VSTAR LOR 131,1,Pokemon
+Hisuian Goodra VSTAR LOR 136,1,Pokemon
+Alolan Exeggutor ex SSP 133,1,Pokemon
+Kyurem SFA 47,1,Pokemon
+Squawkabilly ex PAL 169,1,Pokemon
+Fezandipiti ex SFA 38,1,Pokemon
+Mew ex MEW 151,1,Pokemon
+Cleffa OBF 80,1,Pokemon
+Radiant Charizard CRZ 20,1,Pokemon
+Professor's Research SVI 189,4,Trainer
+Iono PAL 185,2,Trainer
+Boss's Orders PAL 172,2,Trainer
+Ultra Ball SVI 196,4,Trainer
+Nest Ball SVI 181,4,Trainer
+Energy Switch SVI 173,4,Trainer
+Earthen Vessel PAR 163,4,Trainer
+Super Rod PAL 188,2,Trainer
+Superior Energy Retrieval PAL 189,1,Trainer
+Canceling Cologne ASR 136,1,Trainer
+Switch SVI 194,1,Trainer
+Prime Catcher TEF 157,1,Trainer
+Temple of Sinnoh ASR 155,1,Trainer
+Jamming Tower TWM 153,1,Trainer
+Grass Energy SVE 9,7,Energy
+Fire Energy SVE 10,2,Energy

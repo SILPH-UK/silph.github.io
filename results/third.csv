@@ -1,27 +1,27 @@
-4,Raging Bolt ex TEF 123,Pokemon
-3,Teal Mask Ogerpon ex TWM 25,Pokemon
-1,Radiant Greninja ASR 46,Pokemon
-1,Squawkabilly ex PAL 169,Pokemon
-1,Fezandipiti ex SFA 38,Pokemon
-1,Slither Wing PAR 107,Pokemon
-1,Iron Bundle PAR 56,Pokemon
-4,Professor Sada's Vitality PAR 170,Trainer
-1,Iono PAL 185,Trainer
-1,Briar SCR 132,Trainer
-4,Earthen Vessel PAR 163,Trainer
-4,Nest Ball SVI 181,Trainer
-3,Energy Retrieval SVI 171,Trainer
-3,Pokémon Catcher SVI 187,Trainer
-2,Switch Cart ASR 154,Trainer
-2,Ultra Ball SVI 196,Trainer
-2,Night Stretcher SFA 61,Trainer
-2,Trekking Shoes ASR 156,Trainer
-2,Pokégear 3.0 SVI 186,Trainer
-1,Prime Catcher TEF 157,Trainer
-1,Lost Vacuum LOR 162,Trainer
-1,Pal Pad SVI 182,Trainer
-2,Bravery Charm PAL 173,Trainer
-2,PokéStop PGO 68,Trainer
-5,Grass Energy SVE 9,Energy
-3,Lightning Energy SVE 12,Energy
-3,Fighting Energy SVE 14,Energy
+Raging Bolt ex TEF 123,4,Pokemon
+Teal Mask Ogerpon ex TWM 25,3,Pokemon
+Radiant Greninja ASR 46,1,Pokemon
+Squawkabilly ex PAL 169,1,Pokemon
+Fezandipiti ex SFA 38,1,Pokemon
+Slither Wing PAR 107,1,Pokemon
+Iron Bundle PAR 56,1,Pokemon
+Professor Sada's Vitality PAR 170,4,Trainer
+Iono PAL 185,1,Trainer
+Briar SCR 132,1,Trainer
+Earthen Vessel PAR 163,4,Trainer
+Nest Ball SVI 181,4,Trainer
+Energy Retrieval SVI 171,3,Trainer
+Pokemon Catcher SVI 187,3,Trainer
+Switch Cart ASR 154,2,Trainer
+Ultra Ball SVI 196,2,Trainer
+Night Stretcher SFA 61,2,Trainer
+Trekking Shoes ASR 156,2,Trainer
+Pokegear 3.0 SVI 186,2,Trainer
+Prime Catcher TEF 157,1,Trainer
+Lost Vacuum LOR 162,1,Trainer
+Pal Pad SVI 182,1,Trainer
+Bravery Charm PAL 173,2,Trainer
+PokeStop PGO 68,2,Trainer
+Grass Energy SVE 9,5,Energy
+Lightning Energy SVE 12,3,Energy
+Fighting Energy SVE 14,3,Energy
