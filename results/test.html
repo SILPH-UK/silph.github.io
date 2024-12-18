@@ -41,7 +41,6 @@
             margin-bottom: 10px;
             border-radius: 4px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
         }
         .card-item:nth-child(even) {
@@ -53,6 +52,7 @@
         .card-count {
             font-size: 1.2em;
             color: #555;
+            margin-right: 15px; /* Add space between count and name */
         }
         .card-type {
             font-size: 0.9em;
@@ -196,27 +196,16 @@
                 const listItem = document.createElement('li');
                 listItem.classList.add('card-item');
 
-                const cardName = document.createElement('span');
-                cardName.classList.add('card-name');
-                cardName.textContent = card.name;
-
                 const cardCount = document.createElement('span');
                 cardCount.classList.add('card-count');
                 cardCount.textContent = card.count;
 
+                const cardName = document.createElement('span');
+                cardName.classList.add('card-name');
+                cardName.textContent = `${card.name} (Set: ${card.set}, #${card.number})`;
 
-                const cardSet = document.createElement('span');
-                cardSet.classList.add('card-set');
-                cardSet.textContent = `Set: ${card.set}`;
-
-                const cardNumber = document.createElement('span');
-                cardNumber.classList.add('card-number');
-                cardNumber.textContent = `#${card.number}`;
-
-                listItem.appendChild(cardName);
                 listItem.appendChild(cardCount);
-                listItem.appendChild(cardSet);
-                listItem.appendChild(cardNumber);
+                listItem.appendChild(cardName);
 
                 cardList.appendChild(listItem);
             });
