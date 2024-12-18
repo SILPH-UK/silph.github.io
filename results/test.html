@@ -42,23 +42,31 @@
             border-radius: 4px;
             display: flex;
             align-items: center;
+            justify-content: space-between; /* Space items evenly */
         }
         .card-item:nth-child(even) {
             background-color: #f1f1f1;
         }
         .card-name {
             font-weight: bold;
+            flex-grow: 1; /* Takes remaining space in the middle */
+            margin-right: 10px;
         }
         .card-count {
             font-size: 1.2em;
             color: #555;
-            margin-right: 15px; /* Add space between count and name */
+            margin-right: 10px;
+            flex: 0 0 50px; /* Fixed width for consistent alignment */
         }
         .card-type {
             font-size: 0.9em;
             color: #777;
         }
-
+        .card-details {
+            font-size: 0.9em;
+            color: #777;
+            text-align: right;
+        }
         .file-list {
             display: flex;
             flex-wrap: wrap;
@@ -173,50 +181,59 @@
         }
     }
 
-    // Render the parsed decklist to the page, grouped by card type
-    function renderDecklist(deckList) {
-        const cardListContainer = document.getElementById('card-list');
-        cardListContainer.innerHTML = ''; // Clear existing deck list
+// Render the parsed decklist to the page, grouped by card type
+function renderDecklist(deckList) {
+    const cardListContainer = document.getElementById('card-list');
+    cardListContainer.innerHTML = ''; // Clear existing deck list
 
-        // Loop through each card type group
-        for (const cardType in deckList) {
-            const section = document.createElement('div');
-            section.classList.add('type-section');
+    // Loop through each card type group
+    for (const cardType in deckList) {
+        const section = document.createElement('div');
+        section.classList.add('type-section');
 
-            // Create section header for the card type
-            const sectionHeader = document.createElement('div');
-            sectionHeader.classList.add('type-header');
-            sectionHeader.textContent = cardType;
-            section.appendChild(sectionHeader);
+        // Create section header for the card type
+        const sectionHeader = document.createElement('div');
+        sectionHeader.classList.add('type-header');
+        sectionHeader.textContent = cardType;
+        section.appendChild(sectionHeader);
 
-            // Create the list for the cards of this type
-            const cardList = document.createElement('ul');
-            cardList.classList.add('card-list');
-            deckList[cardType].forEach(card => {
-                const listItem = document.createElement('li');
-                listItem.classList.add('card-item');
+        // Create the list for the cards of this type
+        const cardList = document.createElement('ul');
+        cardList.classList.add('card-list');
+        deckList[cardType].forEach(card => {
+            const listItem = document.createElement('li');
+            listItem.classList.add('card-item');
 
-                const cardCount = document.createElement('span');
-                cardCount.classList.add('card-count');
-                cardCount.textContent = card.count;
+            // Count on the left
+            const cardCount = document.createElement('span');
+            cardCount.classList.add('card-count');
+            cardCount.textContent = card.count;
 
-                const cardName = document.createElement('span');
-                cardName.classList.add('card-name');
-                cardName.textContent = `${card.name} (Set: ${card.set}, #${card.number})`;
+            // Card name in the middle
+            const cardName = document.createElement('span');
+            cardName.classList.add('card-name');
+            cardName.textContent = card.name;
 
-                listItem.appendChild(cardCount);
-                listItem.appendChild(cardName);
+            // Set and collector number on the right
+            const cardDetails = document.createElement('span');
+            cardDetails.classList.add('card-details');
+            cardDetails.textContent = `Set: ${card.set}, #${card.number}`;
 
-                cardList.appendChild(listItem);
-            });
+            listItem.appendChild(cardCount);
+            listItem.appendChild(cardName);
+            listItem.appendChild(cardDetails);
 
-            // Append the card list to the section
-            section.appendChild(cardList);
+            cardList.appendChild(listItem);
+        });
 
-            // Append the section to the container
-            cardListContainer.appendChild(section);
-        }
+        // Append the card list to the section
+        section.appendChild(cardList);
+
+        // Append the section to the container
+        cardListContainer.appendChild(section);
     }
+}
+
 </script>
 
 </body>
