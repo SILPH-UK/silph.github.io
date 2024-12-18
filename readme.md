@@ -1,12 +1,22 @@
-TODO
-- Add selectable timers 5/30/50
-- update QR code images for readability and border issues 
-- identify image resolution to work on screen and discord 
-- Leaderboard of points earned in the seasn (W/L/D)
- - store and dynamically generate on the fly (CSV?)
-- Some way of showing meta analysis of decks
+TODO (code)
+- store and dynamically generate on the fly (CSV?)
+- Have brainwave 
+- Flag the readme file as exempt from page rebuild (https://www.reddit.com/r/github/comments/6hn3vz/exclude_readme_from_github_pages/ should be what we need?)
+- can updating the images also push a post to discord?
+- How to restore time's up warning at 0, but retain negative time
+  - How to change colour to red on stopwatch-timer
+- button to return to QR codes
+- stop buttons broke
 
-- Flag the readme file as exempt from page rebuild
+TODO (content)
+- Leaderboard of points earned in the seasn (W/L/D)
+- identify image resolution to work on screen and discord
+- Some way of showing meta analysis of decks
+- Make the buffer sit between the timer and images - timer and button should sit screen bottom
+
+
+In Dev; Ready to Prod
+
 
 Prod URL
 https://wipedout36.github.io/index.html

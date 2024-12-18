@@ -2,7 +2,7 @@
 body, html {
     margin: 0;
     padding: 0;
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     height: 100vh;
     font-family: Arial, sans-serif;
@@ -38,13 +38,24 @@ body, html {
     justify-content: center;
 }
 .timer-display {
-    font-size: 5vw;
-    margin-bottom: 15px;
+    font-size: 8vw;
+    margin-bottom: 2vh;
     text-shadow: 1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white;
+}
+.stopwatch-display {
+    font-size: 8vw;
+    margin-bottom: 2vh;
+    text-shadow: 1px 1px 0 red, -1px -1px 0 red, 1px -1px 0 red, -1px 1px 0 red;
+}
+.timer-buttons {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 1px;
+    font-size: 1vw;
 }
 .timer-buttons button {
     padding: 10px 20px;
-    margin: 5px;
+    margin: 1px;
     font-size: 1vw;
     cursor: pointer;
 }
