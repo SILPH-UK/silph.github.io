@@ -65,6 +65,45 @@
             margin-bottom: 10px;
             color: #333;
         }
+
+        .card-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .card-item {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-item:nth-child(even) {
+            background-color: #f1f1f1;
+        }
+
+        .card-name {
+            font-weight: bold;
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+
+        .card-count {
+            font-size: 1.2em;
+            color: #555;
+            margin-right: 10px;
+            flex: 0 0 50px;
+        }
+
+        .card-details {
+            font-size: 0.9em;
+            color: #777;
+            text-align: right;
+        }
+
     </style>
 </head>
 
