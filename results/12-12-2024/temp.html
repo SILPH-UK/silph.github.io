@@ -108,7 +108,6 @@
 </head>
 
 <body>
-
     <div class="deck-container">
         <div class="deck-header">
             <h1>Select a Decklist</h1>
@@ -127,30 +126,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr data-file="./Declan-Easter.csv">
-                    <td>1st Place</td>
-                    <td>Declan Easter</td>
-                    <td>12</td>
-                    <td>4</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr data-file="./Noah-Lowe-Ullah.csv">
-                    <td>2nd Place</td>
-                    <td>Noah Lowe-Ullah</td>
-                    <td>9</td>
-                    <td>3</td>
-                    <td>1</td>
-                    <td>0</td>
-                </tr>
-                <tr data-file="./Liam-Gloster.csv">
-                    <td>3rd Place</td>
-                    <td>Liam Gloster</td>
-                    <td>9</td>
-                    <td>3</td>
-                    <td>1</td>
-                    <td>0</td>
-                </tr>
+                <!-- Rows will be dynamically inserted here -->
             </tbody>
         </table>
 
@@ -163,13 +139,42 @@
     </div>
 
     <script>
-        // Event listener for clicking on a table row
-        document.querySelectorAll('#decklist-table tbody tr').forEach(row => {
-            row.addEventListener('click', (event) => {
-                const fileName = row.dataset.file;
-                fetchCSV(fileName);
-            });
-        });
+        // Fetch and populate the main decklist table
+        function populateTableFromCSV(csvFilePath) {
+            fetch(csvFilePath)
+                .then(response => response.text())
+                .then(csvContent => {
+                    const rows = csvContent.split('\n').map(row => row.split(',').map(cell => cell.trim()));
+                    const tbody = document.querySelector('#decklist-table tbody');
+                    tbody.innerHTML = ''; // Clear existing rows
+
+                    rows.forEach((row, index) => {
+                        if (row.length >= 6) {
+                            const [place, name, points, win, loss, draw] = row;
+
+                            const tr = document.createElement('tr');
+                            tr.dataset.file = `./${name.replace(/\s/g, '-')}.csv`; // Generate file name from name
+                            tr.innerHTML = `
+                                <td>${place}</td>
+                                <td>${name}</td>
+                                <td>${points}</td>
+                                <td>${win}</td>
+                                <td>${loss}</td>
+                                <td>${draw}</td>
+                            `;
+
+                            tr.addEventListener('click', () => fetchCSV(tr.dataset.file));
+                            tbody.appendChild(tr);
+                        } else {
+                            console.error(`Skipping invalid row at index ${index}:`, row);
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading table CSV:', error);
+                    alert('Could not load the table data.');
+                });
+        }
 
         // Function to fetch the CSV file content from a specified path
         function fetchCSV(fileName) {
@@ -262,8 +267,11 @@
             }
         }
 
+        // Load table CSV on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            populateTableFromCSV('./standings.csv'); // Adjust the path as needed
+        });
     </script>
-
 </body>
 
 </html>
