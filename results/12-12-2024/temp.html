@@ -120,6 +120,7 @@
                 <tr>
                     <th>Place</th>
                     <th>Name</th>
+                    <td>Deck</td>
                     <th>Points</th>
                     <th>Win</th>
                     <th>Loss</th>
@@ -151,13 +152,14 @@
 
                     rows.forEach((row, index) => {
                         if (row.length >= 6) {
-                            const [place, name, points, win, loss, draw] = row;
+                            const [place, name, deck, points, win, loss, draw] = row;
 
                             const tr = document.createElement('tr');
                             tr.dataset.file = `./${name.replace(/\s/g, '-')}.csv`; // Generate file name from name
                             tr.innerHTML = `
                                 <td>${place}</td>
                                 <td>${name}</td>
+                                <td>${deck}</td>
                                 <td>${points}</td>
                                 <td>${win}</td>
                                 <td>${loss}</td>
