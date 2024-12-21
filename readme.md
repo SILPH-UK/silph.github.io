@@ -14,6 +14,9 @@ TODO (content)
 - Some way of showing meta analysis of decks
 - Make the buffer sit between the timer and images - timer and button should sit screen bottom
 
+TODO (DECK LISTS)
+Automate the input of names 1-3 based on file data
+
 
 In Dev; Ready to Prod
 
