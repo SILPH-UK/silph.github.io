@@ -85,7 +85,7 @@ function resetTimer() {
         totalSeconds = 0;
         updateDisplay();
     } else {
-        document.getElementById("stopwatch").innerHTML = "00:00";
+        // document.getElementById("stopwatch").innerHTML = "00:00";
     }
 }
 
