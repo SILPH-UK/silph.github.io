@@ -286,13 +286,44 @@
                     cardTypeHeader.textContent = ` - ${cardType}`;
                     typeSection.appendChild(cardTypeHeader);
 
-                    const cardList = document.crea
+                    const cardList = document.createElement('ul');
+                    cardList.classList.add('card-list');
+                    cardTypeGroups[cardType].forEach(card => {
+                        const listItem = document.createElement('li');
+                        listItem.classList.add('card-item');
 
+                        const cardCount = document.createElement('span');
+                        cardCount.classList.add('card-count');
+                        cardCount.textContent = card.count;
 
-                    // Load table CSV on page load
-                    document.addEventListener('DOMContentLoaded', () => {
-                        populateTableFromCSV('./standings.csv'); // Adjust the path as needed
+                        const cardName = document.createElement('span');
+                        cardName.classList.add('card-name');
+                        cardName.textContent = card.name;
+
+                        listItem.appendChild(cardCount);
+                        listItem.appendChild(cardName);
+
+                        // Add card details (optional)
+                        const cardDetails = document.createElement('span');
+                        cardDetails.classList.add('card-details');
+                        cardDetails.textContent = `Set: ${card.set}, #${card.number}`;
+                        listItem.appendChild(cardDetails);
+
+                        cardList.appendChild(listItem);
                     });
+
+                    typeSection.appendChild(cardList);
+                }
+
+                cardListContainer.appendChild(typeSection);
+            }
+        }
+
+
+        // Load table CSV on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            populateTableFromCSV('./standings.csv'); // Adjust the path as needed
+        });
     </script>
 </body>
 
