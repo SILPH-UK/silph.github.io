@@ -40,13 +40,13 @@ function pad(number) {
     return (number < 10 ? "0" : "") + number;
 }
 
-//function stopStopwatch() {
+function stopStopwatch() {
     clearInterval(stopwatchInterval); // stop the interval
     elapsedPausedTime = new Date().getTime() - startTime; // calculate elapsed paused time
     stopwatchInterval = null; // reset the interval variable
 }
 
-//function resetStopwatch() {
+function resetStopwatch() {
     stopStopwatch(); // stop the interval
     elapsedPausedTime = 0; // reset the elapsed paused time variable
     document.getElementById("timer-display").innerHTML = "00:00"; // reset the display
