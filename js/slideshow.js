@@ -11,7 +11,7 @@ function showSlides() {
     });
     slideIndex = (slideIndex + 1) % slides.length;
 }
-setInterval(showSlides, 30000); // Change slide every 30 seconds
+setInterval(showSlides, 5000); // Change slide every 5 seconds - DEV ONLY
 
 // Stop Watch Script
 
@@ -70,20 +70,14 @@ function startTimer() {
 }
 
 function stopTimer() {
-    if isRunning = true {
-        isRunning = false;
-        clearInterval(timer);
-    } else {
-        clearInterval(stopwatchInterval);
-        stopwatchInterval = null
-    }
+    isRunning = false;
+    clearInterval(timer);
 }
 
 function resetTimer() {
     stopTimer();
     totalSeconds = 0;
     updateDisplay();
-    // document.getElementById("stopwatch").innerHTML = "00:00";
 }
 
 function adjustTimer() {
