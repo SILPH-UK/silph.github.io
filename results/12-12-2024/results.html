@@ -103,7 +103,14 @@
             color: #777;
             text-align: right;
         }
-
+        @media (max-width: 800px) {
+            .deck-column {
+                display: none;
+            }
+            td.deck-column {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -120,7 +127,7 @@
                 <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th>Deck</th>
+                    <th class="deck-column">Deck</th>
                     <th>Points</th>
                     <th>W</th>
                     <th>L</th>
@@ -159,7 +166,7 @@
                             tr.innerHTML = `
                                 <td>${place}</td>
                                 <td>${name}</td>
-                                <td>${deck}</td>
+                                <td class="deck-column">${deck}</td>
                                 <td>${points}</td>
                                 <td>${win}</td>
                                 <td>${loss}</td>
