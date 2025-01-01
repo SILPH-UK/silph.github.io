@@ -39,7 +39,8 @@
             margin-bottom: 20px;
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
@@ -103,10 +104,12 @@
             color: #777;
             text-align: right;
         }
+
         @media (max-width: 800px) {
             .deck-column {
                 display: none;
             }
+
             td.deck-column {
                 display: none;
             }
@@ -231,7 +234,6 @@
             }
         }
 
-        // Render the parsed decklist to the page, grouped by card type
         function renderDecklist(deckList) {
             const cardListContainer = document.getElementById('card-list');
             cardListContainer.innerHTML = '';
@@ -240,9 +242,13 @@
                 const section = document.createElement('div');
                 section.classList.add('type-section');
 
+                // Calculate total card count for this type
+                const totalCardCount = deckList[cardType].reduce((sum, card) => sum + parseInt(card.count, 10), 0);
+
+                // Create section header with total card count
                 const sectionHeader = document.createElement('div');
                 sectionHeader.classList.add('type-header');
-                sectionHeader.textContent = cardType;
+                sectionHeader.textContent = `${cardType} (Total: ${totalCardCount})`;
                 section.appendChild(sectionHeader);
 
                 const cardList = document.createElement('ul');
@@ -276,6 +282,7 @@
                 cardListContainer.appendChild(section);
             }
         }
+
 
         // Load table CSV on page load
         document.addEventListener('DOMContentLoaded', () => {
