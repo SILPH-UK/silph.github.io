@@ -1,28 +1,28 @@
-Fezandipiti ex,1,Pokemon,SFA,38
-Duskull,2,Pokemon,SFA,18
-Dusclops,1,Pokemon,SFA,19
-Dusknoir,1,Pokemon,SFA,20
+Bibarel,1,Pokemon,BRS,121
+Bidoof,1,Pokemon,BRS,120
+Charizard ex,3,Pokemon,OBF,125
 Charmader,4,Pokemon,PAF,7
 Charmeleon,2,Pokemon,PAF,8
-Charizard ex,3,Pokemon,OBF,125
-Bidoof,1,Pokemon,BRS,120
-Bibarel,1,Pokemon,BRS,121
-Pidgey,2,Pokemon,MEW,16
-Pidgeot ex,2,Pokemon,OBF,164
+Dusclops,1,Pokemon,SFA,19
+Dusknoir,1,Pokemon,SFA,20
+Duskull,2,Pokemon,SFA,18
+Fezandipiti ex,1,Pokemon,SFA,38
 Manaphy,1,Pokemon,BRS,41
-Prime Catcher,1,Trainer,,
-Iono,3,Trainer,,
-Professor's Research,2,Trainer,,
-Boss's Orders,2,Trainer,,
-Professor Turo's Scenario,1,Trainer,,
-Arven,4,Trainer,,
-Buddy-Buddy Poffin,4,Trainer,,
-Ultra Ball,4,Trainer,,
-Rare Candy,4,Trainer,,
-Super Rod,2,Trainer,,
-Switch,1,Trainer,,
-Counter Catcher,1,Trainer,,
-Lost Vacuum,1,Trainer,,
-Defiance Band,1,Trainer,,
-Artazon,2,Trainer,,
+Pidgeot ex,2,Pokemon,OBF,164
+Pidgey,2,Pokemon,MEW,16
+Arven,4,Supporter,,
+Boss's Orders,2,Supporter,,
+Iono,3,Supporter,,
+Professor Turo's Scenario,1,Supporter,,
+Professor's Research,2,Supporter,,
+Buddy-Buddy Poffin,4,Item,,
+Counter Catcher,1,Item,,
+Lost Vacuum,1,Item,,
+Prime Catcher - ACESPEC,1,Item,,
+Rare Candy,4,Item,,
+Super Rod,2,Item,,
+Switch,1,Item,,
+Ultra Ball,4,Item,,
+Defiance Band,1,Tool,,
+Artazon,2,Stadium,,
 Basic Fire Energy,6,Energy,,
