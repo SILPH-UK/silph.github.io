@@ -39,7 +39,8 @@
             margin-bottom: 20px;
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
@@ -103,10 +104,12 @@
             color: #777;
             text-align: right;
         }
+
         @media (max-width: 800px) {
             .deck-column {
                 display: none;
             }
+
             td.deck-column {
                 display: none;
             }
@@ -204,6 +207,14 @@
             const rows = content.split('\n');
             const deckList = {};
 
+            const typeMapping = {
+                'Trainer': 'Item',
+                'Trainer': 'Supporter',
+                'Trainer': 'Tool',
+                'Trainer': 'Stadium',
+                'Trainer': 'ACE SPEC',
+            };
+
             rows.forEach((row, index) => {
                 if (row.trim() !== '') {
                     const columns = row.split(',');
@@ -214,10 +225,12 @@
                         const cardSet = columns[3].trim();
                         const collectionNumber = columns[4].trim();
 
+                        const overallType = typeMapping[cardType] || cardType;
+
                         if (!deckList[cardType]) {
                             deckList[cardType] = [];
                         }
-                        deckList[cardType].push({ name: cardName, count: cardCount, set: cardSet, number: collectionNumber });
+                        deckList[overallType].push({ name: cardName, count: cardCount, set: cardSet, number: collectionNumber });
                     } else {
                         console.error(`Invalid row at index ${index}: ${row}`);
                     }
@@ -232,48 +245,73 @@
         }
 
         // Render the parsed decklist to the page, grouped by card type
+        Yes, you can organize the display by cardType after grouping into overall types.Each card type can be displayed as a separate section under its respective overall type.
+
+            Here's how you can adapt the renderDecklist function to achieve this:
+Updated renderDecklist Function
+
         function renderDecklist(deckList) {
             const cardListContainer = document.getElementById('card-list');
             cardListContainer.innerHTML = '';
 
-            for (const cardType in deckList) {
-                const section = document.createElement('div');
-                section.classList.add('type-section');
+            // Iterate over overall types
+            for (const overallType in deckList) {
+                const typeSection = document.createElement('div');
+                typeSection.classList.add('type-section');
 
-                const sectionHeader = document.createElement('div');
-                sectionHeader.classList.add('type-header');
-                sectionHeader.textContent = cardType;
-                section.appendChild(sectionHeader);
+                // Add overall type header
+                const overallTypeHeader = document.createElement('div');
+                overallTypeHeader.classList.add('type-header');
+                overallTypeHeader.textContent = overallType;
+                typeSection.appendChild(overallTypeHeader);
 
-                const cardList = document.createElement('ul');
-                cardList.classList.add('card-list');
-                deckList[cardType].forEach(card => {
-                    const listItem = document.createElement('li');
-                    listItem.classList.add('card-item');
+                // Group cards by cardType within the overall type
+                const cardTypeGroups = {};
 
-                    const cardCount = document.createElement('span');
-                    cardCount.classList.add('card-count');
-                    cardCount.textContent = card.count;
+                deckList[overallType].forEach(card => {
+                    if (!cardTypeGroups[card.type]) {
+                        cardTypeGroups[card.type] = [];
+                    }
+                    cardTypeGroups[card.type].push(card);
+                });
 
-                    const cardName = document.createElement('span');
-                    cardName.classList.add('card-name');
-                    cardName.textContent = card.name;
+                // Iterate over card types within the overall type
+                for (const cardType in cardTypeGroups) {
+                    const cardTypeHeader = document.createElement('div');
+                    cardTypeHeader.classList.add('type-header');
+                    cardTypeHeader.textContent = ` - ${cardType}`;
+                    typeSection.appendChild(cardTypeHeader);
 
-                    listItem.appendChild(cardCount);
-                    listItem.appendChild(cardName);
+                    const cardList = document.createElement('ul');
+                    cardList.classList.add('card-list');
+                    cardTypeGroups[cardType].forEach(card => {
+                        const listItem = document.createElement('li');
+                        listItem.classList.add('card-item');
 
-                    if (cardType === "Pokemon") {
+                        const cardCount = document.createElement('span');
+                        cardCount.classList.add('card-count');
+                        cardCount.textContent = card.count;
+
+                        const cardName = document.createElement('span');
+                        cardName.classList.add('card-name');
+                        cardName.textContent = card.name;
+
+                        listItem.appendChild(cardCount);
+                        listItem.appendChild(cardName);
+
+                        // Add card details (optional)
                         const cardDetails = document.createElement('span');
                         cardDetails.classList.add('card-details');
                         cardDetails.textContent = `Set: ${card.set}, #${card.number}`;
                         listItem.appendChild(cardDetails);
-                    }
 
-                    cardList.appendChild(listItem);
-                });
+                        cardList.appendChild(listItem);
+                    });
 
-                section.appendChild(cardList);
-                cardListContainer.appendChild(section);
+                    typeSection.appendChild(cardList);
+                }
+
+                cardListContainer.appendChild(typeSection);
             }
         }
 
