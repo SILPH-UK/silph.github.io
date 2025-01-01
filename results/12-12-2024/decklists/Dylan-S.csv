@@ -1,28 +1,28 @@
+Dudunsparce,4,Pokemon,TEF,129
+Dunsparce,4,Pokemon,TEF,128
+Lumineon V,1,Pokemon,SP,250
 Tinkatink,4,Pokemon,PAL,102
-Tinkatuff,1,Pokemon,PAL,103
 Tinkaton,1,Pokemon,PAL,105
 Tinkaton ex,1,Pokemon,SVP,31
 Tinkaton ex,1,Pokemon,PAL,240
-Lumineon V,1,Pokemon,SP,250
-Dunsparce,4,Pokemon,TEF,128
-Dudunsparce,4,Pokemon,TEF,129
-Lucky Helmet,1,Trainer,,
-Technical Machine: Evolution,1,Trainer,,
-Forest Seal Stone,1,Trainer,,
-Miriam,1,Trainer,,
-Nemona's Backpack,1,Trainer,,
-Hyper Aroma,1,Trainer,,
-Energy Search,1,Trainer,,
-Counter Catcher,1,Trainer,,
-Artazon,1,Trainer,,
-Boss's Orders,2,Trainer,,
-Jacq,2,Trainer,,
-Ultra Ball,2,Trainer,,
-Nest Ball,4,Trainer,,
-Nemona,4,Trainer,,
-Arven,4,Trainer,,
-Buddy-Buddy Poffin,4,Trainer,,
-Rare Candy,4,Trainer,,
+Tinkatuff,1,Pokemon,PAL,103
+Arven,4,Supporter,,
+Boss's Orders,2,Supporter,,
+Jacq,2,Supporter,,
+Miriam,1,Supporter,,
+Nemona,4,Supporter,,
+Buddy-Buddy Poffin,4,Item,,
+Counter Catcher,1,Item,,
+Energy Search,1,Item,,
+Hyper Aroma - ACESPEC,1,Item,,
+Nemona's Backpack,1,Item,,
+Nest Ball,4,Item,,
+Rare Candy,4,Item,,
+Ultra Ball,2,Item,,
+Forest Seal Stone,1,Tool,,
+Lucky Helmet,1,Tool,,
+Technical Machine: Evolution,1,Tool,,
+Artazon,1,Stadium,,
 Basic Psychic Energy,2,Energy,,
 Double Turbo Energy,4,Energy,,
 Reversal Energy,2,Energy,,

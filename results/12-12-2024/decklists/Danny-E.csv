@@ -1,29 +1,29 @@
+Alolan Exeggutor ex,1,Pokemon,SSP,133
+Cleff,1,Pokemon,OBF,202
+Dragapult ex,1,Pokemon,TWM,130
+Fezandipiti ex,1,Pokemon,SFA,38
+Giratina VSTAR,1,Pokemon,LOR,131
+Hoothoot,1,Pokemon,SCR,114
+Kyurem,1,Pokemon,SFA,47
+Mew ex,1,Pokemon,MEW,151
+Noctowl,1,Pokemon,SVP,141
+Radiant Charizard,1,Pokemon,CRZ,20
 Regidrago V,3,Pokemon,SIT,135
 Regidrago VSTAR,3,Pokemon,SIT,136
-Teal Mask Ogerpon ex,3,Pokemon,TWM,25
-Giratina VSTAR,1,Pokemon,LOR,131
-Mew ex,1,Pokemon,MEW,151
-Fezandipiti ex,1,Pokemon,SFA,38
-Kyurem,1,Pokemon,SFA,47
-Radiant Charizard,1,Pokemon,CRZ,20
-Hoothoot,1,Pokemon,SCR,114
-Noctowl,1,Pokemon,SVP,141
-Dragapult ex,1,Pokemon,TWM,130
-Alolan Exeggutor ex,1,Pokemon,SSP,133
 Squawkabilly ex,1,Pokemon,PAL,264
-Cleff,1,Pokemon,OBF,202
-Professor's Research,4,Trainer,,
-Iono,2,Trainer,,
-Boss's Orders,2,Trainer,,
-Ultra Ball,4,Trainer,,
-Nest Ball,4,Trainer,,
-Energy Switch,4,Trainer,,
-Earthen Vessel,3,Trainer,,
-Super Rod,2,Trainer,,
-Canceling Cologne,1,Trainer,,
-Switch,1,Trainer,,
-Prime Catcher,1,Trainer,,
-Jamming Tower,1,Trainer,,
-Temple of Sinnoh,1,Trainer,,
-Basic Grass Energy,7,Energy,,
+Teal Mask Ogerpon ex,3,Pokemon,TWM,25
+Boss's Orders,2,Supporter,,
+Iono,2,Supporter,,
+Professor's Research,4,Supporter,,
+Canceling Cologne,1,Item,,
+Earthen Vessel,3,Item,,
+Energy Switch,4,Item,,
+Nest Ball,4,Item,,
+Prime Catcher - ACESPEC,1,Item,,
+Super Rod,2,Item,,
+Switch,1,Item,,
+Ultra Ball,4,Item,,
+Jamming Tower,1,Stadium,,
+Temple of Sinnoh,1,Stadium,,
 Basic Fire Energy,3,Energy,,
+Basic Grass Energy,7,Energy,,
