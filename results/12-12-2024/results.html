@@ -208,11 +208,12 @@
             const deckList = {};
 
             const typeMapping = {
-                'Item': 'Trainer',
-                'Supporter': 'Trainer',
-                'Tool': 'Trainer',
-                'Stadium': 'Trainer',
-                'ACE SPEC': 'Trainer',
+                'Trainer': 'Item',
+                'Trainer': 'Supporter',
+                'Trainer': 'Tool',
+                'Trainer': 'Stadium',
+                'Trainer': 'ACE SPEC',
+                'Trainer': 'Trainer',
             };
 
             rows.forEach((row, index) => {
@@ -250,6 +251,11 @@
 
             // Iterate over overall types
             for (const overallType in deckList) {
+                if (!deckList[overallType] || !Array.isArray(deckList[overallType])) {
+                    console.warn(`Skipping undefined or invalid overall type: ${overallType}`);
+                    continue;
+                }
+
                 const typeSection = document.createElement('div');
                 typeSection.classList.add('type-section');
 
@@ -263,6 +269,10 @@
                 const cardTypeGroups = {};
 
                 deckList[overallType].forEach(card => {
+                    if (!card.type) {
+                        console.warn(`Skipping card without a type:`, card);
+                        return;
+                    }
                     if (!cardTypeGroups[card.type]) {
                         cardTypeGroups[card.type] = [];
                     }
@@ -276,43 +286,13 @@
                     cardTypeHeader.textContent = ` - ${cardType}`;
                     typeSection.appendChild(cardTypeHeader);
 
-                    const cardList = document.createElement('ul');
-                    cardList.classList.add('card-list');
-                    cardTypeGroups[cardType].forEach(card => {
-                        const listItem = document.createElement('li');
-                        listItem.classList.add('card-item');
+                    const cardList = document.crea
 
-                        const cardCount = document.createElement('span');
-                        cardCount.classList.add('card-count');
-                        cardCount.textContent = card.count;
 
-                        const cardName = document.createElement('span');
-                        cardName.classList.add('card-name');
-                        cardName.textContent = card.name;
-
-                        listItem.appendChild(cardCount);
-                        listItem.appendChild(cardName);
-
-                        // Add card details (optional)
-                        const cardDetails = document.createElement('span');
-                        cardDetails.classList.add('card-details');
-                        cardDetails.textContent = `Set: ${card.set}, #${card.number}`;
-                        listItem.appendChild(cardDetails);
-
-                        cardList.appendChild(listItem);
+                    // Load table CSV on page load
+                    document.addEventListener('DOMContentLoaded', () => {
+                        populateTableFromCSV('./standings.csv'); // Adjust the path as needed
                     });
-
-                    typeSection.appendChild(cardList);
-                }
-
-                cardListContainer.appendChild(typeSection);
-            }
-        }
-
-        // Load table CSV on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            populateTableFromCSV('./standings.csv'); // Adjust the path as needed
-        });
     </script>
 </body>
 
