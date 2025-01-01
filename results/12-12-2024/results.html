@@ -155,7 +155,7 @@
                             const [place, name, deck, points, win, loss, draw] = row;
 
                             const tr = document.createElement('tr');
-                            tr.dataset.file = `./declists/${name.replace(/\s/g, '-')}.csv`; // Generate file name from name
+                            tr.dataset.file = `./decklists/${name.replace(/\s/g, '-')}.csv`; // Generate file name from name
                             tr.innerHTML = `
                                 <td>${place}</td>
                                 <td>${name}</td>
