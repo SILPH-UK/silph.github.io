@@ -40,11 +40,11 @@ function pad(number) {
     return (number < 10 ? "0" : "") + number;
 }
 
-function stopStopwatch() {
-    clearInterval(stopwatchInterval); // stop the interval
-    elapsedPausedTime = new Date().getTime() - startTime; // calculate elapsed paused time
-    stopwatchInterval = null; // reset the interval variable
-}
+//function stopStopwatch() {
+//    clearInterval(stopwatchInterval); // stop the interval
+//    elapsedPausedTime = new Date().getTime() - startTime; // calculate elapsed paused time
+//    stopwatchInterval = null; // reset the interval variable
+//}
 
 //function resetStopwatch() {
 //    stopStopwatch(); // stop the interval
