@@ -46,11 +46,11 @@ function stopStopwatch() {
     stopwatchInterval = null; // reset the interval variable
 }
 
-function resetStopwatch() {
-    stopStopwatch(); // stop the interval
-    elapsedPausedTime = 0; // reset the elapsed paused time variable
-    document.getElementById("timer-display").innerHTML = "00:00"; // reset the display
-}
+//function resetStopwatch() {
+//    stopStopwatch(); // stop the interval
+//    elapsedPausedTime = 0; // reset the elapsed paused time variable
+//    document.getElementById("timer-display").innerHTML = "00:00"; // reset the display
+//}
 
 // Countdown Timer Script
 let timer;
