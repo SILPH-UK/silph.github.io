@@ -70,15 +70,23 @@ function startTimer() {
 }
 
 function stopTimer() {
-    isRunning = false;
-    clearInterval(timer)
-    clearInterval(updateStopwatch);
+    if isRunning = true {
+        isRunning = false;
+        clearInterval(timer);
+    } else {
+        clearInterval(stopwatchInterval);
+        stopwatchInterval = null
+    }
 }
 
 function resetTimer() {
-    stopTimer();
-    totalSeconds = 0;
-    updateDisplay();
+    if isRunning = true {
+        stopTimer();
+        totalSeconds = 0;
+        updateDisplay();
+    } else {
+        document.getElementById("stopwatch").innerHTML = "00:00";
+    }
 }
 
 function adjustTimer() {
