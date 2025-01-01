@@ -132,10 +132,10 @@ function minutesFifty() {
 
 // Button scripts
 
-function stopThem {
-    stopTimer()
-    stopStopwatch()
-}
+//function stopThem {
+//    stopTimer()
+//    stopStopwatch()
+//}
 
 //function resetThem {
 //    resetTimer()
