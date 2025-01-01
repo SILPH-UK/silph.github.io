@@ -80,13 +80,10 @@ function stopTimer() {
 }
 
 function resetTimer() {
-    if isRunning = true {
-        stopTimer();
-        totalSeconds = 0;
-        updateDisplay();
-    } else {
-        // document.getElementById("stopwatch").innerHTML = "00:00";
-    }
+    stopTimer();
+    totalSeconds = 0;
+    updateDisplay();
+    // document.getElementById("stopwatch").innerHTML = "00:00";
 }
 
 function adjustTimer() {
