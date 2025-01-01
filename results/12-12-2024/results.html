@@ -176,7 +176,12 @@
                                 <td>${draw}</td>
                             `;
 
-                            tr.addEventListener('click', () => fetchCSV(tr.dataset.file));
+                            // Scroll to the decklist section when clicked
+                            tr.addEventListener('click', () => {
+                                fetchCSV(tr.dataset.file);
+                                const decklistContainer = document.getElementById('decklist');
+                                decklistContainer.scrollIntoView({ behavior: 'smooth' });
+                            });
                             tbody.appendChild(tr);
                         } else {
                             console.error(`Skipping invalid row at index ${index}:`, row);
