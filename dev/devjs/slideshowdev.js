@@ -137,10 +137,10 @@ function stopThem {
     stopStopwatch()
 }
 
-function resetThem {
-    resetTimer()
-    resetStopwatch()
-}
+//function resetThem {
+//    resetTimer()
+//    resetStopwatch()
+//}
 
 // Timer Visibility Toggle
 function toggleTimerVisibility() {
