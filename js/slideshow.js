@@ -72,7 +72,7 @@ function startTimer() {
 function stopTimer() {
     isRunning = false;
     clearInterval(timer)
-    clearInterval(stopwatchInterval);
+    clearInterval(updateStopwatch);
 }
 
 function resetTimer() {
