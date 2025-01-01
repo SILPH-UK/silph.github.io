@@ -71,7 +71,8 @@ function startTimer() {
 
 function stopTimer() {
     isRunning = false;
-    clearInterval(timer);
+    clearInterval(timer)
+    clearInterval(stopwatchInterval);
 }
 
 function resetTimer() {
