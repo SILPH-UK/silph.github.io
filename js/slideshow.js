@@ -11,7 +11,7 @@ function showSlides() {
     });
     slideIndex = (slideIndex + 1) % slides.length;
 }
-setInterval(showSlides, 30000); // Change slide every 30
+setInterval(showSlides, 30000); // Change slide every 30s
 
 // Stop Watch Script
 
