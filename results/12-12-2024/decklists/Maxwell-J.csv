@@ -1,32 +1,32 @@
 Charizard ex,2,Pokemon,OBF,215
 Charmander,1,Pokemon,MEW,4
 Charmander,1,Pokemon,PAF,7
-Terapagos ex,2,Pokemon,SCR,128
-Noctowl,4,Pokemon,SCR,115
-Hoothoot,4,Pokemon,SCR,114
-Fan Rotom,2,Pokemon,SCR,118
 Dusknoir,1,Pokemon,SFA,20
 Duskull,1,Pokemon,SFA,18
 Entei V,1,Pokemon,CRZ,GG36
+Fan Rotom,2,Pokemon,SCR,118
 Fezandipiti ex,1,Pokemon,SFA,38
+Hoothoot,4,Pokemon,SCR,114
 Manaphy,1,Pokemon,BRS,41
-Boss's Orders,1,Trainer,,
-Briar,1,Trainer,,
-Iono,2,Trainer,,
-Kieran,1,Trainer,,
-Mela,1,Trainer,,
-Professor Turo's Scenario,1,Trainer,,
-Professor's Research,1,Trainer,,
-Thorton,1,Trainer,,
-Buddy-Buddy Poffin,4,Trainer,,
-Counter Catcher,1,Trainer,,
-Lost Vacuum,1,Trainer,,
-Night Stretcher,2,Trainer,,
-Nest Ball,4,Trainer,,
-Prime Catcher,1,Trainer,,
-Rare Candy,3,Trainer,,
-Tera Orb,2,Trainer,,
-Ultra Ball,3,Trainer,,
-Forest Seal Stone,1,Trainer,,
-Area Zero Underdepths,2,Trainer,,
+Noctowl,4,Pokemon,SCR,115
+Terapagos ex,2,Pokemon,SCR,128
+Boss's Orders,1,Supporter,,
+Briar,1,Supporter,,
+Iono,2,Supporter,,
+Kieran,1,Supporter,,
+Mela,1,Supporter,,
+Professor Turo's Scenario,1,Supporter,,
+Professor's Research,1,Supporter,,
+Thorton,1,Supporter,,
+Buddy-Buddy Poffin,4,Item,,
+Counter Catcher,1,Item,,
+Lost Vacuum,1,Item,,
+Nest Ball,4,Item,,
+Night Stretcher,2,Item,,
+Prime Catcher - ACESPEC,1,Item,,
+Rare Candy,3,Item,,
+Tera Orb,2,Item,,
+Ultra Ball,3,Item,,
+Forest Seal Stone,1,Tool,,
+Area Zero Underdepths,2,Stadium,,
 Basic Fire Energy,6,Energy,,
