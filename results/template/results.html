@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Decklist from CSV</title>
+    <title>Movie Shack - XXX Challenge</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -33,8 +33,38 @@
             margin-bottom: 20px;
         }
 
-        .deck-header h2 {
-            margin: 0;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
+        }
+
+        .type-section {
+            margin-top: 30px;
+        }
+
+        .type-header {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
         }
 
         .card-list {
@@ -50,7 +80,6 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            /* Space items evenly */
         }
 
         .card-item:nth-child(even) {
@@ -60,7 +89,6 @@
         .card-name {
             font-weight: bold;
             flex-grow: 1;
-            /* Takes remaining space in the middle */
             margin-right: 10px;
         }
 
@@ -69,12 +97,6 @@
             color: #555;
             margin-right: 10px;
             flex: 0 0 50px;
-            /* Fixed width for consistent alignment */
-        }
-
-        .card-type {
-            font-size: 0.9em;
-            color: #777;
         }
 
         .card-details {
@@ -83,55 +105,42 @@
             text-align: right;
         }
 
-        .file-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
+        @media (max-width: 800px) {
+            .deck-column {
+                display: none;
+            }
 
-        .file-option {
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            width: 150px;
-            transition: background-color 0.3s ease;
-        }
-
-        .file-option:hover {
-            background-color: #0056b3;
-        }
-
-        .type-section {
-            margin-top: 30px;
-        }
-
-        .type-header {
-            font-size: 1.5em;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #333;
+            td.deck-column {
+                display: none;
+            }
         }
     </style>
 </head>
 
 <body>
-
     <div class="deck-container">
         <div class="deck-header">
-            <h1>Select a Decklist CSV</h1>
-            <p>Click on a decklist below to load the deck's information.</p>
+            <h1>Movie Shack</h1>
+            <h1>Challenge - XX/XX/XXXX</h1>
+            <p>Click on a decklist row to load the deck's information.</p>
         </div>
 
-        <div id="file-list" class="file-list">
-            <!-- List of available CSV options will be inserted here -->
-            <div class="file-option" data-file="./first.csv">1st Place - Regidrago</div>
-            <div class="file-option" data-file="./third.csv">3rd Place - Raging Bolt Ogerpon</div>
-        </div>
+        <table id="decklist-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th class="deck-column">Deck</th>
+                    <th>Points</th>
+                    <th>W</th>
+                    <th>L</th>
+                    <th>D</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be dynamically inserted here -->
+            </tbody>
+        </table>
 
         <div id="decklist" class="deck-container">
             <h2>Decklist</h2>
@@ -142,17 +151,51 @@
     </div>
 
     <script>
-        // Event listener for clicking on a CSV file option
-        document.querySelectorAll('.file-option').forEach(option => {
-            option.addEventListener('click', (event) => {
-                const fileName = event.target.dataset.file;
-                fetchCSV(fileName);
-            });
-        });
+        // Fetch and populate the main decklist table
+        function populateTableFromCSV(csvFilePath) {
+            fetch(csvFilePath)
+                .then(response => response.text())
+                .then(csvContent => {
+                    const rows = csvContent.split('\n').map(row => row.split(',').map(cell => cell.trim()));
+                    const tbody = document.querySelector('#decklist-table tbody');
+                    tbody.innerHTML = ''; // Clear existing rows
+
+                    rows.forEach((row, index) => {
+                        if (row.length >= 6) {
+                            const [place, name, deck, points, win, loss, draw] = row;
+
+                            const tr = document.createElement('tr');
+                            tr.dataset.file = `./decklists/${name.replace(/\s/g, '-')}.csv`; // Generate file name from name
+                            tr.innerHTML = `
+                                <td>${place}</td>
+                                <td>${name}</td>
+                                <td class="deck-column">${deck}</td>
+                                <td>${points}</td>
+                                <td>${win}</td>
+                                <td>${loss}</td>
+                                <td>${draw}</td>
+                            `;
+
+                            // Scroll to the decklist section when clicked
+                            tr.addEventListener('click', () => {
+                                fetchCSV(tr.dataset.file);
+                                const decklistContainer = document.getElementById('decklist');
+                                decklistContainer.scrollIntoView({ behavior: 'smooth' });
+                            });
+                            tbody.appendChild(tr);
+                        } else {
+                            console.error(`Skipping invalid row at index ${index}:`, row);
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading table CSV:', error);
+                    alert('Could not load the table data.');
+                });
+        }
 
         // Function to fetch the CSV file content from a specified path
         function fetchCSV(fileName) {
-            // Use the fetch API to load the CSV file
             fetch(fileName)
                 .then(response => response.text())
                 .then(content => {
@@ -166,11 +209,9 @@
 
         // Parse the CSV file content
         function parseCSV(content) {
-            // Split content into rows based on new lines
             const rows = content.split('\n');
             const deckList = {};
 
-            // Loop through rows and parse each one
             rows.forEach((row, index) => {
                 if (row.trim() !== '') {
                     const columns = row.split(',');
@@ -178,10 +219,9 @@
                         const cardName = columns[0].trim();
                         const cardCount = columns[1].trim();
                         const cardType = columns[2].trim();
-                        const cardSet = columns[3].trim(); // 4th field: Set
-                        const collectionNumber = columns[4].trim(); // 5th field: Collection Number
+                        const cardSet = columns[3].trim();
+                        const collectionNumber = columns[4].trim();
 
-                        // Group by card type
                         if (!deckList[cardType]) {
                             deckList[cardType] = [];
                         }
@@ -199,35 +239,33 @@
             }
         }
 
-        // Render the parsed decklist to the page, grouped by card type
         function renderDecklist(deckList) {
             const cardListContainer = document.getElementById('card-list');
-            cardListContainer.innerHTML = ''; // Clear existing deck list
+            cardListContainer.innerHTML = '';
 
-            // Loop through each card type group
             for (const cardType in deckList) {
                 const section = document.createElement('div');
                 section.classList.add('type-section');
 
-                // Create section header for the card type
+                // Calculate total card count for this type
+                const totalCardCount = deckList[cardType].reduce((sum, card) => sum + parseInt(card.count, 10), 0);
+
+                // Create section header with total card count
                 const sectionHeader = document.createElement('div');
                 sectionHeader.classList.add('type-header');
-                sectionHeader.textContent = cardType;
+                sectionHeader.textContent = `${cardType} (Total: ${totalCardCount})`;
                 section.appendChild(sectionHeader);
 
-                // Create the list for the cards of this type
                 const cardList = document.createElement('ul');
                 cardList.classList.add('card-list');
                 deckList[cardType].forEach(card => {
                     const listItem = document.createElement('li');
                     listItem.classList.add('card-item');
 
-                    // Count on the left
                     const cardCount = document.createElement('span');
                     cardCount.classList.add('card-count');
                     cardCount.textContent = card.count;
 
-                    // Card name in the middle
                     const cardName = document.createElement('span');
                     cardName.classList.add('card-name');
                     cardName.textContent = card.name;
@@ -235,7 +273,6 @@
                     listItem.appendChild(cardCount);
                     listItem.appendChild(cardName);
 
-                    // Add Set & Collector Number only for "Pokemon" card types
                     if (cardType === "Pokemon") {
                         const cardDetails = document.createElement('span');
                         cardDetails.classList.add('card-details');
@@ -246,17 +283,17 @@
                     cardList.appendChild(listItem);
                 });
 
-                // Append the card list to the section
                 section.appendChild(cardList);
-
-                // Append the section to the container
                 cardListContainer.appendChild(section);
             }
         }
 
 
+        // Load table CSV on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            populateTableFromCSV('./standings.csv'); // Adjust the path as needed
+        });
     </script>
-
 </body>
 
 </html>
