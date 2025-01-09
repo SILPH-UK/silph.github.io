@@ -11,7 +11,11 @@ Charmander,3,Pokemon,MEW,4
 Charmeleon,2,Pokemon,PAF,8
 Rotom V,1,Pokemon,LOR,58
 Duskull,1,Pokemon,BRS,60
+<<<<<<< HEAD
 Professor Turo's Scenario,1,Supporter,,
+=======
+Professor Turo's Scenario,1,
+>>>>>>> fb536caec5ab1b3f5ac7e7f179b5550ca7fd011b
 Boss's Orders,2,Supporter,,
 Thorton,1,Supporter,,
 Briar,1,Supporter,,

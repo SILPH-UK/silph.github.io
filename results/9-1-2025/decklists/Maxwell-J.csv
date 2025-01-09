@@ -28,4 +28,8 @@ Rescue Board,1,Tool,,
 Technical Machine: Evolution,2,Tool,,
 Basic Psychic Energy,4,Energy,,
 Basic Fire Energy,3,Energy,,
+<<<<<<< HEAD
 Basic Lightning Energy,3,Energy,,
+=======
+Basic Lightning Energy,3,Lightning,,
+>>>>>>> fb536caec5ab1b3f5ac7e7f179b5550ca7fd011b
