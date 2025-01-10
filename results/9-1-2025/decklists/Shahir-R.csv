@@ -1,5 +1,5 @@
 Drakloak,4,Pokemon,TWM,129
-Dreepy TWM,4,Pokemon,128
+Dreepy,4,Pokemon,TWM,128
 Dragapult ex,2,Pokemon,TWM,130
 Toedscool,1,Pokemon,PAR,16
 Toedscruel,1,Pokemon,PAR,17
@@ -21,7 +21,7 @@ Nest Ball,1,Item,,
 Tera Orb,1,Item,,
 Precious Trolley - ACESPEC,1,Item,,
 Rescue Board,1,Tool,,
-Technical Machine: Evolution,12Tool,,
+Technical Machine: Evolution,2,Tool,,
 Future Booster Energy Capsule,1,Tool,,
 Basic Lightning Energy,3,Energy,,
 Basic Fire Energy,4,Energy,,
