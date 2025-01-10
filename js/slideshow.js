@@ -11,7 +11,7 @@ function showSlides() {
     });
     slideIndex = (slideIndex + 1) % slides.length;
 }
-setInterval(showSlides, 30000); // Change slide every 30s
+setInterval(showSlides, 30000); // Change slide every 30 seconds
 
 // Stop Watch Script
 
@@ -38,6 +38,18 @@ function updateStopwatch() {
 function pad(number) {
     // add a leading zero if the number is less than 10
     return (number < 10 ? "0" : "") + number;
+}
+
+function stopStopwatch() {
+    clearInterval(stopwatchInterval); // stop the interval
+    elapsedPausedTime = new Date().getTime() - startTime; // calculate elapsed paused time
+    stopwatchInterval = null; // reset the interval variable
+}
+
+function resetStopwatch() {
+    stopStopwatch(); // stop the interval
+    elapsedPausedTime = 0; // reset the elapsed paused time variable
+    document.getElementById("timer-display").innerHTML = "00:00"; // reset the display
 }
 
 // Countdown Timer Script
@@ -116,6 +128,17 @@ function minutesFifty() {
         updateDisplay();
         startTimer();
     }
+}
+
+// Button scripts
+function stopThem() {
+    stopTimer()
+    stopStopwatch()
+}
+
+function resetThem() {
+    resetTimer()
+    resetStopwatch()
 }
 
 // Timer Visibility Toggle
