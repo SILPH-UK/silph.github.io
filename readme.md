@@ -14,7 +14,8 @@ TODO (content)
 
 TODO (DECK LISTS)
 Automate the input of names 1-3 based on file data
-
+highlight the currently viewed deck
+dark mode
 
 In Dev; Ready to Prod
 
