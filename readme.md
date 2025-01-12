@@ -16,6 +16,7 @@ TODO (DECK LISTS)
 Automate the input of names 1-3 based on file data
 highlight the currently viewed deck
 dark mode
+title is now Gimitless
 
 In Dev; Ready to Prod
 
