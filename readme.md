@@ -1,4 +1,5 @@
 TODO (code)
+- HOW IS THE TIMER STILL BROKEN IVE FIXED JT SO MANY TIMES?????
 - store and dynamically generate on the fly (CSV?)
 - Have brainwave 
 - Flag the readme file as exempt from page rebuild (https://www.reddit.com/r/github/comments/6hn3vz/exclude_readme_from_github_pages/ should be what we need?)
