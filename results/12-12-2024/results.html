@@ -273,7 +273,7 @@
                     listItem.appendChild(cardCount);
                     listItem.appendChild(cardName);
 
-                    if (cardType.normalize("NFC") === "Pokémon") {
+                    if (cardType === "Pokemon" || cardType === "Pokémon") {
                         const cardDetails = document.createElement('span');
                         cardDetails.classList.add('card-details');
                         cardDetails.textContent = `Set: ${card.set}, #${card.number}`;
