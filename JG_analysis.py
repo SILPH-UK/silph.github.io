@@ -19,18 +19,18 @@ all_decklists = []
 
 files_in_results = os.listdir(results_directory)
 
-# Process directories with dd-mm-yyyy naming
+# Process directories with yyyy-mm-dd naming
 for item in files_in_results:
     item_path = os.path.join(results_directory, item)
     
-    # Check if the item is a directory and matches the dd-mm-yyyy pattern
+    # Check if the item is a directory and matches the yyyy-mm-dd pattern
     if os.path.isdir(item_path) and len(item.split('-')) == 3:
-        day, month, year = item.split('-')
-        if day.isdigit() and month.isdigit() and year.isdigit():            
+        year, month, day = item.split('-')
+        if year.isdigit() and month.isdigit() and day.isdigit():            
             if os.path.exists(os.path.join(item_path, 'standings.csv')):                
                 standings = pd.read_csv(os.path.join(item_path, 'standings.csv'), header=None)              
                 standings.columns = ['Rank', 'Player', 'Deck', 'Total Points', 'Won', 'Lost', 'Draw']
-                standings['Date'] = f"{day}-{month}-{year}"
+                standings['Date'] = f"{year}-{month}-{day}"
                 all_standings.append(standings)
                 del standings
             else:
@@ -102,17 +102,24 @@ if not complete_decklists.empty:
     combined_df['Average In Deck'] = combined_df['Quantity'] / combined_df['Total Decks']
     combined_df.to_csv(os.path.join(current_directory, 'results', 'most_used_cards_by_date.csv'), index=False)
         
-    
-    complete_standings.groupby('Player')['Total Points'].max()\
-    .reset_index()\
-    .sort_values(by='Total Points', ascending=False)\
-    .to_csv(os.path.join(current_directory, 'results', 'top_players_to_date.csv'), index=False)
+    # Convert 'Won' and 'Draw' to numeric
+    complete_standings['Won'] = pd.to_numeric(complete_standings['Won'], errors='coerce')
+    complete_standings['Draw'] = pd.to_numeric(complete_standings['Draw'], errors='coerce')
+
+    # Calculate the custom score: 3 points per win, 1 point per draw
+    complete_standings['Custom Points'] = (complete_standings['Won'] * 3) + (complete_standings['Draw'])
+
+    # Group by player and sum their points across all events
+    complete_standings.groupby('Player')['Custom Points'].sum()\
+        .reset_index()\
+        .sort_values(by='Custom Points', ascending=False)\
+        .to_csv(os.path.join(current_directory, 'results', 'top_players_by_custom_points.csv'), index=False)
 
 
-    complete_standings.groupby('Deck')['Total Points'].max()\
-    .reset_index()\
-    .sort_values(by='Total Points', ascending=False)\
-    .to_csv(os.path.join(current_directory, 'results', 'best_performing_decks_to_date_by_points.csv'), index=False)
+    complete_standings.groupby('Deck')['Custom Points'].sum()\
+        .reset_index()\
+        .sort_values(by='Custom Points', ascending=False)\
+        .to_csv(os.path.join(current_directory, 'results', 'best_performing_decks_to_date_by_points.csv'), index=False)
 
     
     merged_df.groupby(['Deck', 'Card Name'])['Quantity'].mean().reset_index()\
