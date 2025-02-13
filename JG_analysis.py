@@ -83,6 +83,16 @@ complete_standings['Player'] = complete_standings['Player'].str.replace('-', ' '
 #print(complete_decklists)
 
 
+# Filter the cards with names ending in 'ACESPEC'
+acespec_cards = complete_decklists[complete_decklists['Card Name'].str.endswith('ACESPEC')]
+# Group by card name and sum the quantities
+acespec_summary = acespec_cards.groupby('Card Name')['Quantity'].sum().reset_index()
+# Sort by quantity in descending order
+acespec_summary_sorted = acespec_summary.sort_values(by='Quantity', ascending=False)
+# Export to CSV
+output_file_path = os.path.join(current_directory, 'acespec_cards_summary.csv')
+acespec_summary_sorted.to_csv(os.path.join(current_directory, 'results', 'acespec_cards_summary.csv'), index=False)
+
 
 merged_df = pd.merge(complete_decklists, complete_standings[['Player', 'Deck']], left_on='Player',right_on='Player', how='left')
 #print(merged_df)
@@ -149,7 +159,7 @@ if not complete_decklists.empty:
     average_cards_by_decktype=merged_df.groupby(['Deck', 'Card Name'])['Quantity'].mean().reset_index()\
         .sort_values(by=['Card Name', 'Quantity'], ascending=[True, False])
 
-    
+
     
 else:
     print("No decklist data to process.")
