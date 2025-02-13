@@ -109,11 +109,32 @@ if not complete_decklists.empty:
     # Calculate the custom score: 3 points per win, 1 point per draw
     complete_standings['Custom Points'] = (complete_standings['Won'] * 3) + (complete_standings['Draw'])
 
-    # Group by player and sum their points across all events
-    complete_standings.groupby('Player')['Custom Points'].sum()\
-        .reset_index()\
-        .sort_values(by='Custom Points', ascending=False)\
-        .to_csv(os.path.join(current_directory, 'results', 'top_players_by_custom_points.csv'), index=False)
+    # Group by player and aggregate wins, draws, and total points
+    player_summary = complete_standings.groupby('Player').agg(
+        Wins=('Won', 'sum'),
+        Draws=('Draw', 'sum'),
+        Total=('Custom Points', 'sum')
+    ).reset_index()
+
+    # Sort by total custom points
+    player_summary = player_summary.sort_values(by='Total', ascending=False)
+
+    # Save the results to a CSV
+    player_summary.to_csv(os.path.join(current_directory, 'results', 'top_players_with_wins_draws_points.csv'), index=False)
+
+
+    # Group by deck and aggregate wins, draws, and total points
+    deck_summary = complete_standings.groupby('Deck').agg(
+        Wins=('Won', 'sum'),
+        Draws=('Draw', 'sum'),
+        Total=('Custom Points', 'sum')
+    ).reset_index()
+
+    # Sort by total custom points
+    deck_summary = deck_summary.sort_values(by='Total', ascending=False)
+
+    # Save the results to a CSV
+    deck_summary.to_csv(os.path.join(current_directory, 'results', 'top_decks_with_wins_draws_points.csv'), index=False)
 
 
     complete_standings.groupby('Deck')['Custom Points'].sum()\
