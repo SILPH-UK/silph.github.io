@@ -24,7 +24,7 @@ for item in files_in_results:
     item_path = os.path.join(results_directory, item)
     
     # Check if the item is a directory and matches the dd-mm-yyyy pattern
-    if os.path.isdir(item_path) and len(item.split('-')) == 3:
+    if os.path.isdir(item_path) and len(item.split('-')) == 3 and item != 'template':
         day, month, year = item.split('-')
         if day.isdigit() and month.isdigit() and year.isdigit():            
             if os.path.exists(os.path.join(item_path, 'standings.csv')):                
@@ -37,7 +37,7 @@ for item in files_in_results:
                 print(f"'standings.csv' not found in {item_path}.")
                 
     decklist_path = os.path.join(item_path,"decklists")
-    if os.path.isdir(decklist_path):
+    if os.path.isdir(decklist_path)and item != 'template':
         print(f"Processing decklists in {decklist_path}")
         
         decklist_files = [f for f in os.listdir(decklist_path) if f.lower().endswith('.csv')]
@@ -50,6 +50,7 @@ for item in files_in_results:
                 decklist_df.columns = ['Card Name', 'Quantity', 'Card Type', 'Set Code', 'Set Number']
                 decklist_df['Player'] = str(decklist_file)[0:len(str(decklist_file))-4]
                 decklist_df['Date'] = f"{day}-{month}-{year}"
+                decklist_df['Date'] = pd.to_datetime(decklist_df['Date'], format='%d-%m-%Y')
                 
                 all_decklists.append(decklist_df)
                 del decklist_df
