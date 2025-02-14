@@ -171,23 +171,31 @@ else:
     
 #%% decklists over time
 # Count number of times each deck type was played at each tournament
+# Ensure 'Date' is in datetime format
+complete_standings['Date'] = pd.to_datetime(complete_standings['Date'])
+
+# Count number of times each deck type was played at each tournament
 deck_trends = complete_standings.groupby(['Date', 'Deck']).size().reset_index(name='Count')
 
 # Set plot style
 sns.set_style("whitegrid")
-plt.figure(figsize=(12, 6))
 
-# Plot each deck type's trend over time
+# Loop through each deck and create a separate graph
 for deck in deck_trends['Deck'].unique():
+    plt.figure(figsize=(10, 5))
     deck_data = deck_trends[deck_trends['Deck'] == deck]
-    plt.plot(deck_data['Date'], deck_data['Count'], marker='o', label=deck)
+    
+    plt.plot(deck_data['Date'], deck_data['Count'], marker='o', linestyle='-', color='b')
+    plt.xlabel("Tournament Date")
+    plt.ylabel("Number of Players Using Deck")
+    plt.title(f"Popularity of {deck} Over Time")
+    plt.xticks(rotation=45)
+    plt.yticks(range(0, max(deck_data['Count']) + 1))  # Ensure only integer values on y-axis
+    plt.grid(True, linestyle='--', alpha=0.7)
+    plt.tight_layout()
+    
+    # Save each plot to a file
+    plt.savefig(f"deck_popularity_{deck.replace(' ', '_')}.png")
+    plt.show()
 
-plt.xlabel("Tournament Date")
-plt.ylabel("Number of Players Using Deck")
-plt.title("Deck Popularity Over Time")
-plt.legend(title="Deck Type", bbox_to_anchor=(1.05, 1), loc='upper left')
-plt.xticks(rotation=45)
-plt.tight_layout()
-plt.show()
-plt.savefig("deck_popularity_over_time.png")
 plt.show()
