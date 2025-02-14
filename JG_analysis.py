@@ -10,7 +10,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
-
+import matplotlib.dates as mdates
 
 
 #%% Load Results
@@ -174,28 +174,48 @@ else:
 # Ensure 'Date' is in datetime format
 complete_standings['Date'] = pd.to_datetime(complete_standings['Date'])
 
+# Get overall min and max dates
+min_date = complete_standings['Date'].min()
+max_date = complete_standings['Date'].max()
+
 # Count number of times each deck type was played at each tournament
 deck_trends = complete_standings.groupby(['Date', 'Deck']).size().reset_index(name='Count')
+
+total_decks_per_tournament = complete_standings.groupby('Date').size().reset_index(name='Total Decks')
+deck_trends = deck_trends.merge(total_decks_per_tournament, on='Date', how='left')
+deck_trends['Percentage'] = (deck_trends['Count'] / deck_trends['Total Decks']) * 100
 
 # Set plot style
 sns.set_style("whitegrid")
 
 # Loop through each deck and create a separate graph
 for deck in deck_trends['Deck'].unique():
-    plt.figure(figsize=(10, 5))
     deck_data = deck_trends[deck_trends['Deck'] == deck]
     
-    plt.plot(deck_data['Date'], deck_data['Count'], marker='o', linestyle='-', color='b')
-    plt.xlabel("Tournament Date")
-    plt.ylabel("Number of Players Using Deck")
+    fig, ax1 = plt.subplots(figsize=(10, 5))
+    ax2 = ax1.twinx()
+    
+    ax1.plot(deck_data['Date'], deck_data['Count'], marker='o', linestyle='-', color='b', label="Number of Players")
+    ax2.plot(deck_data['Date'], deck_data['Percentage'], marker='s', linestyle='--', color='r', label="% of Total Decks")
+    
+    ax1.set_xlabel("Tournament Date")
+    ax1.set_ylabel("Number of Players Using Deck", color='b')
+    ax2.set_ylabel("Percentage of Total Decks (%)", color='r')
+    
+    ax1.set_yticks(range(0, max(deck_data['Count']) + 1))  # Ensure only integer values on primary y-axis
+    ax2.set_yticks(range(0, 101, 10))  # Ensure percentage scale from 0 to 100 with steps of 10
+    
+    ax1.set_xlim(min_date, max_date)  # Set x-axis limits to dataset-wide min and max dates
+    ax1.xaxis.set_major_locator(mdates.DayLocator(interval=7))  # Ensure uniform x-axis grid lines every 7 days
+    ax1.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
+    ax1.tick_params(axis='x', rotation=45)
+    
     plt.title(f"Popularity of {deck} Over Time")
-    plt.xticks(rotation=45)
-    plt.yticks(range(0, max(deck_data['Count']) + 1))  # Ensure only integer values on y-axis
-    plt.grid(True, linestyle='--', alpha=0.7)
+    ax1.grid(True, linestyle='--', alpha=0.7)
+    
+    fig.legend(loc="upper left", bbox_to_anchor=(0.1, 0.9))
     plt.tight_layout()
     
     # Save each plot to a file
     plt.savefig(f"deck_popularity_{deck.replace(' ', '_')}.png")
     plt.show()
-
-plt.show()
