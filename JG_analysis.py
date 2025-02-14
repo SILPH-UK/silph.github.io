@@ -215,7 +215,12 @@ for deck in deck_trends['Deck'].unique():
     
     fig.legend(loc="upper left", bbox_to_anchor=(0.1, 0.9))
     plt.tight_layout()
+    graph_directory = os.path.join(current_directory, "graph")
+    
+    if not os.path.exists(graph_directory):
+        print("Graph directory does not exist. Creating it now...")
+        os.makedirs(graph_directory, exist_ok=True)  # Create if it doesn’t exist
     
     # Save each plot to a file
-    plt.savefig(f"deck_popularity_{deck.replace(' ', '_')}.png")
+    plt.savefig(os.path.join(current_directory, 'graph',f"deck_popularity_{deck.replace(' ', '_')}.png"))
     plt.show()
