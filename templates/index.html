@@ -1,0 +1,16 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tournaments</title>
+</head>
+<body>
+    <h1>Available Tournaments</h1>
+    <ul>
+        {% for tournament in tournaments %}
+        <li><a href="/tournament/{{ tournament }}">{{ tournament }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

@@ -11,9 +11,55 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 import matplotlib.dates as mdates
+import pokebase as pb
+import requests
+from PIL import Image
+from io import BytesIO
+import matplotlib.ticker as mticker
+import pokemontcgsdk
+from pokemontcgsdk import RestClient
+from pokemontcgsdk import Card
+from pokemontcgsdk import Set
+RestClient.configure('3c23674e-0a0e-4a9d-8191-43fcbd09f2f4')
+
+#%%
+
+
+
+
+def make_transparent(image):
+    """Convert black background to transparent."""
+    image = image.convert("RGBA")  # Ensure it's RGBA format
+    data = image.getdata()
+
+    new_data = []
+    for item in data:
+        # If pixel is black (or close to black), make it transparent
+        if item[:3] == (0, 0, 0):
+            new_data.append((0, 0, 0, 0))  # Fully transparent
+        else:
+            new_data.append(item)  # Keep original color
+
+    image.putdata(new_data)
+    return image
+
+
+def get_pokemon_icon(name):
+    pokemon = pb.pokemon(name.lower())
+    return pokemon.sprites.front_default  # Default front sprite URL
+
 
 
 #%% Load Results
+deck_alternatives = {
+    "lost box": "comfey",
+    "pidgeot control": "pidgeot",
+    "terapazard": "terapagos",
+    "united wings": "flamigo",
+    "dragathorns": "dragapult",
+}
+
+
 current_directory = os.getcwd()
 results_directory = os.path.join(current_directory, 'results')
 
@@ -169,8 +215,8 @@ else:
     
     
     
-#%% decklists over time
-# Count number of times each deck type was played at each tournament
+#%%
+
 # Ensure 'Date' is in datetime format
 complete_standings['Date'] = pd.to_datetime(complete_standings['Date'])
 
@@ -178,18 +224,33 @@ complete_standings['Date'] = pd.to_datetime(complete_standings['Date'])
 min_date = complete_standings['Date'].min()
 max_date = complete_standings['Date'].max()
 
+# Generate all unique deck names and tournament dates
+all_decks = complete_standings['Deck'].unique()
+all_dates = complete_standings['Date'].unique()
+
+# Create a DataFrame with all combinations of dates and decks
+all_combinations = pd.MultiIndex.from_product([all_dates, all_decks], names=['Date', 'Deck']).to_frame(index=False)
+
 # Count number of times each deck type was played at each tournament
 deck_trends = complete_standings.groupby(['Date', 'Deck']).size().reset_index(name='Count')
 
+# Merge with the full range of dates and decks, filling missing values with 0
+deck_trends = all_combinations.merge(deck_trends, on=['Date', 'Deck'], how='left').fillna({'Count': 0})
+
+# Ensure 'Count' is in integer format
+deck_trends['Count'] = deck_trends['Count'].astype(int)
+
+# Calculate total decks per tournament
 total_decks_per_tournament = complete_standings.groupby('Date').size().reset_index(name='Total Decks')
-deck_trends = deck_trends.merge(total_decks_per_tournament, on='Date', how='left')
+deck_trends = deck_trends.merge(total_decks_per_tournament, on='Date', how='left').fillna({'Total Decks': 0})
 deck_trends['Percentage'] = (deck_trends['Count'] / deck_trends['Total Decks']) * 100
+deck_trends['Percentage'].fillna(0, inplace=True)
 
 # Set plot style
 sns.set_style("whitegrid")
 
 # Loop through each deck and create a separate graph
-for deck in deck_trends['Deck'].unique():
+for deck in all_decks:
     deck_data = deck_trends[deck_trends['Deck'] == deck]
     
     fig, ax1 = plt.subplots(figsize=(10, 5))
@@ -202,13 +263,14 @@ for deck in deck_trends['Deck'].unique():
     ax1.set_ylabel("Number of Players Using Deck", color='b')
     ax2.set_ylabel("Percentage of Total Decks (%)", color='r')
     
-    ax1.set_yticks(range(0, max(deck_data['Count']) + 1))  # Ensure only integer values on primary y-axis
-    ax2.set_yticks(range(0, 101, 10))  # Ensure percentage scale from 0 to 100 with steps of 10
-    
-    ax1.set_xlim(min_date, max_date)  # Set x-axis limits to dataset-wide min and max dates
-    ax1.xaxis.set_major_locator(mdates.DayLocator(interval=7))  # Ensure uniform x-axis grid lines every 7 days
+    ax1.set_xlim(min_date, max_date)
+    ax1.xaxis.set_major_locator(mdates.DayLocator(interval=7))
     ax1.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
     ax1.tick_params(axis='x', rotation=45)
+    
+    # Ensure only integer values on primary y-axis
+    ax1.yaxis.set_major_locator(mticker.MaxNLocator(integer=True))
+    ax2.yaxis.set_major_locator(mticker.MaxNLocator(nbins=10))  # Allow slight difference in scaling
     
     plt.title(f"Popularity of {deck} Over Time")
     ax1.grid(True, linestyle='--', alpha=0.7)
@@ -218,9 +280,32 @@ for deck in deck_trends['Deck'].unique():
     graph_directory = os.path.join(current_directory, "graph")
     
     if not os.path.exists(graph_directory):
-        print("Graph directory does not exist. Creating it now...")
-        os.makedirs(graph_directory, exist_ok=True)  # Create if it doesn’t exist
+        os.makedirs(graph_directory, exist_ok=True)
     
-    # Save each plot to a file
-    plt.savefig(os.path.join(current_directory, 'graph',f"deck_popularity_{deck.replace(' ', '_')}.png"))
+    # Try fetching deck icon
+    icon_url = None
+    try:
+        icon_url = get_pokemon_icon(deck.lower().replace(' ', '-'))
+        response = requests.get(icon_url)
+        response.raise_for_status()
+    except Exception:
+        if deck.lower() in deck_alternatives:
+            try:
+                alternative_pokemon = deck_alternatives[deck.lower()]
+                icon_url = get_pokemon_icon(alternative_pokemon)
+                response = requests.get(icon_url)
+                response.raise_for_status()
+            except Exception:
+                icon_url = None
+        else:
+            icon_url = None
+    
+    if icon_url:
+        icon = Image.open(BytesIO(response.content))
+        icon = make_transparent(icon)
+        newax = fig.add_axes([0.85, 0.8, 0.1, 0.1], anchor='NW', zorder=1)
+        newax.imshow(icon)
+        newax.axis("off")
+    
+    plt.savefig(os.path.join(graph_directory, f"deck_popularity_{deck.replace(' ', '_')}.png"))
     plt.show()
