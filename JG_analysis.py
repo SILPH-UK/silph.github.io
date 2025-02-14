@@ -7,6 +7,9 @@ Created on Wed Jan  1 19:07:28 2025
 
 import os
 import pandas as pd 
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
 
 
 
@@ -166,4 +169,25 @@ else:
     
     
     
-    
+#%% decklists over time
+# Count number of times each deck type was played at each tournament
+deck_trends = complete_standings.groupby(['Date', 'Deck']).size().reset_index(name='Count')
+
+# Set plot style
+sns.set_style("whitegrid")
+plt.figure(figsize=(12, 6))
+
+# Plot each deck type's trend over time
+for deck in deck_trends['Deck'].unique():
+    deck_data = deck_trends[deck_trends['Deck'] == deck]
+    plt.plot(deck_data['Date'], deck_data['Count'], marker='o', label=deck)
+
+plt.xlabel("Tournament Date")
+plt.ylabel("Number of Players Using Deck")
+plt.title("Deck Popularity Over Time")
+plt.legend(title="Deck Type", bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+plt.savefig("deck_popularity_over_time.png")
+plt.show()
