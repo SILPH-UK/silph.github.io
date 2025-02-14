@@ -8,7 +8,7 @@
     <h1>Available Tournaments</h1>
     <ul>
         {% for tournament in tournaments %}
-        <li><a href="/tournament/{{ tournament }}">{{ tournament }}</a></li>
+        <li><a href="{{path}}\static_site\{{ tournament }}\index.html">{{ tournament }}</a></li>
         {% endfor %}
     </ul>
 </body>

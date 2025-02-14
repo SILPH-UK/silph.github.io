@@ -21,7 +21,9 @@ from pokemontcgsdk import RestClient
 from pokemontcgsdk import Card
 from pokemontcgsdk import Set
 RestClient.configure('3c23674e-0a0e-4a9d-8191-43fcbd09f2f4')
-
+card_name = "pok*gear"
+card_name = "pok*stop"
+common_cards = Card.where(q=f'name:"{card_name}"')
 #%%
 
 

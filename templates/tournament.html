@@ -8,7 +8,7 @@
     <h1>Players in {{ date }} Tournament</h1>
     <ul>
         {% for player in players %}
-        <li><a href="/tournament/{{ date }}/{{ player }}">{{ player }}</a></li>
+        <li><a href="{{path}}\static_site\{{ date }}\{{ player }}.html">{{ player }}</a></li>
         {% endfor %}
     </ul>
     <a href="/">Back to tournaments</a>
