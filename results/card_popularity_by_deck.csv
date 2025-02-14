@@ -1,25 +1,24 @@
 Deck,Card Name,Quantity
-Archaludon,Basic Metal Energy,9.6
+Archaludon,Basic Metal Energy,9.5
 Archaludon,Aven,4.0
 Archaludon,Duraludon,4.0
 Archaludon,Ultra Ball,4.0
-Archaludon,Night Stretcher,3.8
-Archaludon,Professor's Research,3.5
-Archaludon,Archaludon ex,3.4
-Archaludon,Nest Ball,3.4
+Archaludon,Night Stretcher,3.5
+Archaludon,Archaludon ex,3.0
+Archaludon,Boss's Orders,3.0
 Archaludon,Call Bell,3.0
 Archaludon,Earthen Vessel,3.0
 Archaludon,Iono,3.0
+Archaludon,Professor's Research,3.0
 Archaludon,Trekking Shoes,3.0
-Archaludon,Boss's Orders,2.8
-Archaludon,Pokegear 3.0,2.2
-Archaludon,Jamming Tower,2.0
+Archaludon,Nest Ball,2.5
+Archaludon,Pokegear 3.0,2.5
 Archaludon,Pokestop,2.0
 Archaludon,Staryu,2.0
 Archaludon,Technical Machine: Turbo Energize,2.0
-Archaludon,Origin Forme Dialga V,1.6
-Archaludon,Origin Forme Dialga VSTAR,1.6
-Archaludon,Professor Turo's Scenario,1.6
+Archaludon,Origin Forme Dialga V,1.5
+Archaludon,Origin Forme Dialga VSTAR,1.5
+Archaludon,Professor Turo's Scenario,1.5
 Archaludon,Canceling Cologne,1.0
 Archaludon,Counter Catcher,1.0
 Archaludon,Fezandipiti ex,1.0
@@ -30,77 +29,38 @@ Archaludon,Pal Pad,1.0
 Archaludon,Precious Trolley - ACESPEC,1.0
 Archaludon,Radiant Greninja,1.0
 Archaludon,Relicanth,1.0
-Archaludon,Scoop Up Cyclone - ACESPEC,1.0
 Archaludon,Scramble Switch - ACESPEC,1.0
 Archaludon,Starmie,1.0
 Archaludon,Switch,1.0
-Archaludon,Thorton,1.0
 Archaludon,Vitality Band,1.0
-Ceruledge,Basic Fire Energy,11.0
-Ceruledge,Night Stretcher,4.0
-Ceruledge,Professor's Research,4.0
-Ceruledge,Ultra Ball,4.0
-Ceruledge,Basic Water Energy,3.0
-Ceruledge,Carmine,3.0
-Ceruledge,Ceruledge ex,3.0
-Ceruledge,Earthen Vessel,3.0
-Ceruledge,Jet Energy,3.0
-Ceruledge,Nest Ball,3.0
-Ceruledge,Mist Energy,2.0
-Ceruledge,Charcadet,1.3333333333333333
-Ceruledge,Academy at Night,1.0
-Ceruledge,Boss's Orders,1.0
-Ceruledge,Briar,1.0
-Ceruledge,Buddy-Buddy Poffin,1.0
-Ceruledge,Counter Catcher,1.0
-Ceruledge,Fan Rotom,1.0
-Ceruledge,Fezandipiti ex,1.0
-Ceruledge,Jamming Tower,1.0
-Ceruledge,Legacy Energy - ACESPEC,1.0
-Ceruledge,Manaphy,1.0
-Ceruledge,Pal Pad,1.0
-Ceruledge,Radiant Greninja,1.0
-Ceruledge,Squawkabilly ex,1.0
-Charizard,Basic Fire Energy,5.8
+Charizard,Basic Fire Energy,6.0
 Charizard,Arven,4.0
 Charizard,Buddy-Buddy Poffin,4.0
 Charizard,Charmader,4.0
-Charizard,Rare Candy,3.8
-Charizard,Ultra Ball,3.8
-Charizard,Charmander,3.6666666666666665
+Charizard,Rare Candy,4.0
+Charizard,Ultra Ball,4.0
 Charizard,Charizard ex,3.0
 Charizard,Iono,3.0
-Charizard,Nest Ball,3.0
 Charizard,Artazon,2.0
 Charizard,Boss's Orders,2.0
 Charizard,Charmeleon,2.0
+Charizard,Duskull,2.0
 Charizard,Pidgeot ex,2.0
-Charizard,Pidgeotto,2.0
 Charizard,Pidgey,2.0
 Charizard,Professor's Research,2.0
-Charizard,Duskull,1.8
-Charizard,Super Rod,1.8
+Charizard,Super Rod,2.0
 Charizard,Bibarel,1.0
 Charizard,Bidoof,1.0
-Charizard,Briar,1.0
-Charizard,Canceling Cologne,1.0
 Charizard,Counter Catcher,1.0
 Charizard,Defiance Band,1.0
 Charizard,Dusclops,1.0
 Charizard,Dusknoir,1.0
 Charizard,Fezandipiti ex,1.0
-Charizard,Forest Seal Stone,1.0
-Charizard,Grand Tree - ACESPEC,1.0
-Charizard,Hisuian Heavy Ball,1.0
 Charizard,Lost Vacuum,1.0
-Charizard,Lumineon V,1.0
 Charizard,Manaphy,1.0
-Charizard,Night Stretcher,1.0
 Charizard,Prime Catcher - ACESPEC,1.0
 Charizard,Professor Turo's Scenario,1.0
-Charizard,Rotom V,1.0
 Charizard,Switch,1.0
-Charizard,Thorton,1.0
 Chien Pao,Basic Water Energy,9.0
 Chien Pao,Buddy-Buddy Poffin,4.0
 Chien Pao,Irida,4.0
@@ -128,150 +88,31 @@ Chien Pao,Manaphy,1.0
 Chien Pao,Prime Catcher - ACESPEC,1.0
 Chien Pao,Radiant Greninja,1.0
 Chien Pao,Switch,1.0
-Cinderace,Arven,4.0
-Cinderace,Buddy-Buddy Poffin,4.0
-Cinderace,Dreepy,4.0
-Cinderace,Feather Ball,4.0
-Cinderace,Rare Candy,4.0
-Cinderace,Scorbunny,4.0
-Cinderace,Basic Fire Energy,3.5
-Cinderace,Basic Psychic Energy,3.0
-Cinderace,Cinderace ex,3.0
-Cinderace,Dragapult ex,3.0
-Cinderace,Drakloak,3.0
-Cinderace,Magma Basin,3.0
-Cinderace,Ultra Ball,3.0
-Cinderace,Nest Ball,2.5
-Cinderace,Basic Darkness Energy,2.0
-Cinderace,Basic Fighting Energy,2.0
-Cinderace,Double Turbo Energy,2.0
-Cinderace,Dusknoir,2.0
-Cinderace,Duskull,2.0
-Cinderace,Iono,2.0
-Cinderace,Night Stretcher,2.0
-Cinderace,Pidgey,2.0
-Cinderace,Boss's Orders,1.5
-Cinderace,Counter Catcher,1.5
-Cinderace,Crispin,1.5
-Cinderace,Cleffa,1.0
-Cinderace,Defiance Band,1.0
-Cinderace,Dusclops,1.0
-Cinderace,Earthen Vessel,1.0
-Cinderace,Fezandipiti ex,1.0
-Cinderace,Forest Seal Stone,1.0
-Cinderace,Lost Vacuum,1.0
-Cinderace,Lumineon V,1.0
-Cinderace,Manaphy,1.0
-Cinderace,Pidgeot ex,1.0
-Cinderace,Professor Turo's Scenario,1.0
-Cinderace,Raboot,1.0
-Cinderace,Radiant Alakazam,1.0
-Cinderace,Radiant Charizard,1.0
-Cinderace,Rescue Board,1.0
-Cinderace,Rotom V,1.0
-Cinderace,Roxanne,1.0
-Cinderace,Sparkling Crystal - ACESPEC,1.0
-Cinderace,Super Rod,1.0
-Cinderace,Switch,1.0
-Cinderace,Tatsugiri,1.0
-Cinderace,Temple of Sinnoh,1.0
-DragaThorns,Arven,4.0
-DragaThorns,Basic Fire Energy,4.0
-DragaThorns,Basic Psychic Energy,4.0
-DragaThorns,Crispin,4.0
-DragaThorns,Drakloak,4.0
-DragaThorns,Dreepy,4.0
-DragaThorns,Hoothoot,4.0
-DragaThorns,Noctowl,4.0
-DragaThorns,Pokegear 3.0,3.4
-DragaThorns,Basic Lightning Energy,2.8
-DragaThorns,Iron Thorns ex,2.7142857142857144
-DragaThorns,Dragapult,2.5
-DragaThorns,Ultra Ball,2.1666666666666665
-DragaThorns,Area Zero Underdepths,2.0
-DragaThorns,Boss's orders,2.0
-DragaThorns,Buddy-buddy Poffin,2.0
-DragaThorns,Charizard ex,2.0
-DragaThorns,Dragapult ex,2.0
-DragaThorns,Fan Rotom,2.0
-DragaThorns,Iono,2.0
-DragaThorns,Technical Machine: Evolution,2.0
-DragaThorns,Terapagos ex,2.0
-DragaThorns,Boss's Orders,1.8
-DragaThorns,Buddy-Buddy Poffin,1.6
-DragaThorns,Nest Ball,1.6
-DragaThorns,Night Stretcher,1.5
-DragaThorns,Rare Candy,1.5
-DragaThorns,Tera Orb,1.3333333333333333
-DragaThorns,Basic Darkness Energy,1.0
-DragaThorns,Briar,1.0
-DragaThorns,Charmander,1.0
-DragaThorns,Counter Catcher,1.0
-DragaThorns,Dusknoir,1.0
-DragaThorns,Duskull,1.0
-DragaThorns,Earthen Vessel,1.0
-DragaThorns,Energy Switch,1.0
-DragaThorns,Entei V,1.0
-DragaThorns,Fezandipiti ex,1.0
-DragaThorns,Forest Seal Stone,1.0
-DragaThorns,Future Booster Energy Capsule,1.0
-DragaThorns,Kieran,1.0
-DragaThorns,Klefki,1.0
-DragaThorns,Lost Vacuum,1.0
-DragaThorns,Manaphy,1.0
-DragaThorns,Mela,1.0
-DragaThorns,Munkidori,1.0
-DragaThorns,Pal Pad,1.0
-DragaThorns,Precious Trolley - ACESPEC,1.0
-DragaThorns,Prime Catcher - ACESPEC,1.0
-DragaThorns,Professor Turo's Scenario,1.0
-DragaThorns,Professor's Research,1.0
-DragaThorns,Radiant Alakazam,1.0
-DragaThorns,Rescue Board,1.0
-DragaThorns,Super Rod,1.0
-DragaThorns,Switch,1.0
-DragaThorns,Thorton,1.0
-DragaThorns,Toedscool,1.0
-DragaThorns,Toedscruel,1.0
-DragaThorns,Toedscrul,1.0
 Dragapult,Arven,4.0
 Dragapult,Buddy-Buddy Poffin,4.0
 Dragapult,Dreepy,4.0
-Dragapult,Feather Ball,4.0
 Dragapult,Rare Candy,4.0
-Dragapult,Scorbunny,4.0
-Dragapult,Basic Fire Energy,3.3333333333333335
+Dragapult,Basic Fire Energy,3.0
 Dragapult,Basic Psychic Energy,3.0
-Dragapult,Cinderace ex,3.0
 Dragapult,Drakloak,3.0
-Dragapult,Magma Basin,3.0
+Dragapult,Nest Ball,3.0
 Dragapult,Ultra Ball,3.0
-Dragapult,Nest Ball,2.6666666666666665
-Dragapult,Basic Darkness Energy,2.0
-Dragapult,Basic Fighting Energy,2.0
-Dragapult,Double Turbo Energy,2.0
+Dragapult,Counter Catcher,2.0
 Dragapult,Dragapult ex,2.0
 Dragapult,Iono,2.0
-Dragapult,Pidgey,2.0
-Dragapult,Counter Catcher,1.6666666666666667
 Dragapult,Dusknoir,1.5
 Dragapult,Duskull,1.5
 Dragapult,Earthen Vessel,1.5
 Dragapult,Night Stretcher,1.5
-Dragapult,Boss's Orders,1.3333333333333333
-Dragapult,Crispin,1.3333333333333333
-Dragapult,Cleffa,1.0
-Dragapult,Defiance Band,1.0
+Dragapult,Boss's Orders,1.0
+Dragapult,Crispin,1.0
 Dragapult,Dusclops,1.0
 Dragapult,Fezandipiti ex,1.0
 Dragapult,Forest Seal Stone,1.0
 Dragapult,Hisuian Heavy Ball,1.0
 Dragapult,Lost Vacuum,1.0
 Dragapult,Lumineon V,1.0
-Dragapult,Manaphy,1.0
-Dragapult,Pidgeot ex,1.0
 Dragapult,Professor Turo's Scenario,1.0
-Dragapult,Raboot,1.0
 Dragapult,Radiant Alakazam,1.0
 Dragapult,Radiant Charizard,1.0
 Dragapult,Rescue Board,1.0
@@ -282,83 +123,46 @@ Dragapult,Super Rod,1.0
 Dragapult,Switch,1.0
 Dragapult,Tatsugiri,1.0
 Dragapult,Temple of Sinnoh,1.0
-Gardevoir,Basic Lightning Energy,9.0
-Gardevoir,Basic Psychic Energy,8.0
-Gardevoir,Electric Generator,4.0
+Gardevoir,Basic Psychic Energy,7.0
+Gardevoir,Buddy-Buddy Poffin,4.0
 Gardevoir,Kirlia,4.0
-Gardevoir,Buddy-Buddy Poffin,3.8
-Gardevoir,Arven,3.5
+Gardevoir,Ultra Ball,4.0
+Gardevoir,Arven,3.0
 Gardevoir,Iono,3.0
-Gardevoir,Magnemite,3.0
-Gardevoir,Ultra Ball,2.5
-Gardevoir,Basic Darkness Energy,2.3333333333333335
-Gardevoir,Ralts,2.2222222222222223
-Gardevoir,Deduction Kit,2.0
+Gardevoir,Bravery Charm,2.0
+Gardevoir,Counter Catcher,2.0
 Gardevoir,Dusknoir,2.0
 Gardevoir,Duskull,2.0
 Gardevoir,Earthen Vessel,2.0
-Gardevoir,Future Booster Energy Capsule,2.0
-Gardevoir,Iron Hands ex,2.0
-Gardevoir,Miraidon ex,2.0
-Gardevoir,Mist Energy,2.0
-Gardevoir,Munkidori,2.0
+Gardevoir,Gardevoir ex,2.0
+Gardevoir,Professor Turo's Scenario,2.0
+Gardevoir,Professor's Research,2.0
+Gardevoir,Ralts,2.0
 Gardevoir,Rare Candy,2.0
-Gardevoir,Squawkabilly ex,2.0
 Gardevoir,Super Rod,2.0
-Gardevoir,Trekking Shoes,2.0
-Gardevoir,Counter Catcher,1.8
-Gardevoir,Nest Ball,1.8
-Gardevoir,Artazon,1.6666666666666667
-Gardevoir,Bravery Charm,1.6666666666666667
-Gardevoir,Professor's Research,1.6666666666666667
-Gardevoir,Technical Machine: Evolution,1.6666666666666667
-Gardevoir,Gardevoir ex,1.5714285714285714
-Gardevoir,Professor Turo's Scenario,1.4
-Gardevoir,Drifloon,1.2
-Gardevoir,Scream Tail,1.2
-Gardevoir,Boss's Orders,1.1666666666666667
-Gardevoir,Academy at Night,1.0
+Gardevoir,Boss's Orders,1.0
+Gardevoir,Drifloon,1.0
 Gardevoir,Dusclops,1.0
-Gardevoir,Eri,1.0
-Gardevoir,Fezandipiti ex,1.0
-Gardevoir,Flutter Mane,1.0
-Gardevoir,Forest Seal Stone,1.0
-Gardevoir,Heavy Baton,1.0
-Gardevoir,Hero's Cape - ACESPEC,1.0
 Gardevoir,Hisuian Heavy Ball,1.0
 Gardevoir,Klefki,1.0
-Gardevoir,Lost Vacuum,1.0
-Gardevoir,Luxurious Cape,1.0
-Gardevoir,Magneton,1.0
-Gardevoir,Manaphy,1.0
-Gardevoir,Mawile,1.0
-Gardevoir,Mimikyu,1.0
-Gardevoir,Moonlit Hill,1.0
-Gardevoir,Night Stretcher,1.0
-Gardevoir,Pokegear 3.0,1.0
 Gardevoir,Pokemon League Headquarters,1.0
 Gardevoir,Radiant Greninja,1.0
-Gardevoir,Raikou V,1.0
-Gardevoir,Roxanne,1.0
+Gardevoir,Scream Tail,1.0
 Gardevoir,Secret Box - ACESPEC,1.0
 Gardevoir,Technical Machine: Devolution,1.0
-Gardevoir,Town Store,1.0
-Gardevoir,Unfair Stamp - ACESPEC,1.0
+Gardevoir,Technical Machine: Evolution,1.0
 Greninja,Rare Candy,4.0
-Greninja,Basic Lightning Energy,3.5
-Greninja,Arven,3.0
 Greninja,Basic Water Energy,3.0
+Greninja,Buddy-Buddy Poffin,3.0
 Greninja,Crispin,3.0
 Greninja,Irida,3.0
-Greninja,Nest Ball,3.0
-Greninja,Raikou V,3.0
 Greninja,Ultra Ball,3.0
-Greninja,Basic Grass Energy,2.5
-Greninja,Basic Metal Energy,2.5
-Greninja,Buddy-Buddy Poffin,2.5
-Greninja,Earthen Vessel,2.5
 Greninja,Area Zero Underdepths,2.0
+Greninja,Basic Grass Energy,2.0
+Greninja,Basic Lightning Energy,2.0
+Greninja,Basic Metal Energy,2.0
 Greninja,Boss's Orders,2.0
+Greninja,Earthen Vessel,2.0
 Greninja,Froakie,2.0
 Greninja,Greninja ex,2.0
 Greninja,Hoothoot,2.0
@@ -368,24 +172,16 @@ Greninja,Pidgeot ex,2.0
 Greninja,Pidgey,2.0
 Greninja,Super Rod,2.0
 Greninja,Switch,2.0
-Greninja,Trekking Shoes,2.0
-Greninja,lono,2.0
 Greninja,Bianca's Devotion,1.0
 Greninja,Bloodmoon Ursaluna ex,1.0
-Greninja,Bravery Charm,1.0
 Greninja,Counter Catcher,1.0
 Greninja,Double Turbo Energy,1.0
-Greninja,Fezandipiti ex,1.0
-Greninja,Hisuian Heavy Ball,1.0
 Greninja,Hisuian heavy Ball,1.0
-Greninja,Latias ex,1.0
-Greninja,Penny,1.0
 Greninja,Pikachu ex,1.0
 Greninja,Powerglass,1.0
 Greninja,Radiant Greninja,1.0
 Greninja,Sparkling Crystal - ACESPEC,1.0
 Greninja,Squawkabilly ex,1.0
-Greninja,Tera Orb,1.0
 Iron Thorns,Arven,4.0
 Iron Thorns,Basic Fire Energy,4.0
 Iron Thorns,Basic Psychic Energy,4.0
@@ -393,24 +189,20 @@ Iron Thorns,Crispin,4.0
 Iron Thorns,Drakloak,4.0
 Iron Thorns,Dreepy,4.0
 Iron Thorns,Pokegear 3.0,4.0
-Iron Thorns,Basic Lightning Energy,2.5
-Iron Thorns,Dragapult,2.5
+Iron Thorns,Basic Lightning Energy,3.0
 Iron Thorns,Boss's Orders,2.0
-Iron Thorns,Boss's orders,2.0
-Iron Thorns,Buddy-buddy Poffin,2.0
+Iron Thorns,Dragapult,2.0
 Iron Thorns,Iono,2.0
 Iron Thorns,Iron Thorns ex,2.0
 Iron Thorns,Technical Machine: Evolution,2.0
 Iron Thorns,Ultra Ball,2.0
-Iron Thorns,Night Stretcher,1.5
 Iron Thorns,Buddy-Buddy Poffin,1.0
 Iron Thorns,Counter Catcher,1.0
-Iron Thorns,Earthen Vessel,1.0
 Iron Thorns,Energy Switch,1.0
 Iron Thorns,Future Booster Energy Capsule,1.0
-Iron Thorns,Klefki,1.0
 Iron Thorns,Lost Vacuum,1.0
 Iron Thorns,Nest Ball,1.0
+Iron Thorns,Night Stretcher,1.0
 Iron Thorns,Precious Trolley - ACESPEC,1.0
 Iron Thorns,Professor Turo's Scenario,1.0
 Iron Thorns,Radiant Alakazam,1.0
@@ -418,50 +210,22 @@ Iron Thorns,Rare Candy,1.0
 Iron Thorns,Rescue Board,1.0
 Iron Thorns,Tera Orb,1.0
 Iron Thorns,Toedscool,1.0
-Iron Thorns,Toedscruel,1.0
 Iron Thorns,Toedscrul,1.0
-Kingdra,Basic Water Energy,12.0
-Kingdra,Rare Candy,4.0
-Kingdra,Buddy-Buddy Poffin,3.0
-Kingdra,Earthen Vessel,3.0
-Kingdra,Irida,3.0
-Kingdra,Baxcalibur,2.0
-Kingdra,Boss's Orders,2.0
-Kingdra,Frigibax,2.0
-Kingdra,Froakie,2.0
-Kingdra,Frogadier,2.0
-Kingdra,Greninja ex,2.0
-Kingdra,Jacq,2.0
-Kingdra,Kingra ex,2.0
-Kingdra,Superior Energy Retrieval,2.0
-Kingdra,Switch,2.0
-Kingdra,Tera Orb,2.0
-Kingdra,Horsea,1.3333333333333333
-Kingdra,Arctibax,1.0
-Kingdra,Iono,1.0
-Kingdra,Lady,1.0
-Kingdra,Lake Acuity,1.0
-Kingdra,Lost Vacuum,1.0
-Kingdra,Prime Catcher - ACESPEC,1.0
-Kingdra,Radiant Greninja,1.0
-Kingdra,Seadra,1.0
-Kingdra,Super Rod,1.0
-Lost Box,Buddy-buddy Poffin,4.0
 Lost Box,Colress's Experiment,4.0
 Lost Box,Comfey,4.0
 Lost Box,Mirage Gate,4.0
 Lost Box,Nest Ball,4.0
-Lost Box,Super Rod,3.5
-Lost Box,Switch,3.5
-Lost Box,Switch Cart,3.5
+Lost Box,Switch,4.0
 Lost Box,Basic Water Energy,3.0
 Lost Box,Buddy-Buddy Poffin,3.0
-Lost Box,Pokestop,2.5
+Lost Box,Super Rod,3.0
+Lost Box,Switch Cart,3.0
 Lost Box,Basic Grass Energy,2.0
 Lost Box,Basic Lightning Energy,2.0
 Lost Box,Basic Metal Energy,2.0
 Lost Box,Lost Vacuum,2.0
-Lost Box,Night Stretcher,1.5
+Lost Box,Night Stretcher,2.0
+Lost Box,Pokestop,2.0
 Lost Box,Basic Psychic Energy,1.0
 Lost Box,Bloodmoon Ursaluna ex,1.0
 Lost Box,Boss's Orders,1.0
@@ -481,29 +245,23 @@ Lost Box,Sableye,1.0
 Lugia,Archeops,4.0
 Lugia,Arven,4.0
 Lugia,Boss's Orders,4.0
-Lugia,Capturing Aroma,4.0
 Lugia,Double Turbo Energy,4.0
 Lugia,Gift Energy,4.0
 Lugia,Jet Energy,4.0
+Lugia,Nest Ball,4.0
 Lugia,Ultra Ball,4.0
+Lugia,Cinccino,3.0
 Lugia,Lugia V,3.0
 Lugia,Lugia VSTAR,3.0
+Lugia,Minccino,3.0
 Lugia,Mist Energy,3.0
-Lugia,Nest Ball,3.0
-Lugia,Cinccino,2.5
-Lugia,Minccino,2.5
-Lugia,Professor's Research,2.5
 Lugia,Iono,2.0
 Lugia,Lumineon V,2.0
-Lugia,Mesagoza,2.0
+Lugia,Professor's Research,2.0
 Lugia,Bloodmoon Ursaluna ex,1.0
 Lugia,Brilliant Blender - ACESPEC,1.0
 Lugia,Canceling Cologne,1.0
 Lugia,Flutter Mane,1.0
-Lugia,Iron Hands ex,1.0
-Lugia,Jacq,1.0
-Lugia,Legacy Energy - ACESPEC,1.0
-Lugia,Squawkabilly ex,1.0
 Lugia,V-Guard Energy,1.0
 Lugia,Vitality Band,1.0
 Lugia,Wyrdeer V,1.0
@@ -531,77 +289,6 @@ Meowscarada,Radiant Alakazam,1.0
 Meowscarada,Rotom V,1.0
 Meowscarada,Super Rod,1.0
 Meowscarada,Technical Machine: Evolution,1.0
-Miraidon,Basic Lightning Energy,9.0
-Miraidon,Basic Psychic Energy,7.0
-Miraidon,Buddy-Buddy Poffin,4.0
-Miraidon,Electric Generator,4.0
-Miraidon,Kirlia,4.0
-Miraidon,Arven,3.5
-Miraidon,Magnemite,3.0
-Miraidon,Ultra Ball,3.0
-Miraidon,Deduction Kit,2.0
-Miraidon,Dusknoir,2.0
-Miraidon,Duskull,2.0
-Miraidon,Earthen Vessel,2.0
-Miraidon,Future Booster Energy Capsule,2.0
-Miraidon,Gardevoir ex,2.0
-Miraidon,Iono,2.0
-Miraidon,Iron Hands ex,2.0
-Miraidon,Miraidon ex,2.0
-Miraidon,Mist Energy,2.0
-Miraidon,Nest Ball,2.0
-Miraidon,Professor Turo's Scenario,2.0
-Miraidon,Professor's Research,2.0
-Miraidon,Ralts,2.0
-Miraidon,Rare Candy,2.0
-Miraidon,Squawkabilly ex,2.0
-Miraidon,Super Rod,2.0
-Miraidon,Boss's Orders,1.5
-Miraidon,Bravery Charm,1.5
-Miraidon,Counter Catcher,1.5
-Miraidon,Academy at Night,1.0
-Miraidon,Drifloon,1.0
-Miraidon,Dusclops,1.0
-Miraidon,Fezandipiti ex,1.0
-Miraidon,Forest Seal Stone,1.0
-Miraidon,Heavy Baton,1.0
-Miraidon,Hisuian Heavy Ball,1.0
-Miraidon,Klefki,1.0
-Miraidon,Magneton,1.0
-Miraidon,Night Stretcher,1.0
-Miraidon,Pokegear 3.0,1.0
-Miraidon,Pokemon League Headquarters,1.0
-Miraidon,Radiant Greninja,1.0
-Miraidon,Raikou V,1.0
-Miraidon,Roxanne,1.0
-Miraidon,Scream Tail,1.0
-Miraidon,Secret Box - ACESPEC,1.0
-Miraidon,Technical Machine: Devolution,1.0
-Miraidon,Technical Machine: Evolution,1.0
-Palafin,Basic Water Energy,10.0
-Palafin,Finizen,4.0
-Palafin,Iono,4.0
-Palafin,Irida,4.0
-Palafin,Palafin ex,4.0
-Palafin,Buddy-Buddy Poffin,3.0
-Palafin,Palafin,3.0
-Palafin,Switch,3.0
-Palafin,Ultra Ball,3.0
-Palafin,Abra,2.0
-Palafin,Boss's Orders,2.0
-Palafin,Gastly,2.0
-Palafin,Gengar,2.0
-Palafin,Kieran,2.0
-Palafin,Luminous Energy,2.0
-Palafin,Arven,1.0
-Palafin,Bloodmoon Ursaluna ex,1.0
-Palafin,Energy Retrieval,1.0
-Palafin,Energy Search,1.0
-Palafin,Haunter,1.0
-Palafin,Hero's Cape - ACESPEC,1.0
-Palafin,Lana's Aid,1.0
-Palafin,Rare Candy,1.0
-Palafin,Super Rod,1.0
 Pidgeot Control,Rare Candy,4.0
 Pidgeot Control,Arven,3.0
 Pidgeot Control,Buddy-Buddy Poffin,3.0
@@ -612,7 +299,6 @@ Pidgeot Control,Crobat,2.0
 Pidgeot Control,Defiance Band,2.0
 Pidgeot Control,Duskull,2.0
 Pidgeot Control,Luxray,2.0
-Pidgeot Control,Morty's Conviction,2.0
 Pidgeot Control,Nest Ball,2.0
 Pidgeot Control,Night Stretcher,2.0
 Pidgeot Control,Pidgeot ex,2.0
@@ -634,52 +320,11 @@ Pidgeot Control,Lumineon V,1.0
 Pidgeot Control,Manaphy,1.0
 Pidgeot Control,Maximum Belt - ACESPEC,1.0
 Pidgeot Control,Meddling Memo,1.0
+Pidgeot Control,Morty's Conviction,1.0
 Pidgeot Control,Rotom V,1.0
 Pidgeot Control,Switch,1.0
 Pidgeot Control,Thorton,1.0
 Pidgeot Control,Xerosic's Machinations,1.0
-Pikachu,Rare Candy,4.0
-Pikachu,Basic Lightning Energy,3.5
-Pikachu,Arven,3.0
-Pikachu,Basic Water Energy,3.0
-Pikachu,Crispin,3.0
-Pikachu,Irida,3.0
-Pikachu,Nest Ball,3.0
-Pikachu,Raikou V,3.0
-Pikachu,Ultra Ball,3.0
-Pikachu,Basic Grass Energy,2.5
-Pikachu,Basic Metal Energy,2.5
-Pikachu,Buddy-Buddy Poffin,2.5
-Pikachu,Earthen Vessel,2.5
-Pikachu,Area Zero Underdepths,2.0
-Pikachu,Boss's Orders,2.0
-Pikachu,Froakie,2.0
-Pikachu,Greninja ex,2.0
-Pikachu,Hoothoot,2.0
-Pikachu,Night Stretcher,2.0
-Pikachu,Noctowl,2.0
-Pikachu,Pidgeot ex,2.0
-Pikachu,Pidgey,2.0
-Pikachu,Super Rod,2.0
-Pikachu,Switch,2.0
-Pikachu,Trekking Shoes,2.0
-Pikachu,lono,2.0
-Pikachu,Bianca's Devotion,1.0
-Pikachu,Bloodmoon Ursaluna ex,1.0
-Pikachu,Bravery Charm,1.0
-Pikachu,Counter Catcher,1.0
-Pikachu,Double Turbo Energy,1.0
-Pikachu,Fezandipiti ex,1.0
-Pikachu,Hisuian Heavy Ball,1.0
-Pikachu,Hisuian heavy Ball,1.0
-Pikachu,Latias ex,1.0
-Pikachu,Penny,1.0
-Pikachu,Pikachu ex,1.0
-Pikachu,Powerglass,1.0
-Pikachu,Radiant Greninja,1.0
-Pikachu,Sparkling Crystal - ACESPEC,1.0
-Pikachu,Squawkabilly ex,1.0
-Pikachu,Tera Orb,1.0
 Raging Bolt,Basic Grass Energy,6.0
 Raging Bolt,Earthen Vessel,4.0
 Raging Bolt,Professor Sada's Vitality,4.0
@@ -727,7 +372,6 @@ Regidrago,Canceling Cologne,1.0
 Regidrago,Cleffa,1.0
 Regidrago,Dragapult ex,1.0
 Regidrago,Dragonite,1.0
-Regidrago,Dragpult ex,1.0
 Regidrago,Fezandipiti ex,1.0
 Regidrago,Giratina VSTAR,1.0
 Regidrago,Haxorus,1.0
@@ -745,94 +389,37 @@ Regidrago,Squawkabilly ex,1.0
 Regidrago,Superior Energy Retrieval,1.0
 Regidrago,Switch,1.0
 Regidrago,Temple of Sinnoh,1.0
-Snorlax,Basic Fighting Energy,14.0
-Snorlax,Double Turbo Energy,4.0
-Snorlax,Bouffalant,2.0
-Snorlax,Fan Rotom,2.0
-Snorlax,Lake Acuity,2.0
-Snorlax,Nest Ball,2.0
-Snorlax,Bianca's Devotion,1.0
-Snorlax,Bill's Transfer,1.0
-Snorlax,Bloodmoon Ursaluna ex,1.0
-Snorlax,Boss's Orders,1.0
-Snorlax,Bravery Charm,1.0
-Snorlax,Chewtle,1.0
-Snorlax,Colress's Tenacity,1.0
-Snorlax,Cornerstone Mask Ogerpon ex,1.0
-Snorlax,Counter Gain,1.0
-Snorlax,Drednaw,1.0
-Snorlax,Energy Retrieval,1.0
-Snorlax,Hero's Cape - ACESPEC,1.0
-Snorlax,Jet Energy,1.0
-Snorlax,Kangaskhan,1.0
-Snorlax,Kangaskhan ex,1.0
-Snorlax,Kecleon,1.0
-Snorlax,Komala,1.0
-Snorlax,Larry,1.0
-Snorlax,Letter of Encouragement,1.0
-Snorlax,Lisia's Appeal,1.0
-Snorlax,Night Stretcher,1.0
-Snorlax,Penny,1.0
-Snorlax,Professor Turo's Scenario,1.0
-Snorlax,Snorlax,1.0
-Snorlax,Snorlax Doll,1.0
-Snorlax,Squawkabilly,1.0
-Snorlax,Squawkabilly ex,1.0
-Snorlax,Super Rod,1.0
-Snorlax,Superior Energy Retrieval,1.0
-Snorlax,Switch,1.0
-Snorlax,Tauros,1.0
-Terapazard,Basic Fire Energy,4.5
-Terapazard,Arven,4.0
-Terapazard,Basic Psychic Energy,4.0
-Terapazard,Crispin,4.0
-Terapazard,Drakloak,4.0
-Terapazard,Dreepy,4.0
+Terapazard,Basic Fire Energy,6.0
+Terapazard,Buddy-Buddy Poffin,4.0
 Terapazard,Hoothoot,4.0
-Terapazard,Iron Thorns ex,4.0
+Terapazard,Nest Ball,4.0
 Terapazard,Noctowl,4.0
-Terapazard,Basic Lightning Energy,3.0
-Terapazard,Pokegear 3.0,3.0
-Terapazard,Buddy-Buddy Poffin,2.5
-Terapazard,Nest Ball,2.5
-Terapazard,Ultra Ball,2.5
+Terapazard,Rare Candy,3.0
+Terapazard,Ultra Ball,3.0
 Terapazard,Area Zero Underdepths,2.0
 Terapazard,Charizard ex,2.0
-Terapazard,Dragapult ex,2.0
 Terapazard,Fan Rotom,2.0
 Terapazard,Iono,2.0
-Terapazard,Rare Candy,2.0
-Terapazard,Technical Machine: Evolution,2.0
+Terapazard,Night Stretcher,2.0
 Terapazard,Tera Orb,2.0
 Terapazard,Terapagos ex,2.0
-Terapazard,Boss's Orders,1.5
-Terapazard,Night Stretcher,1.5
+Terapazard,Boss's Orders,1.0
 Terapazard,Briar,1.0
 Terapazard,Charmander,1.0
 Terapazard,Counter Catcher,1.0
 Terapazard,Dusknoir,1.0
 Terapazard,Duskull,1.0
-Terapazard,Earthen Vessel,1.0
 Terapazard,Entei V,1.0
 Terapazard,Fezandipiti ex,1.0
 Terapazard,Forest Seal Stone,1.0
-Terapazard,Future Booster Energy Capsule,1.0
 Terapazard,Kieran,1.0
 Terapazard,Lost Vacuum,1.0
 Terapazard,Manaphy,1.0
 Terapazard,Mela,1.0
-Terapazard,Pal Pad,1.0
-Terapazard,Precious Trolley - ACESPEC,1.0
 Terapazard,Prime Catcher - ACESPEC,1.0
 Terapazard,Professor Turo's Scenario,1.0
 Terapazard,Professor's Research,1.0
-Terapazard,Radiant Alakazam,1.0
-Terapazard,Rescue Board,1.0
-Terapazard,Super Rod,1.0
-Terapazard,Switch,1.0
 Terapazard,Thorton,1.0
-Terapazard,Toedscool,1.0
-Terapazard,Toedscruel,1.0
 Tinkaton,Arven,4.0
 Tinkaton,Buddy-Buddy Poffin,4.0
 Tinkaton,Double Turbo Energy,4.0
