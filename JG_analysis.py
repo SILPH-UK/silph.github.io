@@ -19,18 +19,18 @@ all_decklists = []
 
 files_in_results = os.listdir(results_directory)
 
-# Process directories with dd-mm-yyyy naming
+# Process directories with yyyy-mm-dd naming
 for item in files_in_results:
     item_path = os.path.join(results_directory, item)
     
-    # Check if the item is a directory and matches the dd-mm-yyyy pattern
+    # Check if the item is a directory and matches the yyyy-mm-dd pattern
     if os.path.isdir(item_path) and len(item.split('-')) == 3:
-        day, month, year = item.split('-')
-        if day.isdigit() and month.isdigit() and year.isdigit():            
+        year, month, day = item.split('-')
+        if year.isdigit() and month.isdigit() and day.isdigit():            
             if os.path.exists(os.path.join(item_path, 'standings.csv')):                
                 standings = pd.read_csv(os.path.join(item_path, 'standings.csv'), header=None)              
                 standings.columns = ['Rank', 'Player', 'Deck', 'Total Points', 'Won', 'Lost', 'Draw']
-                standings['Date'] = f"{day}-{month}-{year}"
+                standings['Date'] = f"{year}-{month}-{day}"
                 all_standings.append(standings)
                 del standings
             else:
@@ -83,6 +83,16 @@ complete_standings['Player'] = complete_standings['Player'].str.replace('-', ' '
 #print(complete_decklists)
 
 
+# Filter the cards with names ending in 'ACESPEC'
+acespec_cards = complete_decklists[complete_decklists['Card Name'].str.endswith('ACESPEC')]
+# Group by card name and sum the quantities
+acespec_summary = acespec_cards.groupby('Card Name')['Quantity'].sum().reset_index()
+# Sort by quantity in descending order
+acespec_summary_sorted = acespec_summary.sort_values(by='Quantity', ascending=False)
+# Export to CSV
+output_file_path = os.path.join(current_directory, 'acespec_cards_summary.csv')
+acespec_summary_sorted.to_csv(os.path.join(current_directory, 'results', 'acespec_cards_summary.csv'), index=False)
+
 
 merged_df = pd.merge(complete_decklists, complete_standings[['Player', 'Deck']], left_on='Player',right_on='Player', how='left')
 #print(merged_df)
@@ -102,17 +112,45 @@ if not complete_decklists.empty:
     combined_df['Average In Deck'] = combined_df['Quantity'] / combined_df['Total Decks']
     combined_df.to_csv(os.path.join(current_directory, 'results', 'most_used_cards_by_date.csv'), index=False)
         
-    
-    complete_standings.groupby('Player')['Total Points'].max()\
-    .reset_index()\
-    .sort_values(by='Total Points', ascending=False)\
-    .to_csv(os.path.join(current_directory, 'results', 'top_players_to_date.csv'), index=False)
+    # Convert 'Won' and 'Draw' to numeric
+    complete_standings['Won'] = pd.to_numeric(complete_standings['Won'], errors='coerce')
+    complete_standings['Draw'] = pd.to_numeric(complete_standings['Draw'], errors='coerce')
+
+    # Calculate the custom score: 3 points per win, 1 point per draw
+    complete_standings['Custom Points'] = (complete_standings['Won'] * 3) + (complete_standings['Draw'])
+
+    # Group by player and aggregate wins, draws, and total points
+    player_summary = complete_standings.groupby('Player').agg(
+        Wins=('Won', 'sum'),
+        Draws=('Draw', 'sum'),
+        Total=('Custom Points', 'sum')
+    ).reset_index()
+
+    # Sort by total custom points
+    player_summary = player_summary.sort_values(by='Total', ascending=False)
+
+    # Save the results to a CSV
+    player_summary.to_csv(os.path.join(current_directory, 'results', 'top_players_with_wins_draws_points.csv'), index=False)
 
 
-    complete_standings.groupby('Deck')['Total Points'].max()\
-    .reset_index()\
-    .sort_values(by='Total Points', ascending=False)\
-    .to_csv(os.path.join(current_directory, 'results', 'best_performing_decks_to_date_by_points.csv'), index=False)
+    # Group by deck and aggregate wins, draws, and total points
+    deck_summary = complete_standings.groupby('Deck').agg(
+        Wins=('Won', 'sum'),
+        Draws=('Draw', 'sum'),
+        Total=('Custom Points', 'sum')
+    ).reset_index()
+
+    # Sort by total custom points
+    deck_summary = deck_summary.sort_values(by='Total', ascending=False)
+
+    # Save the results to a CSV
+    deck_summary.to_csv(os.path.join(current_directory, 'results', 'top_decks_with_wins_draws_points.csv'), index=False)
+
+
+    complete_standings.groupby('Deck')['Custom Points'].sum()\
+        .reset_index()\
+        .sort_values(by='Custom Points', ascending=False)\
+        .to_csv(os.path.join(current_directory, 'results', 'best_performing_decks_to_date_by_points.csv'), index=False)
 
     
     merged_df.groupby(['Deck', 'Card Name'])['Quantity'].mean().reset_index()\
@@ -121,7 +159,7 @@ if not complete_decklists.empty:
     average_cards_by_decktype=merged_df.groupby(['Deck', 'Card Name'])['Quantity'].mean().reset_index()\
         .sort_values(by=['Card Name', 'Quantity'], ascending=[True, False])
 
-    
+
     
 else:
     print("No decklist data to process.")
