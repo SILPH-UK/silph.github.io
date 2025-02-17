@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage with Dynamic Links</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+        }
+        .link-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .link-list li {
+            margin: 20px 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .link-list a, .link-list button {
+            display: block;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            min-width: 200px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        .link-list a:hover, .link-list button:hover {
+            background-color: #367c39;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Results Page</h1>
+        <label for="seasonSelect">Select Season:</label>
+        <select id="seasonSelect" onchange="updateSeason()">
+            <option value="s1">2024-2025</option>
+            <!-- <option value="season2">Season 2</option> -->
+        </select>
+        <ul class="link-list" id="dynamicLinks"></ul>
+    </div>
+    <script>
+        const seasons = {
+            s1: {
+                cups: [
+                    { name: "Q3 Cup - 08/02/2025", url: "results/2025-02-08/results.html" },
+                ],
+                challenges: [
+                    { name: "Dec Challenge - 12/12/2024", url: "results/2024-12-12/results.html" },
+                    { name: "Jan Challenge - 09/01/2025", url: "results/2025-01-09/results.html" },
+                    { name: "Feb Challenge - 13/02/2025", url: "results/2025-02-13/results.html" }
+                ]
+            },
+            season2: {
+                cups: [
+                    { name: "S2 Cup 3", url: "cup3.html" },
+                    { name: "S2 Cup 4", url: "cup4.html" }
+                ],
+                challenges: [
+                    { name: "S2 Challenge 3", url: "challenge3.html" },
+                    { name: "S2 Challenge 4", url: "challenge4.html" }
+                ]
+            }
+        };
+
+        function updateSeason() {
+            const season = document.getElementById('seasonSelect').value;
+            const linkContainer = document.getElementById('dynamicLinks');
+            linkContainer.innerHTML = '';
+
+            const cupsButton = document.createElement('li');
+            const cupsBtn = document.createElement('button');
+            cupsBtn.textContent = 'Cups';
+            cupsBtn.onclick = () => loadSubpages('cups', season);
+            cupsButton.appendChild(cupsBtn);
+            linkContainer.appendChild(cupsButton);
+
+            const challengesButton = document.createElement('li');
+            const challengesBtn = document.createElement('button');
+            challengesBtn.textContent = 'Challenges';
+            challengesBtn.onclick = () => loadSubpages('challenges', season);
+            challengesButton.appendChild(challengesBtn);
+            linkContainer.appendChild(challengesButton);
+        }
+
+        function loadSubpages(category, season) {
+            const linkContainer = document.getElementById('dynamicLinks');
+            linkContainer.innerHTML = '';
+            seasons[season][category].forEach(page => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = page.url;
+                a.textContent = page.name;
+                li.appendChild(a);
+                linkContainer.appendChild(li);
+            });
+            const backButton = document.createElement('li');
+            const backBtn = document.createElement('button');
+            backBtn.textContent = 'Back';
+            backBtn.onclick = () => updateSeason(season);
+            backButton.appendChild(backBtn);
+            linkContainer.appendChild(backButton);
+        }
+
+        document.getElementById('seasonSelect').value = 's1';
+        updateSeason();
+    </script>
+</body>
+</html>
