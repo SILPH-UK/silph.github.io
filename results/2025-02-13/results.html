@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Movie Shack - Feb Challenge</title>
+    <title>Movie Shack - XXX Challenge</title>
     <link rel="stylesheet" href="https://wipedout36.github.io/css/results.css">
-</head>
+    <style>
+        #card-image-container {
+            border: 1px solid #ccc;
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            pointer-events: none; /* Ensure the container doesn't interfere with mouse events */
+            position: absolute;
+            display: none;
+        }
 
+        #card-image {
+            max-width: 200px; /* Adjust as needed */
+            height: auto;
+        }
+    </style>
+</head>
 <body>
     <div class="deck-container">
         <div class="deck-header">
             <h1>Movie Shack</h1>
-            <h1>Challenge - 13/2/2025</h1>
+            <h1>Challenge - XX/XX/XXXX</h1>
             <p>Click on a decklist row to load the deck's information.</p>
         </div>
-
         <table id="decklist-table">
             <thead>
                 <tr>
@@ -33,7 +46,6 @@
                 <!-- Rows will be dynamically inserted here -->
             </tbody>
         </table>
-
         <div id="decklist" class="deck-container">
             <h2>Decklist</h2>
             <div id="card-list">
@@ -41,23 +53,23 @@
             </div>
         </div>
     </div>
-
+    <div id="card-image-container" style="display: none; position: absolute;">
+        <img id="card-image" src="" alt="Card Image" />
+    </div>
     <script>
         // Fetch and populate the main decklist table
         function populateTableFromCSV(csvFilePath) {
             fetch(csvFilePath)
                 .then(response => response.text())
                 .then(csvContent => {
-                    const rows = csvContent.split('\n').map(row => row.split(',').map(cell => cell.trim()));
+                    const rows = csvContent.split('\\n').map(row => row.split(',').map(cell => cell.trim()));
                     const tbody = document.querySelector('#decklist-table tbody');
                     tbody.innerHTML = ''; // Clear existing rows
-
                     rows.forEach((row, index) => {
                         if (row.length >= 6) {
                             const [place, name, deck, points, win, loss, draw] = row;
-
                             const tr = document.createElement('tr');
-                            tr.dataset.file = `./decklists/${name.replace(/\s/g, '-')}.csv`; // Generate file name from name
+                            tr.dataset.file = `./decklists/${name.replace(/\\s/g, '-')}.csv`; // Generate file name from name
                             tr.innerHTML = `
                                 <td>${place}</td>
                                 <td>${name}</td>
@@ -67,7 +79,6 @@
                                 <td>${loss}</td>
                                 <td>${draw}</td>
                             `;
-
                             // Scroll to the decklist section when clicked
                             tr.addEventListener('click', () => {
                                 fetchCSV(tr.dataset.file);
@@ -101,9 +112,8 @@
 
         // Parse the CSV file content
         function parseCSV(content) {
-            const rows = content.split('\n');
+            const rows = content.split('\\n');
             const deckList = {};
-
             rows.forEach((row, index) => {
                 if (row.trim() !== '') {
                     const columns = row.split(',');
@@ -113,7 +123,6 @@
                         const cardType = columns[2].trim();
                         const cardSet = columns[3].trim();
                         const collectionNumber = columns[4].trim();
-
                         if (!deckList[cardType]) {
                             deckList[cardType] = [];
                         }
@@ -123,7 +132,6 @@
                     }
                 }
             });
-
             if (Object.keys(deckList).length > 0) {
                 renderDecklist(deckList);
             } else {
@@ -131,55 +139,93 @@
             }
         }
 
-        function renderDecklist(deckList) {
-            const cardListContainer = document.getElementById('card-list');
-            cardListContainer.innerHTML = '';
+// Function to show the card image on hover
+function showCardImage(cardName, event) {
+    const cardImageContainer = document.getElementById('card-image-container');
+    const cardImage = document.getElementById('card-image');
+    fetchCardImageUrl(cardName)
+        .then(imageUrl => {
+            cardImage.src = imageUrl;
+            cardImageContainer.style.display = 'block';
+            positionCardImage(event);
+        })
+        .catch(error => {
+            console.error('Error fetching card image:', error);
+        });
+}
 
-            for (const cardType in deckList) {
-                const section = document.createElement('div');
-                section.classList.add('type-section');
+// Function to hide the card image when not hovering
+function hideCardImage() {
+    const cardImageContainer = document.getElementById('card-image-container');
+    cardImageContainer.style.display = 'none';
+}
 
-                // Calculate total card count for this type
-                const totalCardCount = deckList[cardType].reduce((sum, card) => sum + parseInt(card.count, 10), 0);
+// Function to position the card image based on mouse coordinates
+function positionCardImage(event) {
+    const cardImageContainer = document.getElementById('card-image-container');
+    cardImageContainer.style.left = `${event.pageX + 10}px`; // Adjust the offset as needed
+    cardImageContainer.style.top = `${event.pageY + 10}px`; // Adjust the offset as needed
+}
 
-                // Create section header with total card count
-                const sectionHeader = document.createElement('div');
-                sectionHeader.classList.add('type-header');
-                sectionHeader.textContent = `${cardType} (Total: ${totalCardCount})`;
-                section.appendChild(sectionHeader);
-
-                const cardList = document.createElement('ul');
-                cardList.classList.add('card-list');
-                deckList[cardType].forEach(card => {
-                    const listItem = document.createElement('li');
-                    listItem.classList.add('card-item');
-
-                    const cardCount = document.createElement('span');
-                    cardCount.classList.add('card-count');
-                    cardCount.textContent = card.count;
-
-                    const cardName = document.createElement('span');
-                    cardName.classList.add('card-name');
-                    cardName.textContent = card.name;
-
-                    listItem.appendChild(cardCount);
-                    listItem.appendChild(cardName);
-
-                    if (cardType === "Pokemon" || cardType === "Pokémon") {
-                        const cardDetails = document.createElement('span');
-                        cardDetails.classList.add('card-details');
-                        cardDetails.textContent = `Set: ${card.set}, #${card.number}`;
-                        listItem.appendChild(cardDetails);
-                    }
-
-                    cardList.appendChild(listItem);
-                });
-
-                section.appendChild(cardList);
-                cardListContainer.appendChild(section);
-            }
+// Function to fetch the card image URL from the Pokémon TCG API
+function fetchCardImageUrl(cardName) {
+    const apiUrl = `https://api.pokemontcg.io/v2/cards?q=name:"${encodeURIComponent(cardName)}"`;
+    return fetch(apiUrl, {
+        headers: {
+            'X-Api-Key': '3c23674e-0a0e-4a9d-8191-43fcbd09f2f4' // Replace with your actual API key
         }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.data && data.data.length > 0 && data.data[0].images && data.data[0].images.large) {
+            return data.data[0].images.large;
+        } else {
+            throw new Error('Image URL not found');
+        }
+    });
+}
 
+// Update the renderDecklist function to add hover event listeners
+function renderDecklist(deckList) {
+    const cardListContainer = document.getElementById('card-list');
+    cardListContainer.innerHTML = '';
+    for (const cardType in deckList) {
+        const section = document.createElement('div');
+        section.classList.add('type-section');
+        const totalCardCount = deckList[cardType].reduce((sum, card) => sum + parseInt(card.count, 10), 0);
+        const sectionHeader = document.createElement('div');
+        sectionHeader.classList.add('type-header');
+        sectionHeader.textContent = `${cardType} (Total: ${totalCardCount})`;
+        section.appendChild(sectionHeader);
+        const cardList = document.createElement('ul');
+        cardList.classList.add('card-list');
+        deckList[cardType].forEach(card => {
+            const listItem = document.createElement('li');
+            listItem.classList.add('card-item');
+            const cardCount = document.createElement('span');
+            cardCount.classList.add('card-count');
+            cardCount.textContent = card.count;
+            const cardName = document.createElement('span');
+            cardName.classList.add('card-name');
+            cardName.textContent = card.name;
+            listItem.appendChild(cardCount);
+            listItem.appendChild(cardName);
+            if (cardType === "Pokemon" || cardType === "Pokémon") {
+                const cardDetails = document.createElement('span');
+                cardDetails.classList.add('card-details');
+                cardDetails.textContent = `Set: ${card.set}, #${card.number}`;
+                listItem.appendChild(cardDetails);
+            }
+            // Add hover event listeners
+            listItem.addEventListener('mouseover', (event) => showCardImage(card.name, event));
+            listItem.addEventListener('mousemove', positionCardImage);
+            listItem.addEventListener('mouseout', hideCardImage);
+            cardList.appendChild(listItem);
+        });
+        section.appendChild(cardList);
+        cardListContainer.appendChild(section);
+    }
+}
 
         // Load table CSV on page load
         document.addEventListener('DOMContentLoaded', () => {
@@ -187,5 +233,4 @@
         });
     </script>
 </body>
-
 </html>
