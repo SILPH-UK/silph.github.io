@@ -70,6 +70,9 @@
                     { name: "Feb Challenge - 13/02/2025", url: "results/2025-02-13/results.html" },
                     { name: "Jan Challenge - 09/01/2025", url: "results/2025-01-09/results.html" },
                     { name: "Dec Challenge - 12/12/2024", url: "results/2024-12-12/results.html" },                                      
+                ],
+                special: [
+                    { name: "EUIC 2025", url: "results/EUIC-2025/results.html"}
                 ]
             },
             season2: {
@@ -102,6 +105,13 @@
             challengesBtn.onclick = () => loadSubpages('challenges', season);
             challengesButton.appendChild(challengesBtn);
             linkContainer.appendChild(challengesButton);
+
+            const specialsButton = document.createElement('li');
+            const specialsBtn = document.createElement('button');
+            specialsBtn.textContent = 'Special Events';
+            specialsBtn.onclick = () => loadSubpages('special', season);
+            specialsButton.appendChild(specialsBtn);
+            linkContainer.appendChild(specialsButton);
         }
 
         function loadSubpages(category, season) {
