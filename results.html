@@ -10,6 +10,13 @@
             margin: 0;
             padding: 0;
             text-align: center;
+            background-color: white;
+            color: black;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .dark-mode {
+            background-color: #121212;
+            color: white;
         }
         .container {
             max-width: 800px;
@@ -46,7 +53,19 @@
             text-align: center;
         }
         .link-list a:hover, .link-list button:hover {
-            background-color: #007BFF;
+            background-color: #0056b3;
+        }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+        }
+        .dark-mode-toggle {
+            background: none;
+            border: none;
+            color: #007BFF;
+            cursor: pointer;
+            font-size: 12px;
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -56,36 +75,21 @@
         <label for="seasonSelect">Select Season:</label>
         <select id="seasonSelect" onchange="updateSeason()">
             <option value="s1">2024-2025</option>
-            <!-- <option value="season2">Season 2</option> -->
         </select>
         <ul class="link-list" id="dynamicLinks"></ul>
     </div>
+    <div class="footer">
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </div>
     <script>
-        const seasons = {
-            s1: {
-                cups: [
-                    { name: "Q3 Cup - 08/02/2025", url: "results/2025-02-08/results.html" },
-                ],
-                challenges: [
-                    { name: "Feb Challenge - 13/02/2025", url: "results/2025-02-13/results.html" },
-                    { name: "Jan Challenge - 09/01/2025", url: "results/2025-01-09/results.html" },
-                    { name: "Dec Challenge - 12/12/2024", url: "results/2024-12-12/results.html" },                                      
-                ],
-                special: [
-                    { name: "EUIC 2025", url: "results/EUIC-2025/results.html"}
-                ]
-            },
-            season2: {
-                cups: [
-                    { name: "S2 Cup 3", url: "cup3.html" },
-                    { name: "S2 Cup 4", url: "cup4.html" }
-                ],
-                challenges: [
-                    { name: "S2 Challenge 3", url: "challenge3.html" },
-                    { name: "S2 Challenge 4", url: "challenge4.html" }
-                ]
-            }
-        };
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+        
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
 
         function updateSeason() {
             const season = document.getElementById('seasonSelect').value;
