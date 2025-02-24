@@ -91,6 +91,32 @@
             document.body.classList.add('dark-mode');
         }
 
+        const seasons = {
+            s1: {
+                cups: [
+                    { name: "Q3 Cup - 08/02/2025", url: "results/2025-02-08/results.html" },
+                ],
+                challenges: [
+                    { name: "Feb Challenge - 13/02/2025", url: "results/2025-02-13/results.html" },
+                    { name: "Jan Challenge - 09/01/2025", url: "results/2025-01-09/results.html" },
+                    { name: "Dec Challenge - 12/12/2024", url: "results/2024-12-12/results.html" },                                      
+                ],
+                special: [
+                    { name: "EUIC 2025", url: "results/EUIC-2025/results.html"}
+                ]
+            },
+            season2: {
+                cups: [
+                    { name: "S2 Cup 3", url: "cup3.html" },
+                    { name: "S2 Cup 4", url: "cup4.html" }
+                ],
+                challenges: [
+                    { name: "S2 Challenge 3", url: "challenge3.html" },
+                    { name: "S2 Challenge 4", url: "challenge4.html" }
+                ]
+            }
+        };
+
         function updateSeason() {
             const season = document.getElementById('seasonSelect').value;
             const linkContainer = document.getElementById('dynamicLinks');
