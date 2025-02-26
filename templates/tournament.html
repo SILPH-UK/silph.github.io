@@ -1,0 +1,16 @@
+<!-- templates/tournament.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ date }} Tournament</title>
+</head>
+<body>
+    <h1>Players in {{ date }} Tournament</h1>
+    <ul>
+        {% for player in players %}
+        <li><a href="{{path}}\static_site\{{ date }}\{{ player }}.html">{{ player }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="/">Back to tournaments</a>
+</body>
+</html>

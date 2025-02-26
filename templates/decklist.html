@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ player }}'s Decklist - {{ date }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background: #333;
+            color: white;
+        }
+        img {
+            max-width: 100px;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+        img:hover {
+            transform: scale(2);
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>{{ player }}'s Decklist - {{ date }}</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Card Name</th>
+                <th>Quantity</th>
+                <th>Card Type</th>
+                <th>Set Code</th>
+                <th>Set Number</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in decklist.itertuples() %}
+            <tr>
+                <td>{{ row[1] }}</td>  <!-- Card Name -->
+                <td>{{ row[2] }}</td>  <!-- Quantity -->
+                <td>{{ row[3] }}</td>  <!-- Card Type -->
+                <td>{{ row[4] }}</td>  <!-- Set Code -->
+                <td>{{ row[5] }}</td>  <!-- Set Number -->
+                <td>
+                    <img src="{{ row[6] }}" alt="Card Image">
+                </td>
+            </tr>
+            {% endfor %}  <!-- ✅ Ensure this is present! -->
+        </tbody>
+    </table>
+
+</body>
+</html>
