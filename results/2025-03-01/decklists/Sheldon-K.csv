@@ -1,10 +1,6 @@
 Dusknoir,1,Pokemon,PRE,37
 Drakloak,3,Pokemon,TWM,129
-<<<<<<< HEAD
 Lumineon V,1,Pokemon,SWSH,250
-=======
-Lumineon V,1,Pokemon,PRSW,250
->>>>>>> a15d38f3d7f07622633404be7862bc82c5d578df
 Dreepy,4,Pokemon,TWM,128
 Fezandipiti ex,1,Pokemon,SFA,38
 Dusclops,2,Pokemon,PRE,36
@@ -13,28 +9,6 @@ Klefki,1,Pokemon,SVI,96
 Dragapult ex,2,Pokemon,TWM,130
 Radiant Charizard,1,Pokemon,PGO,11
 Duskull,3,Pokemon,PRE,35
-<<<<<<< HEAD
-Counter Catcher,2,Item,,
-Forest Seal Stone,1,Tool,,
-Night Stretcher,2,Item,,
-Rescue Board,1,Tool,,
-Nest Ball,3,Item,,
-Temple of Sinnoh,1,Stadium,,
-Arven,4,Supporter,,
-Boss's Orders,2,Supporter,,
-Iono,3,Supporter,,
-Professor Turo's Scenario,1,Supporter,,
-Lost Vacuum,1,Item,,
-Buddy-Buddy Poffin,4,Item,,
-Ultra Ball,2,Item,,
-Switch,1,Item,,
-Lance,2,Supporter,,
-Sparkling Crystal - ACESPEC,1,Item,,
-Rare Candy,2,Item,,
-Earthen Vessel,1,Item,,
-Basic Fire Energy,3,Energy,,
-Basic Psychic Energy,3,Energy,,
-=======
 Arven,4,Supporter,,
 Boss's Orders,2,Supporter,,
 Iono,3,Supporter,,
@@ -55,4 +29,3 @@ Rescue Board,1,Tool,,
 Temple of Sinnoh,1,Stadium,,
 Basic Fire Energy,3,Energy,,
 Basic Psychic Energy,3,Energy,,
->>>>>>> a15d38f3d7f07622633404be7862bc82c5d578df
