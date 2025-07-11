@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SILPH</title>
+        <link rel="stylesheet" href="https://wipedout36.github.io/css/style.css">
+        <link rel="shortcut icon" href="https://wipedout36.github.io/images/favicon.ico">
+    </head>
+    <body>
+        <!-- Slideshow Container -->
+        <div class="slideshow-container">
+            <img src="https://wipedout36.github.io/images/timer-image" class="active" alt="Pokémon Background">
+        </div>
+        <!-- Timer Container with Toggle Button -->
+        <div class="timer-container" id="timer-container" style="display: none;">
+            <div class="timer-display" id="timer-display">00:00</div>
+            <div class="timer-buttons">
+                <button onclick="startTimer()">Start</button>
+                <button onclick="stopThem()">Stop</button>
+                <button onclick="resetThem()">Reset</button>
+            </div>
+            <div class="timer-buttons">
+                <button onclick="adjustTimer()">Adjust Timer</button>
+                <button onclick="minutesFive()">5 Minutes</button>
+                <button onclick="minutesThirty()">30 Minutes</button>
+                <button onclick="minutesFifty()">50 Minutes</button>
+            </div>
+        </div>
+    <button onclick="toggleTimerVisibility()">Toggle Timer Visibility</button>
+    <script src="https://wipedout36.github.io/dev/devjs/slideshowdev.js"></script>
+    </body>
+</html>
