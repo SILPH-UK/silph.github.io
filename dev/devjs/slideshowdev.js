@@ -144,12 +144,9 @@ function resetThem() {
 // Timer Visibility Toggle
 function toggleTimerVisibility() {
     const timerContainer = document.getElementById("timer-container");
-    const slideshowContainer = document.getElementById("slideshow-container");
     if (timerContainer.style.display === "none") {
         timerContainer.style.display = "flex"; // Show timer
-        slideshowContainer.style.display = "none";
     } else {
         timerContainer.style.display = "none"; // Hide timer
-        slideshowContainer.style.display = "flex";
     }
 }
