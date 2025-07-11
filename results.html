@@ -76,7 +76,7 @@
         <label for="seasonSelect">Select Season:</label>
         <select id="seasonSelect" onchange="updateSeason()">
             <option value="s1">2024-2025</option>
-            <option value="s2" selected>2025-2026</option>
+            <option value="s2">2025-2026</option>
         </select>
         <ul class="link-list" id="dynamicLinks"></ul>
     </div>
@@ -172,7 +172,7 @@
             linkContainer.appendChild(backButton);
         }
 
-        document.getElementById('seasonSelect').value = 's1';
+        document.getElementById('seasonSelect').value = 's2';
         updateSeason();
     </script>
 </body>
