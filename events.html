@@ -3,22 +3,19 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>SILPH Pokémon</title>
+        <title>SILPH Events</title>
         <link rel="stylesheet" href="https://wipedout36.github.io/css/style.css">
         <link rel="shortcut icon" href="https://wipedout36.github.io/images/favicon.ico">
     </head>
     <body>
         <!-- Slideshow Container -->
         <div class="slideshow-container">
-            <!-- 
-                This shows the Discord links, Removed 23/04/2025 as we start covering more locations
-                <img src="https://wipedout36.github.io/images/discord-links.png" class="active" alt="Discord Links">
-            -->
-            <img src="https://wipedout36.github.io/images/rotated-tasks.png" class="active" alt="Monthly & Weekly Rotated Tasks">
-            <img src="https://wipedout36.github.io/images/perm-tasks.png" alt="Permanent Tasks">
+            <img src="https://wipedout36.github.io/images/timer-image.png" class="active" alt="Pokémon Background">
+
         </div>
         <!-- Timer Container with Toggle Button -->
         <div class="timer-container" id="timer-container" style="display: none;">
+
             <div class="timer-display" id="timer-display">00:00</div>
             <div class="timer-buttons">
                 <button onclick="startTimer()">Start</button>
@@ -32,7 +29,7 @@
                 <button onclick="minutesFifty()">50 Minutes</button>
             </div>
         </div>
-    <button onclick="document.location='https://wipedout36.github.io/timerdev.html'">Event Mode</button>
-    <script src="https://wipedout36.github.io/js/slideshow.js"></script>
+    <button onclick="toggleTimerVisibility()">Engage Timer</button>
+    <script src="https://wipedout36.github.io/dev/devjs/slideshow.js"></script>
     </body>
 </html>
