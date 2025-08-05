@@ -36,7 +36,11 @@ function updateStopwatch() {
     var minutes = Math.floor(elapsedTime / 1000 / 60) % 60; // calculate minutes
     //var hours = Math.floor(elapsedTime / 1000 / 60 / 60); // calculate hours
     var displayTime = "-" + pad(minutes) + ":" + pad(seconds); // format display time
-    document.getElementById("timer-display").innerHTML = displayTime; // update the display
+    if (displayTime < 10000) {
+        document.getElementById("timer-display").innerHTML = displayTime; // update the display
+    } else {
+        alert("Time's up!");
+    }
 }
 
 function pad(number) {
