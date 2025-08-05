@@ -69,11 +69,7 @@ function updateDisplay() {
     if (totalSeconds > 0) {
         document.getElementById("timer-display").textContent =
             (minutes < 10 ? "0" : "") + minutes + ":" +
-            (displaySeconds < 10 ? "0" : "") + displaySeconds;
-    } else {
-        document.getElementById("timer-display").textContent =
-            (minutes < 10 ? "-0" : "-") + minutes + ":" +
-            (displaySeconds < 10 ? "-0" : "-") + displaySeconds;    
+            (displaySeconds < 10 ? "0" : "") + displaySeconds;   
     }
 }
 
@@ -89,11 +85,9 @@ function startTimer() {
                 totalSeconds--;
                 updateDisplay();
             } else {
-                totalSeconds--;
-                updateDisplay();
                 //stopTimer(); // Stop the timer when it reaches zero
                 //alert("Time's up!");
-                //startStopwatch();
+                startStopwatch();
             }
         }, 1000);
     }
