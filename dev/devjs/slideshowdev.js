@@ -29,7 +29,6 @@ function showSlides2() {
     });
     slideIndex2 = (slideIndex2 + 1) % slides2.length;
 }
-setInterval(showSlides2, 600000); // Change slide every 10 minutes
 
 /*   
 * Stop Watch Script for use after the timer hits 0
@@ -41,7 +40,7 @@ function startStopwatch() {
     stopTimer(); // Stop the timer when it reaches zero
     if (!stopwatchInterval) {
         startTime = new Date().getTime();
-        stopwatchInterval = setInterval(updateStopwatch, 1000)
+        stopwatchInterval = setInterval(updateStopwatch, 1000);
     }
 }
 
@@ -52,7 +51,13 @@ function updateStopwatch() {
     var minutes = Math.floor(elapsedTime / 1000 / 60) % 60; // calculate minutes
     //var hours = Math.floor(elapsedTime / 1000 / 60 / 60); // calculate hours
     var displayTime = "-" + pad(minutes) + ":" + pad(seconds); // format display time
-    document.getElementById("timer-display").innerHTML = displayTime; // update the display
+    if (elapsedTime < 5000) { // 600000 for 10 minutes
+        document.getElementById("timer-display").innerHTML = displayTime; // update the display
+    } else if (elapsedTime === 5000) { // 600000 for 10 minutes
+        showSlides2;
+    } else {
+        document.getElementById("timer-display").innerHTML = displayTime; // update the display
+    }
 }
 
 function pad(number) {
