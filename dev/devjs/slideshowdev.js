@@ -15,6 +15,22 @@ function showSlides() {
 }
 setInterval(showSlides, 5000); // Change slide every 5 seconds - DEV Only
 
+// timer image only
+
+let slideIndex2 = 0;
+const slides2 = document.querySelectorAll(".slideshow-container2 img");
+
+function showSlides2() {
+    slides2.forEach((slide, index) => {
+        slide.classList.remove("active");
+        if (index === slideIndex) {
+            slide.classList.add("active");
+        }
+    });
+    slideIndex2 = (slideIndex2 + 1) % slides2.length;
+}
+setInterval(showSlides2, 600000); // Change slide every 10 minutes
+
 /*   
 * Stop Watch Script for use after the timer hits 0
 * This should ideally only occur for 10 minutes now
