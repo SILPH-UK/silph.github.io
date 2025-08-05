@@ -54,7 +54,9 @@ function updateStopwatch() {
     if (elapsedTime < 5000) { // 600000 for 10 minutes
         document.getElementById("timer-display").innerHTML = displayTime; // update the display
     } else if (elapsedTime > 5000 && elapsedTime < 7000) { // 600000 for 10 minutes
+        document.getElementById("timer-display").innerHTML = displayTime; // update the display
         showSlides2();
+        document.getElementById("timer-display").innerHTML = displayTime; // update the display
     } else {
         document.getElementById("timer-display").innerHTML = displayTime; // update the display
     }
