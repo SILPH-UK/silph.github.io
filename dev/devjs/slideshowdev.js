@@ -66,8 +66,8 @@ let totalSeconds = 1800; // Default timer
 let isRunning = false;
 
 function updateDisplay() {
-    const minutes = Math.floor(totalSeconds / 30); // set back to 60 for real time
-    const displaySeconds = totalSeconds % 30; // set back to 60 for real time
+    const minutes = Math.floor(totalSeconds / 120); // set back to 60 for real time
+    const displaySeconds = totalSeconds % 120; // set back to 60 for real time
     document.getElementById("timer-display").textContent =
         (minutes < 10 ? "0" : "") + minutes + ":" +
         (displaySeconds < 10 ? "0" : "") + displaySeconds;
