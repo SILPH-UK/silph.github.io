@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Automatic file monitoring
+
 # Configuration
 WATCH_FOLDER="/Users/pokemon/TOM_DATA/data/reports"  # Folder to monitor
 DESTINATION_FOLDER="/Users/pokemon/GitHUb/silph.github.io"  # Where to copy files (should be a Git repo)FILE_PREFIX="processed_"  # Prefix to add to renamed files
