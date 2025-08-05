@@ -2,8 +2,7 @@
 
 # Configuration
 WATCH_FOLDER="/Users/pokemon/TOM_DATA/data/reports"  # Folder to monitor
-DESTINATION_FOLDER="/Users/pokemon/GitHUb/silph.github.io"  # Where to copy files (should be a Git repo)
-FILE_PREFIX="processed_"  # Prefix to add to renamed files
+DESTINATION_FOLDER="/Users/pokemon/GitHUb/silph.github.io"  # Where to copy files (should be a Git repo)FILE_PREFIX="processed_"  # Prefix to add to renamed files
 LOG_FILE="$HOME/Documents/file_monitor.log"
 
 # Git Configuration
@@ -15,7 +14,10 @@ GIT_BRANCH="main"  # Branch to push to (change to "master" if needed)
 mkdir -p "$WATCH_FOLDER"
 mkdir -p "$DESTINATION_FOLDER"
 
-# Function to push to Git
+# Function to log messages
+log_message() {
+    echo "$(date '+%Y-%m-%d %H:%M:%S'): $1" >> "$LOG_FILE"
+}
 git_push() {
     local file_path="$1"
     local original_filename="$2"
@@ -109,6 +111,13 @@ process_file() {
     if cp "$file_path" "$destination_path"; then
         log_message "SUCCESS: Copied '$filename' to '$new_filename' (original kept in source)"
         echo "File processed: $filename -> $new_filename (original preserved)"
+        
+        # Push to Git if enabled
+        if git_push "$destination_path" "$filename"; then
+            log_message "SUCCESS: File pushed to GitHub"
+        else
+            log_message "WARNING: File copied but Git push failed"
+        fi
     else
         log_message "ERROR: Failed to copy '$filename'"
         echo "Error copying file: $filename"
