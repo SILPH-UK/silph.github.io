@@ -41,17 +41,9 @@ process_file() {
         return
     fi
     
-    # Create new filename with prefix
-    local new_filename="${FILE_PREFIX}${basename}.${extension}"
+    # Always rename to pairings.html (overwrite if exists)
+    local new_filename="pairings.html"
     local destination_path="${DESTINATION_FOLDER}/${new_filename}"
-    
-    # Handle filename conflicts by adding a number
-    local counter=1
-    while [[ -f "$destination_path" ]]; do
-        new_filename="${FILE_PREFIX}${basename}_${counter}.${extension}"
-        destination_path="${DESTINATION_FOLDER}/${new_filename}"
-        ((counter++))
-    done
     
     # Copy the file (keeping original in place)
     if cp "$file_path" "$destination_path"; then
