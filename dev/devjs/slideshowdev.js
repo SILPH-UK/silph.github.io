@@ -23,7 +23,7 @@ const slides2 = document.querySelectorAll(".slideshow-container2 img");
 function showSlides2() {
     slides2.forEach((slide, index) => {
         slide.classList.remove("active");
-        if (index === slideIndex) {
+        if (index === slideIndex2) {
             slide.classList.add("active");
         }
     });
