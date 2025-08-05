@@ -26,6 +26,8 @@ function startStopwatch() {
     if (!stopwatchInterval) {
         startTime = new Date().getTime();
         stopwatchInterval = setInterval(updateStopwatch, 1000)
+    } else if (stopwatchInterval) {
+
     }
 }
 
@@ -85,7 +87,7 @@ function startTimer() {
             } else {
                 //stopTimer(); // Stop the timer when it reaches zero
                 //alert("Time's up!");
-                startStopwatch();
+                // startStopwatch();
             }
         }, 1000);
     }
