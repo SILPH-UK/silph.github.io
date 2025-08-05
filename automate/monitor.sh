@@ -90,7 +90,7 @@ process_file() {
     fi
     
     # Only process files ending in pairings.html or standings.html
-    if [[ "$filename" != *"pairings.html" ]] && [[ "$filename" != *"standings.html" ]]; then
+    if [[ "$filename" != *"pairings.html" ]]; then
         log_message "SKIPPED: '$filename' - does not match required pattern"
         return
     fi
