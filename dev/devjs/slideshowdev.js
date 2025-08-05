@@ -85,7 +85,7 @@ function startTimer() {
             } else {
                 //stopTimer(); // Stop the timer when it reaches zero
                 //alert("Time's up!");
-                startStopwatch();
+                // startStopwatch();
             }
         }, 1000);
     }
