@@ -1,4 +1,6 @@
-// Slideshow Script
+/*  
+* Slideshow Script to govern how frequently the images rotate on the home "Index" / "Dev" screen
+*/
 let slideIndex = 0;
 const slides = document.querySelectorAll(".slideshow-container img");
 
@@ -13,11 +15,13 @@ function showSlides() {
 }
 setInterval(showSlides, 5000); // Change slide every 5 seconds - DEV ONLY
 
-// Stop Watch Script
-
+/*   
+* Stop Watch Script for use after the timer hits 0
+* This should ideally only occur for 10 minutes now
+*/ 
 var startTime;
 var stopwatchInterval;
-function startStopwatch() { // for use after the timer hits 0
+function startStopwatch() { 
     stopTimer(); // Stop the timer when it reaches zero
     if (!stopwatchInterval) {
         startTime = new Date().getTime();
@@ -52,7 +56,9 @@ function resetStopwatch() {
     document.getElementById("timer-display").innerHTML = "00:00"; // reset the display
 }
 
-// Countdown Timer Script
+/*
+* // Countdown Timer Script
+*/
 let timer;
 let totalSeconds = 1800; // Default timer
 let isRunning = false;
@@ -64,6 +70,10 @@ function updateDisplay() {
         (minutes < 10 ? "0" : "") + minutes + ":" +
         (displaySeconds < 10 ? "0" : "") + displaySeconds;
 }
+
+/* 
+* Button scripts
+*/
 
 function startTimer() {
     if (!isRunning && totalSeconds > 0) { // Start only if timer is set and not running
@@ -130,7 +140,6 @@ function minutesFifty() {
     }
 }
 
-// Button scripts
 function stopThem() {
     stopTimer()
     stopStopwatch()
