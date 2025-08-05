@@ -66,8 +66,8 @@ let totalSeconds = 1800; // Default timer
 let isRunning = false;
 
 function updateDisplay() {
-    const minutes = Math.floor(totalSeconds / 60);
-    const displaySeconds = totalSeconds % 60;
+    const minutes = Math.floor(totalSeconds / 30); // set back to 60 for real time
+    const displaySeconds = totalSeconds % 30; // set back to 60 for real time
     document.getElementById("timer-display").textContent =
         (minutes < 10 ? "0" : "") + minutes + ":" +
         (displaySeconds < 10 ? "0" : "") + displaySeconds;
@@ -81,7 +81,7 @@ function startTimer() {
     if (!isRunning && totalSeconds > 0) { // Start only if timer is set and not running
         isRunning = true;
         timer = setInterval(() => {
-            if (totalSeconds > 0) {
+            if (totalSeconds > -10000) { // change back to 0
                 totalSeconds--;
                 updateDisplay();
             } else if (totalSeconds >= -10000) {
