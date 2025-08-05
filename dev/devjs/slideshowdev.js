@@ -53,7 +53,7 @@ function updateStopwatch() {
     var displayTime = "-" + pad(minutes) + ":" + pad(seconds); // format display time
     if (elapsedTime < 5000) { // 600000 for 10 minutes
         document.getElementById("timer-display").innerHTML = displayTime; // update the display
-    } else if (elapsedTime > 5000 & elapsedTime < 7000) { // 600000 for 10 minutes
+    } else if (elapsedTime > 5000 && elapsedTime < 7000) { // 600000 for 10 minutes
         showSlides2();
     } else {
         document.getElementById("timer-display").innerHTML = displayTime; // update the display
