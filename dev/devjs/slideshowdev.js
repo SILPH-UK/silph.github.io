@@ -86,7 +86,9 @@ function startTimer() {
                 updateDisplay();
             //} else if (totalSeconds >= -10000) {
                 //alert("Time's up!")
-            } else {
+            } else if (totalSeconds < 0 & totalSeconds > -10000) {
+                totalSeconds--;
+                updateDisplay();
                 //stopTimer(); // Stop the timer when it reaches zero
                 //alert("Time's up!");
                 // startStopwatch();
