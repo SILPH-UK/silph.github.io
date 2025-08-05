@@ -37,6 +37,7 @@ function showSlides2() {
 var startTime;
 var stopwatchInterval;
 function startStopwatch() { 
+    updateDisplay();
     stopTimer(); // Stop the timer when it reaches zero
     if (!stopwatchInterval) {
         startTime = new Date().getTime();
