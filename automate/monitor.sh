@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Configuration
-WATCH_FOLDER="$HOME/Documents/WatchFolder"  # Folder to monitor
-DESTINATION_FOLDER="$HOME/Documents/Destination"  # Where to copy files
+WATCH_FOLDER="/Users/pokemon/TOM_DATA/data/reports"  # Folder to monitor
+DESTINATION_FOLDER="/Users/pokemon/GitHUb/silph.github.io"  # Where to copy files
 FILE_PREFIX="processed_"  # Prefix to add to renamed files
 LOG_FILE="$HOME/Documents/file_monitor.log"
 
