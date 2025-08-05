@@ -83,6 +83,8 @@ function startTimer() {
                 totalSeconds--;
                 updateDisplay();
             } else {
+                totalSeconds--;
+                updateDisplay();
                 //stopTimer(); // Stop the timer when it reaches zero
                 //alert("Time's up!");
                 // startStopwatch();
