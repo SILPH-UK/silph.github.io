@@ -1,5 +1,5 @@
 Prod URL
-https://wipedout36.github.io/index.html
+https://silph.uk/index.html
 
 Dev env
-https://wipedout36.github.io/dev.html
+https://silph.uk/dev.html
