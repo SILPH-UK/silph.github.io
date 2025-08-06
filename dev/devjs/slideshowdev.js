@@ -29,7 +29,15 @@ function showSlides2() {
     });
     slideIndex2 = (slideIndex2 + 1) % slides2.length;
 }
-
+function slidesReset() {
+    slides2.forEach((slide, index) => {
+        slide.classList.remove("active");
+        if (index === slideIndex2) {
+            slide.classList.add("active");
+        }
+    });
+    slideIndex2 = 0;
+}
 /*   
 * Stop Watch Script for use after the timer hits 0
 * This should ideally only occur for 10 minutes now
@@ -78,7 +86,7 @@ function resetStopwatch() {
     stopStopwatch(); // stop the interval
     elapsedPausedTime = 0; // reset the elapsed paused time variable
     document.getElementById("timer-display").innerHTML = "00:00"; // reset the display
-    showSlides2(); // In theory this should just rotate back to the base image
+    slidesReset(); // In theory this should just rotate back to the base image
 }
 
 /*
