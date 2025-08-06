@@ -132,8 +132,9 @@ function stopTimer() {
 
 function resetTimer() {
     stopTimer();
-    totalSeconds = 0;
+    totalSeconds = 0; 
     updateDisplay();
+    totalSeconds = 5; // 1800 default timer
 }
 
 function adjustTimer() {
