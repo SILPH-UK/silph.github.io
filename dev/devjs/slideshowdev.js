@@ -15,7 +15,7 @@ function showSlides() {
 }
 setInterval(showSlides, 5000); // Change slide every 5 seconds - DEV Only
 
-// timer image only - this is the normal image
+// timer image only
 
 let slideIndex2 = 0;
 const slides2 = document.querySelectorAll(".slideshow-container2 img");
@@ -28,19 +28,6 @@ function showSlides2() {
         }
     });
     slideIndex2 = (slideIndex2 + 1) % slides2.length;
-}
-// This is the stop image
-let slideIndex3 = 0;
-const slides3 = document.querySelectorAll(".slideshow-container3 img");
-
-function showSlides3() {
-    slides3.forEach((slide, index) => {
-        slide.classList.remove("active");
-        if (index === slideIndex2) {
-            slide.classList.add("active");
-        }
-    });
-    slideIndex3 = (slideIndex2 + 1) % slides3.length;
 }
 
 /*   
@@ -91,7 +78,7 @@ function resetStopwatch() {
     stopStopwatch(); // stop the interval
     elapsedPausedTime = 0; // reset the elapsed paused time variable
     document.getElementById("timer-display").innerHTML = "00:00"; // reset the display
-    showSlides3();
+    showSlides2(); // In theory this should just rotate back to the base image
 }
 
 /*
