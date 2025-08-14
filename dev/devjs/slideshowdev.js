@@ -1,4 +1,6 @@
-// Slideshow Script
+/*  
+* Slideshow Script to govern how frequently the images rotate on the home "Index" / "Dev" screen
+*/
 let slideIndex = 0;
 const slides = document.querySelectorAll(".slideshow-container img");
 
@@ -11,17 +13,43 @@ function showSlides() {
     });
     slideIndex = (slideIndex + 1) % slides.length;
 }
-setInterval(showSlides, 5000); // Change slide every 5 seconds - DEV ONLY
+setInterval(showSlides, 5000); // Change slide every 5 seconds - DEV Only
 
-// Stop Watch Script
+// timer image only
 
+let slideIndex2 = 0;
+const slides2 = document.querySelectorAll(".slideshow-container2 img");
+
+function showSlides2() {
+    slides2.forEach((slide, index) => {
+        slide.classList.remove("active");
+        if (index === slideIndex2) {
+            slide.classList.add("active");
+        }
+    });
+    slideIndex2 = (slideIndex2 + 1) % slides2.length;
+}
+function slidesReset() {
+    slides2.forEach((slide, index) => {
+        slide.classList.remove("active");
+        if (index === slideIndex2) {
+            slide.classList.add("active");
+        }
+    });
+    slideIndex2 = 0;
+}
+/*   
+* Stop Watch Script for use after the timer hits 0
+* This should ideally only occur for 10 minutes now
+*/ 
 var startTime;
 var stopwatchInterval;
-function startStopwatch() { // for use after the timer hits 0
+function startStopwatch() { 
+    updateDisplay();
     stopTimer(); // Stop the timer when it reaches zero
     if (!stopwatchInterval) {
         startTime = new Date().getTime();
-        stopwatchInterval = setInterval(updateStopwatch, 1000)
+        stopwatchInterval = setInterval(updateStopwatch, 1000);
     }
 }
 
@@ -32,7 +60,15 @@ function updateStopwatch() {
     var minutes = Math.floor(elapsedTime / 1000 / 60) % 60; // calculate minutes
     //var hours = Math.floor(elapsedTime / 1000 / 60 / 60); // calculate hours
     var displayTime = "-" + pad(minutes) + ":" + pad(seconds); // format display time
-    document.getElementById("timer-display").innerHTML = displayTime; // update the display
+    if (elapsedTime < 5000) { // 600000 for 10 minutes
+        document.getElementById("timer-display").innerHTML = displayTime; // update the display
+    } else if (elapsedTime > 5000 && elapsedTime < 7000) { // 600000 for 10 minutes
+        document.getElementById("timer-display").innerHTML = displayTime; // update the display
+        showSlides2();
+        document.getElementById("timer-display").innerHTML = displayTime; // update the display
+    } else {
+        document.getElementById("timer-display").innerHTML = displayTime; // update the display
+    }
 }
 
 function pad(number) {
@@ -50,20 +86,29 @@ function resetStopwatch() {
     stopStopwatch(); // stop the interval
     elapsedPausedTime = 0; // reset the elapsed paused time variable
     document.getElementById("timer-display").innerHTML = "00:00"; // reset the display
+    slidesReset(); // In theory this should just rotate back to the base image
 }
 
-// Countdown Timer Script
+/*
+* // Countdown Timer Script
+*/
 let timer;
-let totalSeconds = 1800; // Default timer
+let totalSeconds = 5; // Default timer = 1800 // 5 in DEV
 let isRunning = false;
 
 function updateDisplay() {
     const minutes = Math.floor(totalSeconds / 60);
     const displaySeconds = totalSeconds % 60;
-    document.getElementById("timer-display").textContent =
-        (minutes < 10 ? "0" : "") + minutes + ":" +
-        (displaySeconds < 10 ? "0" : "") + displaySeconds;
+    if (totalSeconds > 0) {
+        document.getElementById("timer-display").textContent =
+            (minutes < 10 ? "0" : "") + minutes + ":" +
+            (displaySeconds < 10 ? "0" : "") + displaySeconds;   
+    }
 }
+
+/* 
+* Button scripts
+*/
 
 function startTimer() {
     if (!isRunning && totalSeconds > 0) { // Start only if timer is set and not running
@@ -73,8 +118,7 @@ function startTimer() {
                 totalSeconds--;
                 updateDisplay();
             } else {
-                //stopTimer(); // Stop the timer when it reaches zero
-                //alert("Time's up!");
+                updateDisplay();
                 startStopwatch();
             }
         }, 1000);
@@ -88,8 +132,9 @@ function stopTimer() {
 
 function resetTimer() {
     stopTimer();
-    totalSeconds = 0;
+    totalSeconds = 0; 
     updateDisplay();
+    totalSeconds = 5; // 1800 default timer
 }
 
 function adjustTimer() {
@@ -130,7 +175,6 @@ function minutesFifty() {
     }
 }
 
-// Button scripts
 function stopThem() {
     stopTimer()
     stopStopwatch()
