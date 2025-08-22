@@ -138,6 +138,7 @@ function resetTimer() {
 }
 
 function adjustTimer() {
+    stopThem();
     const newTime = prompt("Enter countdown time in minutes:");
     if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
         totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
@@ -146,7 +147,7 @@ function adjustTimer() {
 }
 
 function minutesFive() {
-    stopTimer();
+    stopThem();
     const newTime = 300 / 60;
     if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
         totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
@@ -156,7 +157,7 @@ function minutesFive() {
 }
 
 function minutesThirty() {
-    stopTimer();
+    stopThem();
     const newTime = 1800 / 60; //let totalSeconds = 1800
     if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
         totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
@@ -166,7 +167,7 @@ function minutesThirty() {
 }
 
 function minutesFifty() {
-    stopTimer();
+    stopThem();
     const newTime = 3000 / 60;
     if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
         totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
