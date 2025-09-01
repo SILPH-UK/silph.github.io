@@ -13,8 +13,31 @@ function showSlides() {
     });
     slideIndex = (slideIndex + 1) % slides.length;
 }
-setInterval(showSlides, 30000); // Change slide every 30 seconds
+setInterval(showSlides, 600000); // Change slide every 5 seconds - DEV Only
 
+// timer image only
+
+let slideIndex2 = 0;
+const slides2 = document.querySelectorAll(".slideshow-container2 img");
+
+function showSlides2() {
+    slides2.forEach((slide, index) => {
+        slide.classList.remove("active");
+        if (index === slideIndex2) {
+            slide.classList.add("active");
+        }
+    });
+    slideIndex2 = (slideIndex2 + 1) % slides2.length;
+}
+function slidesReset() {
+    slides2.forEach((slide, index) => {
+        slide.classList.remove("active");
+        if (index === slideIndex2) {
+            slide.classList.add("active");
+        }
+    });
+    slideIndex2 = 0;
+}
 /*   
 * Stop Watch Script for use after the timer hits 0
 * This should ideally only occur for 10 minutes now
@@ -22,10 +45,11 @@ setInterval(showSlides, 30000); // Change slide every 30 seconds
 var startTime;
 var stopwatchInterval;
 function startStopwatch() { 
+    updateDisplay();
     stopTimer(); // Stop the timer when it reaches zero
     if (!stopwatchInterval) {
         startTime = new Date().getTime();
-        stopwatchInterval = setInterval(updateStopwatch, 1000)
+        stopwatchInterval = setInterval(updateStopwatch, 1000);
     }
 }
 
@@ -36,7 +60,15 @@ function updateStopwatch() {
     var minutes = Math.floor(elapsedTime / 1000 / 60) % 60; // calculate minutes
     //var hours = Math.floor(elapsedTime / 1000 / 60 / 60); // calculate hours
     var displayTime = "-" + pad(minutes) + ":" + pad(seconds); // format display time
-    document.getElementById("timer-display").innerHTML = displayTime; // update the display
+    if (elapsedTime < 600000) { // 600000 for 10 minutes
+        document.getElementById("timer-display").innerHTML = displayTime; // update the display
+    } else if (elapsedTime > 600000 && elapsedTime < 602000) { // 600000 for 10 minutes
+        document.getElementById("timer-display").innerHTML = displayTime; // update the display
+        showSlides2();
+        document.getElementById("timer-display").innerHTML = displayTime; // update the display
+    } else {
+        document.getElementById("timer-display").innerHTML = displayTime; // update the display
+    }
 }
 
 function pad(number) {
@@ -54,21 +86,24 @@ function resetStopwatch() {
     stopStopwatch(); // stop the interval
     elapsedPausedTime = 0; // reset the elapsed paused time variable
     document.getElementById("timer-display").innerHTML = "00:00"; // reset the display
+    slidesReset(); // In theory this should just rotate back to the base image
 }
 
 /*
 * // Countdown Timer Script
 */
 let timer;
-let totalSeconds = 1800; // Default timer
+let totalSeconds = 5; // Default timer = 1800 // 5 in DEV
 let isRunning = false;
 
 function updateDisplay() {
     const minutes = Math.floor(totalSeconds / 60);
     const displaySeconds = totalSeconds % 60;
-    document.getElementById("timer-display").textContent =
-        (minutes < 10 ? "0" : "") + minutes + ":" +
-        (displaySeconds < 10 ? "0" : "") + displaySeconds;
+    if (totalSeconds > 0) {
+        document.getElementById("timer-display").textContent =
+            (minutes < 10 ? "0" : "") + minutes + ":" +
+            (displaySeconds < 10 ? "0" : "") + displaySeconds;   
+    }
 }
 
 /* 
@@ -83,8 +118,7 @@ function startTimer() {
                 totalSeconds--;
                 updateDisplay();
             } else {
-                //stopTimer(); // Stop the timer when it reaches zero
-                //alert("Time's up!");
+                updateDisplay();
                 startStopwatch();
             }
         }, 1000);
@@ -98,12 +132,14 @@ function stopTimer() {
 
 function resetTimer() {
     stopTimer();
-    totalSeconds = 0;
+    totalSeconds = 0; 
     updateDisplay();
+    totalSeconds = 5; // 1800 default timer
 }
 
 function adjustTimer() {
     stopThem();
+    resetThem();
     const newTime = prompt("Enter countdown time in minutes:");
     if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
         totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
@@ -113,6 +149,7 @@ function adjustTimer() {
 
 function minutesFive() {
     stopThem();
+    resetThem();
     const newTime = 300 / 60;
     if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
         totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
@@ -123,6 +160,7 @@ function minutesFive() {
 
 function minutesThirty() {
     stopThem();
+    resetThem();
     const newTime = 1800 / 60; //let totalSeconds = 1800
     if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
         totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
@@ -133,6 +171,7 @@ function minutesThirty() {
 
 function minutesFifty() {
     stopThem();
+    resetThem();
     const newTime = 3000 / 60;
     if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
         totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
@@ -142,13 +181,13 @@ function minutesFifty() {
 }
 
 function stopThem() {
-    stopTimer()
-    stopStopwatch()
+    stopTimer();
+    stopStopwatch();
 }
 
 function resetThem() {
-    resetTimer()
-    resetStopwatch()
+    resetTimer();
+    resetStopwatch();
 }
 
 // Timer Visibility Toggle
