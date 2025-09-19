@@ -61,7 +61,7 @@ function updateStopwatch() {
     //var hours = Math.floor(elapsedTime / 1000 / 60 / 60); // calculate hours
     var displayTime = "-" + pad(minutes) + ":" + pad(seconds); // format display time
     var tenMinutes = 600000;
-    var tenMinutes2 = 601000;
+    var tenMinutes2 = 602000;
     document.getElementById("timer-display").innerHTML = displayTime; // update the display
     if (elapsedTime >= tenMinutes && elapsedTime <= tenMinutes2) { // 600000 for 10 minutes
         showSlides2();
