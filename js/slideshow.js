@@ -60,15 +60,11 @@ function updateStopwatch() {
     var minutes = Math.floor(elapsedTime / 1000 / 60) % 60; // calculate minutes
     //var hours = Math.floor(elapsedTime / 1000 / 60 / 60); // calculate hours
     var displayTime = "-" + pad(minutes) + ":" + pad(seconds); // format display time
-    if (elapsedTime < 6000000) { // 600000 for 10 minutes
-        document.getElementById("timer-display").innerHTML = displayTime; // update the display
-    } else if (elapsedTime > 6000000 && elapsedTime < 6002000) { // 600000 for 10 minutes
-        document.getElementById("timer-display").innerHTML = displayTime; // update the display
+    var tenMinutes = 600000;
+    document.getElementById("timer-display").innerHTML = displayTime; // update the display
+    if (elapsedTime >= tenMinutes) { // 600000 for 10 minutes
         showSlides2();
-        document.getElementById("timer-display").innerHTML = displayTime; // update the display
-    } else {
-        document.getElementById("timer-display").innerHTML = displayTime; // update the display
-    }
+    } 
 }
 
 function pad(number) {
