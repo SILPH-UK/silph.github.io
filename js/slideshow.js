@@ -147,7 +147,7 @@ function adjustTimer() {
 function minutesFive() {
     stopThem();
     resetThem();
-    const newTime = 300 / 60;
+    const newTime = 420 / 60; // 300 (5 mins) + 120 (2 mins) for seating
     if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
         totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
         updateDisplay();
@@ -158,7 +158,7 @@ function minutesFive() {
 function minutesThirty() {
     stopThem();
     resetThem();
-    const newTime = 1800 / 60; //let totalSeconds = 1800
+    const newTime = 1920 / 60; // 1800 (30 mins) + 120 (2 mins) for seating
     if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
         totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
         updateDisplay();
@@ -169,7 +169,7 @@ function minutesThirty() {
 function minutesFifty() {
     stopThem();
     resetThem();
-    const newTime = 3000 / 60;
+    const newTime = 3120 / 60; // 3000 (50 mins) + 120 (2 mins) for seating
     if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
         totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
         updateDisplay();
