@@ -13,7 +13,7 @@ function showSlides() {
     });
     slideIndex = (slideIndex + 1) % slides.length;
 }
-setInterval(showSlides, 600000); // Change slide every 5 seconds - DEV Only
+setInterval(showSlides, 900000); // 
 
 // timer image only
 
