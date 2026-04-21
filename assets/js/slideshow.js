@@ -163,3 +163,17 @@ function toggleTimerVisibility() {
     const timerContainer = document.getElementById("timer-container");
     timerContainer.style.display = (timerContainer.style.display === "none") ? "flex" : "none";
 }
+
+function goHome() {
+    // If the countdown is running OR the stopwatch is active
+    if (isRunning || stopwatchInterval) {
+        const leave = confirm("A timer is currently active. Are you sure you want to go back to the Home Page? This will reset the clock!");
+        
+        if (leave) {
+            window.location.href = 'index.html';
+        }
+    } else {
+        // If nothing is running, just go home without asking
+        window.location.href = 'index.html';
+    }
+}
