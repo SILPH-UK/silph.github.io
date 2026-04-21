@@ -21,22 +21,14 @@ let slideIndex2 = 0;
 const slides2 = document.querySelectorAll(".slideshow-container2 img");
 
 function showSlides2() {
-    slides2.forEach((slide, index) => {
-        slide.classList.remove("active");
-        if (index === slideIndex2) {
-            slide.classList.add("active");
-        }
-    });
+    slides2.forEach((slide) => slide.classList.remove("active"));
     slideIndex2 = (slideIndex2 + 1) % slides2.length;
+    slides2[slideIndex2].classList.add("active");
 }
 function slidesReset() {
-    slides2.forEach((slide, index) => {
-        slide.classList.remove("active");
-        if (index === slideIndex2) {
-            slide.classList.add("active");
-        }
-    });
+    slides2.forEach((slide) => slide.classList.remove("active"));
     slideIndex2 = 0;
+    slides2[0].classList.add("active");
 }
 /*   
 * Stop Watch Script for use after the timer hits 0
@@ -44,27 +36,30 @@ function slidesReset() {
 */ 
 var startTime;
 var stopwatchInterval;
+let slideTriggered = false;
 function startStopwatch() { 
-    updateDisplay();
-    stopTimer(); // Stop the timer when it reaches zero
+    stopTimer(); 
     if (!stopwatchInterval) {
         startTime = new Date().getTime();
+        slideTriggered = false; 
         stopwatchInterval = setInterval(updateStopwatch, 1000);
     }
 }
 
 function updateStopwatch() {
-    var currentTime = new Date().getTime(); // get current time in milliseconds
-    var elapsedTime = currentTime - startTime; // calculate elapsed time in milliseconds
-    var seconds = Math.floor(elapsedTime / 1000) % 60; // calculate seconds
-    var minutes = Math.floor(elapsedTime / 1000 / 60) % 60; // calculate minutes
-    //var hours = Math.floor(elapsedTime / 1000 / 60 / 60); // calculate hours
-    var displayTime = "-" + pad(minutes) + ":" + pad(seconds); // format display time
-    var tenMinutes = 600000;
-    var tenMinutes2 = 602000;
-    document.getElementById("timer-display").innerHTML = displayTime; // update the display
-    if (elapsedTime >= tenMinutes && elapsedTime <= tenMinutes2) { // 600000 for 10 minutes
+    var currentTime = new Date().getTime();
+    var elapsedTime = currentTime - startTime; 
+    
+    var totalSecondsElapsed = Math.floor(elapsedTime / 1000);
+    var minutes = Math.floor(totalSecondsElapsed / 60);
+    var seconds = totalSecondsElapsed % 60;
+
+    document.getElementById("timer-display").innerHTML = "-" + pad(minutes) + ":" + pad(seconds);
+
+    // Trigger image change only ONCE at the 10-minute mark (600,000 ms)
+    if (elapsedTime >= 600000 && !slideTriggered) {
         showSlides2();
+        slideTriggered = true; 
     } 
 }
 
@@ -90,17 +85,13 @@ function resetStopwatch() {
 * // Countdown Timer Script
 */
 let timer;
-let totalSeconds = 5; // Default timer = 1800 // 5 in DEV
+let totalSeconds = 1800; // Default timer = 1800 // 5 in DEV
 let isRunning = false;
 
 function updateDisplay() {
     const minutes = Math.floor(totalSeconds / 60);
     const displaySeconds = totalSeconds % 60;
-    if (totalSeconds > 0) {
-        document.getElementById("timer-display").textContent =
-            (minutes < 10 ? "0" : "") + minutes + ":" +
-            (displaySeconds < 10 ? "0" : "") + displaySeconds;   
-    }
+    document.getElementById("timer-display").textContent = pad(minutes) + ":" + pad(displaySeconds);
 }
 
 /* 
@@ -131,7 +122,7 @@ function resetTimer() {
     stopTimer();
     totalSeconds = 0; 
     updateDisplay();
-    totalSeconds = 5; // 1800 default timer
+    totalSeconds = 1800; // 1800 default timer
 }
 
 function adjustTimer() {
@@ -144,38 +135,18 @@ function adjustTimer() {
     }
 }
 
-function minutesFive() {
+function setAndStart(mins) {
     stopThem();
-    resetThem();
-    const newTime = 420 / 60; // 300 (5 mins) + 120 (2 mins) for seating
-    if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
-        totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
-        updateDisplay();
-        startTimer();
-    }
+    totalSeconds = mins * 60;
+    updateDisplay();
+    startTimer();
 }
 
-function minutesThirty() {
-    stopThem();
-    resetThem();
-    const newTime = 1920 / 60; // 1800 (30 mins) + 120 (2 mins) for seating
-    if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
-        totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
-        updateDisplay();
-        startTimer();
-    }
-}
+function minutesFive() { setAndStart(8); } // 5 + 3 seating/review
 
-function minutesFifty() {
-    stopThem();
-    resetThem();
-    const newTime = 3120 / 60; // 3000 (50 mins) + 120 (2 mins) for seating
-    if (newTime !== null && !isNaN(newTime) && newTime >= 0) {
-        totalSeconds = parseInt(newTime) * 60; // Convert minutes to seconds
-        updateDisplay();
-        startTimer();
-    }
-}
+function minutesThirty() { setAndStart(33); } // 30 + 3 seating/review
+
+function minutesFifty() { setAndStart(53); } // 50 + 3 seating/review
 
 function stopThem() {
     stopTimer();
@@ -190,9 +161,5 @@ function resetThem() {
 // Timer Visibility Toggle
 function toggleTimerVisibility() {
     const timerContainer = document.getElementById("timer-container");
-    if (timerContainer.style.display === "none") {
-        timerContainer.style.display = "flex"; // Show timer
-    } else {
-        timerContainer.style.display = "none"; // Hide timer
-    }
+    timerContainer.style.display = (timerContainer.style.display === "none") ? "flex" : "none";
 }
