@@ -13,7 +13,7 @@ function showSlides() {
     });
     slideIndex = (slideIndex + 1) % slides.length;
 }
-setInterval(showSlides, 900000); // 
+setInterval(showSlides, 60000); // 
 
 // timer image only
 
@@ -60,8 +60,8 @@ function updateStopwatch() {
     var minutes = Math.floor(elapsedTime / 1000 / 60) % 60; // calculate minutes
     //var hours = Math.floor(elapsedTime / 1000 / 60 / 60); // calculate hours
     var displayTime = "-" + pad(minutes) + ":" + pad(seconds); // format display time
-    var tenMinutes = 600000;
-    var tenMinutes2 = 602000;
+    var tenMinutes = 900000;
+    var tenMinutes2 = 902000;
     document.getElementById("timer-display").innerHTML = displayTime; // update the display
     if (elapsedTime >= tenMinutes && elapsedTime <= tenMinutes2) { // 600000 for 10 minutes
         showSlides2();
